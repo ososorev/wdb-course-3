@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <link rel="stylesheet" type = text/css href = "sheetstyle.css">
+        <script>
+        document.addEventListener("DOMContentLoaded", createPage);
+
+        function createPage(){
+         let input=document.createElement("input");
+         input.id = "n1"
+         input.type = "text"
+         input.classList.add("firstinput")
+         input.size = "40"
+         
+         document.body.append(input); 
+
+         let select=document.createElement("select");
+         select.classList.add("secondinput")
+         select.size = "3"
+         select.id="oper"
+         select.class="secondinput"
+
+         let option=document.createElement("option")
+         option.innerHTML="+"
+         option.id="oper"
+         option.value="+"
+         select.append(option)
+
+         let option1=document.createElement("option")
+         option1.innerHTML="-"
+         option1.id="oper"
+         option1.value="-"
+         select.append(option1)
+
+         let option2=document.createElement("option")
+         option2.innerHTML="*"
+         option2.id="oper"
+         option2.value="*"
+         select.append(option2)
+
+         let option3=document.createElement("option")
+         option3.innerHTML="/"
+         option3.id="oper"
+         option3.value="/"
+         select.append(option3)
+
+         document.body.append(select)
+
+         let input2=document.createElement("input");
+         input2.id = "n2"
+         input2.type = "text"
+         input2.classList.add("firstinput")
+         input2.size = "40"
+
+         document.body.append(input2);   
+
+         
+         let button=document.createElement("button");
+         button.classList.add("b1")
+         button.innerHTML="RESULT"
+         button.onclick = function(){calc()};
+
+         document.body.append(button);
+         
+         let div=document.createElement("div");
+         div.id="result";
+         document.body.append(div);
+         div.classList.add("firstinput")
+        }
+
+        function calc(){
+            let n1=document.querySelector("#n1");
+               let n1Value=n1.value;
+
+               let n2=document.querySelector("#n2");
+               let n2Value=n2.value;
+
+            n1Value=Number(n1Value);
+            n2Value=Number(n2Value);
+
+               let oper=document.querySelector("#oper");
+               let operValue=oper.value;
+
+               let result="Результат";
+               if (operValue=="+"){
+                result=n1Value+n2Value;
+               }
+               else if (operValue=="-"){
+                result=n1Value-n2Value;
+               }
+               else if (operValue=="*"){
+                result=n1Value*n2Value;
+               }
+               else if (operValue=="/"){
+                result=n1Value/n2Value;
+               }
+
+               let resultDiv=document.querySelector("#result");
+               resultDiv.innerHTML=result;
+         }
+        </script>
+    </head>
+    <body class="bckgrnd">
+    </body>
+</html>

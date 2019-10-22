@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <link rel="stylesheet" type = text/css href = "sheetstyle.css">
+
+        <script>
+            function calc(){
+               let n1=document.querySelector("#n1");
+               let n1Value=n1.value;
+
+               let n2=document.querySelector("#n2");
+               let n2Value=n2.value;
+
+            n1Value=Number(n1Value);
+            n2Value=Number(n2Value);
+
+               let oper=document.querySelector("#oper");
+               let operValue=oper.value;
+
+               let result="Результат";
+               if (operValue=="+"){
+                result=n1Value+n2Value;
+               }
+               else if (operValue=="-"){
+                result=n1Value-n2Value;
+               }
+               else if (operValue=="*"){
+                result=n1Value*n2Value;
+               }
+               else if (operValue=="/"){
+                result=n1Value/n2Value;
+               }
+
+               let resultDiv=document.querySelector("#result");
+               resultDiv.innerHTML=result;
+            };
+        </script>
+
+    </head>
+    <body class="bckgrnd">
+        <p>
+            <b class = "text">Введите число:</b>
+            <br>
+            <input type = "text" size="40" class="firstinput" id="n1"/>
+        </p>
+        <form action="select1.php" method="post" >
+            <p><select size="3" class="secondinput" id="oper">
+             <option disabled>Выберите действие</option>
+             <option value="+">+</option>
+             <option value="-">-</option>
+             <option value="*">*</option>
+             <option value="/">/</option>
+            </select></p>
+        </form>
+        <p>
+            <b class = "text">Введите число:</b>
+            <br>
+            <input type = "text" size="40" class="firstinput" id="n2"/>
+        </p>
+        <p style="text"><button class="b1" onClick="calc();">РЕЗУЛЬТАТ</button>
+        <div id="result" class="firstinput">Результат</div>
+    </body>
