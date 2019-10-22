@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+.clear {
+    clear: both;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    width: 580px;
+    margin: 200px auto;
+    text-align: center;
+    border: 2px solid #e6e9ed;
+    border-radius: 8px;
+    background-color: #f1eef4;
+}
+
+.inputString {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.inputLabel {
+    font-size: 16px;
+    margin-left: 40px;
+}
+
+.inputField {
+    display: flex;
+    width: 80px;
+    height: 26px;
+    background-color: #eeff00;
+    margin: 40px;
+    margin-top: 4px;
+    padding: 4px 12px;
+}
+
+.operationSelect {
+    display: flex;
+    width: 60px;
+    height: 34px;
+    margin: 40px;
+    margin-top: 4px;
+    padding: 4px 12px;
+    font-size: 16px;
+    background-color: aquamarine;
+}
+
+.option {
+    padding: 8px;
+    font-size: 18px;
+}
+
+.buttonCalc {
+    color: #fff;
+    background-color: blue;
+    border-radius: 8px;
+    width: 120px;
+    height: 50px;
+    font-size: 16px;
+    margin: 20px;
+    margin-left: 320px;
+}
+
+.buttonCalc:hover {
+    cursor: pointer;
+    background-color: #0055ff;
+}
+
+.outputLabel {
+    display: flex;
+    margin: 30px 0 4px 60px;
+}
+
+.output {
+    display: flex;
+    color: #00ff00;
+    border: 2px solid green;
+    width: 240px;
+    height: 30px;
+    margin: 40px;
+    margin-top: 4px;
+    padding: 10px;
+}
+
+.raz {
+    -moz-appearance: textfield;
+}
+
+.raz::-webkit-inner-spin-button {
+    display: none;
+}
+

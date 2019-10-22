@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <title>Calculator</title>
+    </head>
+    <body>
+        <div class="mainContainer">
+            <form id="forma" onsubmit="return false">
+                <div class="inputString">
+                    <label class="inputLabel" for="inputOne">Первое число
+                        <input type="number" required min="-999" max="999"
+                               placeholder="ххх" id="inputOne" class="inputField numberOne raz">
+                    </label>
+                    <label class="label">Oперация
+                        <select class="operationSelect">
+                            <option class="operation">+</option>
+                            <option class="operation">-</option>
+                            <option class="operation">*</option>
+                            <option class="operation">/</option>
+                        </select>
+                    </label>
+                    <label class="inputLabel" for="inputTwo">Второе число
+                        <input type="number" required min="-999" max="999"
+                               placeholder="ххх" id="inputTwo" class="inputField numberTwo raz">
+                    </label>
+                </div>
+                <button class="buttonCalc" type="submit" onClick="calc()">
+                    Вычислить
+                </button>
+                <span class="outputLabel">Результат:</span>
+                <div class="output">outputResult</div>
+            </form>
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>
