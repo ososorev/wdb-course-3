@@ -15,12 +15,7 @@ function calculator($numberOne, $numberTwo, $operation) {
         if ($numberTwo !== "0") {
             $result = $numberOne / $numberTwo;
         } else {
-            ?>
-            <!DOCTYPE html>
-            <html>
-                alert("Введите корректные данные");
-            </html>
-            <?php
+            $result = "Введите корректные данные";
         }
     }
     return $result;

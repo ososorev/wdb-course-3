@@ -10,21 +10,7 @@
     if (!empty($inputOne) && !empty($inputTwo)) {
         if (!empty($button)) {
             $result=calculator($inputOne, $inputTwo, $operation);
-        } else {
-            ?>
-            <!DOCTYPE html>
-            <html>
-                alert("Если данные введены корректно, нажмите Выполнить");
-            </html>
-            <?php
         }
-    } else {
-        ?>
-        <!DOCTYPE html>
-        <html>
-            alert("Введите входные данные");
-        </html>
-        <?php
     }
 ?>
 <!DOCTYPE html>
@@ -33,11 +19,10 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="stylePhp.css">
         <title>Calculator</title>
-        <!-- <script src="mainPhp.js"></script> -->
     </head>
     <body>
         <div class="mainContainer">
-            <form id="forma" onsubmit="return false">
+            <form id="forma">
                 <div class="inputString">
                     <label class="inputLabel" for="inputOne">Первое число
                         <input type="number" required min="-999" max="999" name="inputOne"
@@ -57,7 +42,6 @@
                     </label>
                 </div>
                 <input class="buttonCalc" type="submit" name="button" value="Вычислить"/>
-                <!-- <div class="output" name="result" /> -->
             </form>
             <span class="outputLabel">Результат:</span>
             <div class="output"><?php echo $result; ?></div>
@@ -65,4 +49,6 @@
     </body>
 </html>
 
-<!-- http://localhost/calculatorPHP/index.php -->
+<!--
+http://localhost/wdb-course-3/software/calculatorPHP/index.php
+-->
