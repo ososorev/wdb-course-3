@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="calc.js"></script>
+</head>
+<body>
+<div class="page">
+    <div class="content">
+        <h1 class="h1_one">Это классный калькулятор!</h1>
+            <div class="calc_container">
+                <input placeholder="Введите число 1" id="number1" class="input_number">
+                <select id="operator" class="input_number">
+                    <option>+</option>
+                    <option>-</option>
+                    <option>/</option>
+                    <option>*</option>
+                </select>
+                <input placeholder="Введите число 2" id="number2" class="input_number">
+            </div>
+        <button class="button_one" onclick="calculate_result()">Считать</button>
+        <div class="result_cont">
+            <div id="result_title"></div>
+            <div id="result"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
