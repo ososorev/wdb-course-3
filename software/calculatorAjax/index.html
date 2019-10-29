@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <title>Calculator</title>
-    <script src="main.js"></script>
-</head>
-<body>
-<div class="mainContainer">
-    <form id="forma">
-        <div class="inputString">
-            <label class="inputLabel" for="inputOne">Первое число
-                <input type="number" required min="-999" max="999" name="inputOne"
-                       placeholder="ххх" id="inputOne" class="inputField numberOne raz">
-            </label>
-            <label class="operationLabel">Oперация
-                <select class="operationSelect" name="operation">
-                    <option class="operation">+</option>
-                    <option class="operation">-</option>
-                    <option class="operation">*</option>
-                    <option class="operation">/</option>
-                </select>
-            </label>
-            <label class="inputLabel" for="inputTwo">Второе число
-                <input type="number" required min="-999" max="999" name="inputTwo"
-                       placeholder="ххх" id="inputTwo" class="inputField numberTwo raz">
-            </label>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <title>Calculator</title>
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <div class="mainContainer">
+            <form id="form" method="post">
+                <div class="inputString">
+                    <label class="inputLabel" for="inputOne">Первое число
+                        <input type="number" required min="-999" max="999" name="inputOne"
+                               placeholder="ххх" id="inputOne" class="inputField numberOne raz">
+                    </label>
+                    <label class="operationLabel">Oперация
+                        <select class="operationSelect" name="operation">
+                            <option class="operation">+</option>
+                            <option class="operation">-</option>
+                            <option class="operation">*</option>
+                            <option class="operation">/</option>
+                        </select>
+                    </label>
+                    <label class="inputLabel" for="inputTwo">Второе число
+                        <input type="number" required min="-999" max="999" name="inputTwo"
+                               placeholder="ххх" id="inputTwo" class="inputField numberTwo raz">
+                    </label>
+                </div>
+                <input class="buttonCalc" type="submit" name="button" value="Вычислить" onclick="send(event)"/>
+            </form>
+            <span class="outputLabel">Результат:</span>
+            <div class="output"></div>
+            <!-- <div class="output"><?php echo $result; ?></div> -->
         </div>
-        <input class="buttonCalc" type="submit" name="button" value="Вычислить" onclick="send(event)"/>
-    </form>
-    <span class="outputLabel">Результат:</span>
-    <div class="output"></div>
-    <!-- <div class="output"><?php echo $result; ?></div> -->
-</div>
-</body>
+    </body>
 </html>
 
 <!--

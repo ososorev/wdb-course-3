@@ -9,6 +9,7 @@
     $result="";
     if (!empty($inputOne) && !empty($inputTwo)) {
         if (!empty($button)) {
-            $result=calculator($inputOne, $inputTwo, $operation);
+            $result = calculator($inputOne, $inputTwo, $operation);
+            echo $result;
         }
     }
