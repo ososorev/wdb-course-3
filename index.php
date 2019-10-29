@@ -1,57 +1,29 @@
-<?php
-if ($_GET["num1"])
-{
-    $x=$_GET["num1"];
-    $y=$_GET["num2"];
-    $operator=$_GET["operator"];
-
-    if($operator=="+")
-    {
-        $res=$x+$y;
-    }
-    elseif($operator=="-")
-    {
-        $res=$x-$y;
-    }
-    elseif($operator=="*")
-    {
-        $res=$x*$y;
-    }
-    elseif($operator=="/")
-    {
-        $res=$x/$y;
-    }
-}
-if(empty($x) && empty($y))
-{
-    $res = "Не все данные введены";
-}
-if(!empty($_REQUEST["res"]))
-{
-    $enter = "Результат: $res";
-}
-
+<?php 
+	$s1 = (int)$_REQUEST ["first"];
+	$s2 = (int)$_REQUEST ["two"];
+	$act = $_REQUEST ["produce"];
+	$out = $_REQUEST ["produce"];
+	$result = "Результат";
+	if (!empty($out)){
+    	$result = calc($s1, $s2, $act);
+		echo $result;
+	}
+	function calc($s1, $s2, $act){
+		if ($act == "+ (Сложение)") {
+			$result = $s1+$s2;
+		}
+		else if ($act == "- (Вычитание)") {
+			$result = $s1-$s2;
+		}
+		else if ($act == "* (Умножение)") {
+			$result = $s1*$s2;
+		}
+		else if ($act == "/ (Деление)" && $s2 != "0") {
+			$result = $s1/$s2;
+		}
+		else {
+			$result = "На ноль делить нельзя";
+		}
+		return($result);
+	}
 ?>
-<html>
-    <head>
-    </head>
-        <body>
-            <form >
-            <input type="text" name="num1" placeholder="первое число">
-            <select name="operator">
-                <option value="+">+</option>
-                <option value="-">-</option>
-                <option value="*">*</option>
-                <option value="/">/</option>
-            </select>
-            <input type="text" name="num2" placeholder="второе число">
-            <input type="submit" name="res" value="Результат" />
-
-            </form>
-        <?php echo $enter?>
-        </body>
-</html>
-<?php
-
-?>
-
