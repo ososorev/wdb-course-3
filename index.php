@@ -1,57 +1,33 @@
-<?php
-if ($_GET["num1"])
-{
-    $x=$_GET["num1"];
-    $y=$_GET["num2"];
-    $operator=$_GET["operator"];
-
-    if($operator=="+")
-    {
-        $res=$x+$y;
-    }
-    elseif($operator=="-")
-    {
-        $res=$x-$y;
-    }
-    elseif($operator=="*")
-    {
-        $res=$x*$y;
-    }
-    elseif($operator=="/")
-    {
-        $res=$x/$y;
-    }
-}
-if(empty($x) && empty($y))
-{
-    $res = "Не все данные введены";
-}
-if(!empty($_REQUEST["res"]))
-{
-    $enter = "Результат: $res";
-}
-
-?>
+<!doctype html>
 <html>
-    <head>
-    </head>
-        <body>
-            <form >
-            <input type="text" name="num1" placeholder="первое число">
-            <select name="operator">
-                <option value="+">+</option>
-                <option value="-">-</option>
-                <option value="*">*</option>
-                <option value="/">/</option>
-            </select>
-            <input type="text" name="num2" placeholder="второе число">
-            <input type="submit" name="res" value="Результат" />
+<head>
+<meta charset="utf-8">
+<title>Калькулятор на php</title>
+<link rel="stylesheet" href="styles/colors.css"/>
+<script>
+	function send(event){
+		event.preventDefault();
+		fetch("math.php",{method:"post", body:new FormData(document.forms[0])}).then(response=>response.text()).then(text=>{document.getElementById("result").innerHTML=text;})
+	}
+</script>
+</head>
 
-            </form>
-        <?php echo $enter?>
-        </body>
+<body bgcolor="#C0C0C0">
+	<form>
+	<input type="number" name="i1" class="size color_gray" value="0"/>
+	<select name="select" style="width:100px; height:22px" class="color_gray">
+    	<option  selected = "selected">Действие</option>
+    	<option >+</option>
+    	<option >-</option>
+    	<option >*</option>
+    	<option >/</option>
+    </select>
+	<input type="number" name="i2" class="size color_gray" value="0"/>
+	<br/>
+	<br/>
+	<div id="result">Здесь будет результат</div>
+	<br/>
+	<input type="submit" value="Расчитать" class="color_gray" onclick="send(event)"/>
+	</form>
+	</body>
 </html>
-<?php
-
-?>
-
