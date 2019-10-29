@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculate</title>
+    <link rel="stylesheet">
+    <script src="script.js"></script>
+</head>
+<body>
+<form method="post">
+    <input type="text" name="num1" placeholder="Первое число">
+    <select name="operator" class="input_number">
+        <option>+</option>
+        <option>-</option>
+        <option>/</option>
+        <option>*</option>
+    </select>
+    <input type="text" name="num2" placeholder="Второе число">
+    <input type="submit" name="submit" value="Результат" onclick = "script(event)"/>
+</form>
+<div class = "text" id="output">
+</div>
+</body>
+</html>
