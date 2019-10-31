@@ -25,7 +25,6 @@ function addToDataBase($number_1, $number_2, $result, $operator){
     mysqli_query($connection,
         "INSERT INTO data(number_1, number_2, result, operator) 
                 VALUES ('$number_1','$number_2','$result', '$operator')");
-    return mysqli_error($connection);
 }
 
 function connectDataBase($nameDataBase){
@@ -43,9 +42,8 @@ function fiveLastStr(){
     $connection = connectDataBase('calculation_archive');
     $resultSelect = mysqli_query($connection,"SELECT * FROM data ORDER BY id DESC LIMIT 5;");
     foreach ($resultSelect as $row){
-        $result = $result.'<p>'.$row['number_1'].' '.$row['operator'].' '.$row['number_2'].' = '.$row['result'].'</p>';
+        $result = $result.'<div>'.$row['number_1'].' '.$row['operator'].' '.$row['number_2'].' = '.$row['result'].'</div>';
     }
     return $result;
 }
 
-?>

@@ -80,7 +80,12 @@ body{
 }
 .result_cont{
     display: flex;
-    font-size: 35px;
-    height: 50px;
+    font-size: 30px;
+    height: 200px;
     margin-top: 30px;
+}
+#result{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

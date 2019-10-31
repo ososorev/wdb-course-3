@@ -5,8 +5,8 @@
     $operator = $_REQUEST['operator'];
     $calcRes = calculationResult($number1,$number2,$operator) ;
     echo addCorrectResultToDb($number1,$number2, $calcRes, $operator);
-    echo "Результат: ".$calcRes.fiveLastStr();
-    ?>
+    echo "<div>Результат: ".$calcRes."</div>".fiveLastStr();
+
 
 
 
