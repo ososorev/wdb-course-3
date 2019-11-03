@@ -96,6 +96,13 @@
     padding: 10px;
 }
 
+.outputSql {
+    margin: 20px;
+    padding: 10px;
+    color: #0055ff;
+    background-color: ;
+}
+
 .raz {
     -moz-appearance: textfield;
 }

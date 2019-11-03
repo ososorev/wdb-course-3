@@ -9,9 +9,8 @@
     $button=$_REQUEST["button"];
     $result="";
     if (!empty($inputOne) && !empty($inputTwo)) {
-        if (!empty($button)) {
-            $result=calculator($inputOne, $inputTwo, $operation);
-        }
+        $result=calculator($inputOne, $inputTwo, $operation);
+        database($inputOne, $operation, $inputTwo, $result);
     }
 ?>
 <!DOCTYPE html>
@@ -45,11 +44,18 @@
                 <input class="buttonCalc" type="submit" name="button" value="Вычислить"/>
             </form>
             <span class="outputLabel">Результат:</span>
-            <div class="output"><?php echo $result; ?></div>
+            <div class="output">
+                <?php echo $result; ?>
+            </div>
+            <!-- <div class="outputSql">
+                <?php
+                // print_r($outputResult);
+                ?>
+            </div> -->
         </div>
     </body>
 </html>
 
 <!--
-http://localhost/wdb-course-3/software/calculatorPHP/index.php
+http://localhost/wdb-course-3/software/calculatorPhpSql/index.php
 -->
