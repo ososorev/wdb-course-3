@@ -6,9 +6,12 @@ function databaseConnection() {
 }
 
 function databaseInsert($inputOne, $operation, $inputTwo, $result) {
-    if ([0]['first_operand'] === $inputOne && [0]['operation'] === $operation && [0]['second_operand'] === $inputTwo
-        && [0]['result'] === $result) {
-        die();
+    $resource = mysqli_query(databaseConnection(), "SELECT * FROM calc ORDER BY created DESC LIMIT 1");
+    $last = [];
+    foreach ($resource as $row){$last[] = $row;};
+    if ($last[0]['first_operand'] == $inputOne && $last[0]['operation'] == $operation &&
+        $last[0]['second_operand'] == $inputTwo && $last[0]['result'] == $result) {
+        return;
     } else {
         mysqli_query(databaseConnection(), "INSERT INTO calc(first_operand, operation, second_operand, result)
         VALUES ('$inputOne', '$operation', '$inputTwo', '$result')");
