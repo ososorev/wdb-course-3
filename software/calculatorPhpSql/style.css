@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     width: 580px;
-    margin: 200px auto;
+    margin: 80px auto 20px;
     text-align: center;
     border: 2px solid #e6e9ed;
     border-radius: 8px;
@@ -97,10 +97,22 @@
 }
 
 .outputSql {
-    margin: 20px;
+    display: flex;
+    flex-direction: column;
     padding: 10px;
-    color: #0055ff;
-    background-color: ;
+    width: calc(580px - 2 * 10px);
+    min-height: 40px;
+    margin: 0 auto;
+    text-align: center;
+    border: 2px solid green;
+    border-radius: 8px;
+    color: blue;
+    background-color: #ffc873;
+}
+
+.outputSqlLabel {
+    color: green;
+    padding-bottom: 10px;
 }
 
 .raz {

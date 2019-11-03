@@ -13,7 +13,7 @@ function calculator($numberOne, $numberTwo, $operation) {
     }
     else if ($operation === "/") {
         if ($numberTwo !== "0") {
-            $result = $numberOne / $numberTwo;
+            $result = round(($numberOne / $numberTwo), 2);
         } else {
             $result = "Введите корректные данные";
         }

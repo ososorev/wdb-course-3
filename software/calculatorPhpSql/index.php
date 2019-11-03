@@ -10,7 +10,7 @@
     $result="";
     if (!empty($inputOne) && !empty($inputTwo)) {
         $result=calculator($inputOne, $inputTwo, $operation);
-        database($inputOne, $operation, $inputTwo, $result);
+        databaseInsert($inputOne, $operation, $inputTwo, $result);
     }
 ?>
 <!DOCTYPE html>
@@ -47,11 +47,12 @@
             <div class="output">
                 <?php echo $result; ?>
             </div>
-            <!-- <div class="outputSql">
-                <?php
-                // print_r($outputResult);
-                ?>
-            </div> -->
+        </div>
+        <div class="outputSql">
+            <span class="outputSqlLabel">Пять последних вычислений:</span>
+            <?php
+            databaseSelect();
+            ?>
         </div>
     </body>
 </html>
