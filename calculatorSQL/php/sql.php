@@ -2,10 +2,23 @@
 function sqlSave($a, $b, $s, $result)
 {
     $connection = mysqli_connect("localhost", "root", "", "calc");
-    mysqli_query(
-        $connection, 
-        "INSERT INTO histori(a, b, s, rezalt) VALUE ('$a','$b','$s','$result')"
+    $resource = mysqli_query(
+        $connection,
+        "SELECT a, b, s
+        FROM histori
+        ORDER BY id DESC
+        LIMIT 1"
     );
+    $story = [];
+    foreach ($resource as $row){
+        $story[] = $row;
+    };
+    if($story[0]['a']!=$a || $story[0]['b']!=$b || $story[0]['s']!=$s){
+        mysqli_query(
+            $connection, 
+            "INSERT INTO histori(a, b, s, rezalt) VALUE ('$a','$b','$s','$result')"
+        );
+    }
 };
 
 function sqlReturn()
