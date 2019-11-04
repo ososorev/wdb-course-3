@@ -8,7 +8,7 @@
     $operation=$_REQUEST["operation"];
     $button=$_REQUEST["button"];
     $result="";
-    if (!empty($inputOne) && !empty($inputTwo)) {
+    if (isset($inputOne) && isset($inputTwo)) {
         $result=calculator($inputOne, $inputTwo, $operation);
         databaseInsert($inputOne, $operation, $inputTwo, $result);
     }
