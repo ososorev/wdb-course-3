@@ -20,6 +20,9 @@ function databaseInsert($inputOne, $operation, $inputTwo, $result) {
 }
 
 function databaseRowPrint($arr, $index) {
+    if ($arr[$index]['operation'] === '/' ) {
+        $arr[$index]['operation'] = '\\';
+    }
     $row = $arr[$index]['first_operand']." ".$arr[$index]['operation']." ".$arr[$index]['second_operand'].
         " = ".$arr[$index]['result']."<br />";
     return print_r($row);
