@@ -25,7 +25,7 @@ function databaseRowPrint($arr, $index) {
     }
     $row = $arr[$index]['first_operand']." ".$arr[$index]['operation']." ".$arr[$index]['second_operand'].
         " = ".$arr[$index]['result']."<br />";
-    return print_r($row);
+    return $row;
 }
 
 function databasePrint($arr) {
@@ -47,11 +47,10 @@ function databaseValue($arr) {
 function databaseSelect() {
     $resource = mysqli_query(databaseConnection(), "SELECT * FROM calc ORDER BY created DESC LIMIT 5");
     $calc = [];
-    foreach ($resource as $row) {
+    $print = '';
+    foreach ($resource as $i => $row) {
         $calc[] = $row;
+        $print = $print.databaseRowPrint($calc, $i);
     }
-    for ($i = 0; $i <= 4; $i++) {
-        $print = databaseRowPrint($calc, $i);
-    }
-    return $print;
+    echo $print;
 }
