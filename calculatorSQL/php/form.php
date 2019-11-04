@@ -5,9 +5,10 @@ require_once "sql.php";
 $a = $_REQUEST["a"];
 $b = $_REQUEST["b"];
 $s = $_REQUEST["s"];
+$connection = mysqli_connect("localhost", "root", "", "calc");
 $result = calculator($a, $b, $s);
-sqlSave($a, $b, $s, $result);
-$story = sqlReturn();
+$sqlWork = new Sql($a, $b, $s, $result, $connection);
+$sqlWork->save();
 ?>
 
 <html>
@@ -44,7 +45,7 @@ $story = sqlReturn();
                 </div>
             </form>
             <div class = "histori">
-                <?php $first = viborka($story); echo $first; ?>
+                <?php echo $sqlWork->histore(); ?>
             </div>
         </div>
     </body>
