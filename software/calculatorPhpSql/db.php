@@ -1,8 +1,7 @@
 <?php
 
 function databaseConnection() {
-    $connection = mysqli_connect("localhost", "root", "", "calculate");
-    return $connection;
+    return mysqli_connect("localhost", "root", "", "calculate");
 }
 
 function databaseInsert($inputOne, $operation, $inputTwo, $result) {

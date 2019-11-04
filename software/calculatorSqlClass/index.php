@@ -10,7 +10,8 @@
     $result="";
     if (isset($inputOne) && isset($inputTwo)) {
         $result=calculator($inputOne, $inputTwo, $operation);
-        databaseInsert($inputOne, $operation, $inputTwo, $result);
+        $createDatabase = new Database($inputOne, $operation, $inputTwo, $result);
+        $createDatabase->insert();
     }
 ?>
 <!DOCTYPE html>
@@ -51,7 +52,7 @@
         <div class="outputSql">
             <span class="outputSqlLabel">ИСТОРИЯ => пять последних вычислений:</span>
             <?php
-            databaseSelect();
+            $createDatabase->select();
             ?>
         </div>
     </body>
