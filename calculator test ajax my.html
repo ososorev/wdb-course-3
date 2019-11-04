@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type = text/css href = "sheetstyle.css">
+        <script>
+            
+            function send(event) {
+                event.preventDefault();
+                event.preventDefault();
+                fetch("calculator test ajaxxx my.php", {method: "POST", body: new FormData(document.forms[0])})
+                    .then(response => {
+                        return response.text();
+                    })
+                    .then(result => {
+                        document.querySelector("#result").innerHTML=result;
+                    })
+            }
+
+        </script>
+    </head>
+    <body class="bckgrnd">
+            <form method="post" >
+        <p>
+            <b class = "text">Введите число:</b>
+            <br>
+            <input type = "text" size="40" class="firstinput" name="n1"/>
+        </p>
+        
+            <p><select size="3" class="secondinput" name="oper">
+             <option disabled>Выберите действие</option>
+             <option value="+">+</option>
+             <option value="-">-</option>
+             <option value="*">*</option>
+             <option value="/">/</option>
+            </select></p>
+            <p>
+            <b class = "text">Введите число:</b>
+            <br>
+            <input type = "text" size="40" class="firstinput" name="n2"/>
+        </p>
+        <input type="button" onclick="send(event)" class="b1" value="Отправить"/>
+    </form>
+        <div id="result" class="firstinput">Результат</div>
+        
+    </body>
+</html>
