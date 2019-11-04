@@ -39,18 +39,14 @@ function sqlReturn()
     return $story;
 };
 
-function viborka($story, $r)
+function viborka($story)
 {
     $vivod = '';
-    $arr = array('a', 's', 'b', 'rezalt');
-    for ($i = 0; $i <= 3; $i++){
-        if($arr[$i] == 'rezalt'){
-            $vivod = $vivod.'='.$story[$r][$arr[$i]];
-        }
-        else{
-        $vivod = $vivod.$story[$r][$arr[$i]];
-        }
+
+    foreach ($story as $i=>$row){
+        $vivod = $vivod.'<div class = "rezalt">'.$row['a'].' '.$row['s'].' '.$row['b'].' = '.$row['rezalt'].'</div>';
     }
+
     return $vivod;
 }
 ?>

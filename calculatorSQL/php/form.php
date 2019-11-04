@@ -46,11 +46,7 @@ $story = sqlReturn();
                 </div>
             </form>
             <div class = "histori">
-                <div class = "1 rezalt"><?php $first = viborka($story, 0); echo $first; ?></div>
-                <div class = "2 rezalt"><?php $too = viborka($story, 1); echo $too; ?></div>
-                <div class = "3 rezalt"><?php $thre = viborka($story, 2); echo $thre; ?></div>
-                <div class = "4 rezalt"><?php $forr = viborka($story, 3); echo $forr; ?></div>
-                <div class = "5 rezalt"><?php $five = viborka($story, 4); echo $five; ?></div>
+                <?php $first = viborka($story); echo $first; ?>
             </div>
         </div>
     </body>

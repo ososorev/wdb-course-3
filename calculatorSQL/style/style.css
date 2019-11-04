@@ -48,12 +48,13 @@
 
 .histori {
     width: 500px;
-    height: 100px;
+    height: 105px;
     background-color: #4482a5;
 }
 
 .rezalt{
     width: 500px;
+    margin-top: 3px;
     text-align: center;
     color: #c0e007;
 }
