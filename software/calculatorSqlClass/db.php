@@ -5,7 +5,7 @@ class Database {
     private $inputTwo;
     private $operation;
     private $result;
-    function _constructor($inputOne, $operation, $inputTwo, $result) {
+    function _construct($inputOne, $operation, $inputTwo, $result) {
         $this->inputOne = $inputOne;
         $this->operation = $operation;
         $this->inputTwo = $inputTwo;
