@@ -6,9 +6,7 @@ $a = $_REQUEST["a"];
 $b = $_REQUEST["b"];
 $s = $_REQUEST["s"];
 $result = calculator($a, $b, $s);
-if (!empty($a) && !empty($b)) {
-     sqlSave($a, $b, $s, $result);// продолжает при обновлении записывать старые данные
-}
+sqlSave($a, $b, $s, $result);
 $story = sqlReturn();
 ?>
 
