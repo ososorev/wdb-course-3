@@ -2,11 +2,11 @@
 
 class Sql 
 {
-    public $a;
-    public $b;
-    public $s;
-    public $result;
-    public $connection;
+    private $a;
+    private $b;
+    private $s;
+    private $result;
+    private $connection;
 
     function __construct($a, $b, $s, $result, $connection) 
     {
@@ -17,7 +17,7 @@ class Sql
         $this->connection = $connection;
     }
 
-    function save()
+    public function save()
     {
         $resource = mysqli_query(
             $this->connection,
@@ -38,7 +38,7 @@ class Sql
         }
     }
 
-    function histore()
+    public function histore()
     {
         $resource = mysqli_query(
             $this->connection,
