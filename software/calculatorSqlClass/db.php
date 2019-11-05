@@ -27,7 +27,7 @@ class Database {
         VALUES ('$this->inputOne', '$this->operation', '$this->inputTwo', '$this->result')");
         }
     }
-    function rowPrint($arr, $index) {
+    function createdRow($arr, $index) {
         if ($arr[$index]['operation'] === '/' ) {
             $arr[$index]['operation'] = '\\';
         }
@@ -42,7 +42,7 @@ class Database {
         $print = '';
         foreach ($resource as $i => $row) {
             $calc[] = $row;
-            $print = $print.rowPrint($calc, $i);
+            $print = $print.createdRow($calc, $i);
         }
         echo $print;
     }
