@@ -22,7 +22,7 @@
     </head>
     <body>
         <div class="mainContainer">
-            <form id="forma">
+            <form id="form">
                 <div class="inputString">
                     <label class="inputLabel" for="inputOne">Первое число
                         <input type="number" required min="-999" max="999" name="inputOne"
