@@ -73,6 +73,10 @@ html, body {
     border-radius: 19px;
 }
 
+.output {
+
+}
+
 .footer {
     display: flex;
     justify-content: center;

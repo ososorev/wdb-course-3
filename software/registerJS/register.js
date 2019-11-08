@@ -1,5 +1,13 @@
 document.addEventListener("DOMContentLoaded", createPage);
 
+function send(event) {
+    event.preventDefault();
+    fetch("register.php", {method: "POST", body: new FormData(document.forms[0])})
+        .then(response => response.text()).then(outputResult => {
+        // document.querySelector(".output").innerHTML = outputResult;
+    })
+}
+
 function createPage() {
     let elementContainer = document.createElement("div");
     elementContainer.classList.add("container");
@@ -38,15 +46,21 @@ function createPage() {
     elementInputEMail.classList.add("inputForm");
     form.append(elementInputEMail);
 
-    let button = document.createElement("button");
+    let button = document.createElement("input");
     button.classList.add("buttonReg");
     button.type = "submit";
+    button.name = "submit";
+    button.onclick = "send(event)";
     button.innerText = "Register";
     form.append(button);
+
+    let elementOutputResult = document.createElement("div");
+    elementOutputResult.classList.add("output");
+    form.append(elementOutputResult);
 
     let elementFooter = document.createElement("div");
     elementFooter.classList.add("header");
     elementFooter.classList.add("footer");
-    elementFooter.innerText = "Copyright by ..., 2016 ";
+    elementFooter.innerText = "Copyright by ..., 2016";
     elementContainer.append(elementFooter);
 }
