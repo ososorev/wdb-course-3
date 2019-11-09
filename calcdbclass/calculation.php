@@ -14,8 +14,8 @@
     $db = new DataBase('localhost','root', '', 'calculation_archive');
     $db->insert('data', $arrData);
     $fiveLastRow = $db->select($arrWhat, 'data', 'id', 'DESC', 5);
-    //echo  $fiveLastRow;
-    echo "<div>Результат: ".$calcRes;"</div>".parseArrayToHtml($fiveLastRow);
+    //print_r (parseArrayToHtml($fiveLastRow));
+    echo "<div>Результат: ".$calcRes."</div>".parseArrayToHtml($fiveLastRow);
 
 
 

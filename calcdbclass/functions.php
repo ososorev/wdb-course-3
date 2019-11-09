@@ -15,7 +15,7 @@ class DataBase{
         $this->openConnect();
     }
 
-    private  function openConnect(){
+    private function openConnect(){
         $this->connection = mysqli_connect($this->host, $this->user, $this->pass, $this->nameDB);
     }
 
@@ -56,13 +56,17 @@ class DataBase{
 
     function select($arrWhat, $tableName, $order, $sort, $limit){
         $query = "SELECT ".$this->parseToSelect($arrWhat)."FROM `".$tableName."` ORDER BY `".$order."` ".$sort." LIMIT ".$limit;
-        return  mysqli_query($this->connection, $query);
-
+        $sqlResult = mysqli_query($this->connection, $query);
+        $arrResult = null;
+        foreach ($sqlResult as $row){
+            $arrResult[] = $row;
+        }
+        return $arrResult;
     }
 
 }
 
-function calculationResult($number1,$number2,$operator){
+function calculationResult($number1,$number2, $operator){
     if (is_numeric($number1) && is_numeric($number2)) {
         switch ($operator) {
             case '+':
@@ -94,40 +98,5 @@ function parseArrayToHtml($arr)
     return $result;
 }
 
-/*function fiveLastStr()
-{
-    $connection = connectDataBase('calculation_archive');
-    $resultSelect = mysqli_query($connection, "SELECT * FROM data ORDER BY id DESC LIMIT 5;");
-    foreach ($resultSelect as $row) {
-        $result = $result . '<div>' . $row['number_1'] . ' ' . $row['operator'] . ' ' . $row['number_2'] . ' = ' . $row['result'] . '</div>';
-    }
-    return $result;
-}
-/*
-function addToDataBase($number_1, $number_2, $result, $operator){
-    $connection = connectDataBase('calculation_archive');
-    mysqli_query($connection,
-        "INSERT INTO data(number_1, number_2, result, operator) 
-                VALUES ('$number_1','$number_2','$result', '$operator')");
-}
 
-function connectDataBase($nameDataBase){
-
-    return $connection = mysqli_connect('localhost','root','', $nameDataBase);
-}
-
-function addCorrectResultToDb($number_1, $number_2, $result, $operator){
-    if(is_numeric($result)){
-        addToDataBase($number_1, $number_2, $result, $operator);
-    }
-}
-
-function fiveLastStr(){
-    $connection = connectDataBase('calculation_archive');
-    $resultSelect = mysqli_query($connection, "SELECT * FROM data ORDER BY id DESC LIMIT 5;");
-    foreach ($resultSelect as $row){
-        $result = $result.'<div>'.$row['number_1'].' '.$row['operator'].' '.$row['number_2'].' = '.$row['result'].'</div>';
-    }
-    return $result;
-}*/
 
