@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", createPage);
 
 function send(event) {
+    console.log("event - ", event);
     event.preventDefault();
     fetch("register.php", {method: "POST", body: new FormData(document.forms[0])})
-        .then(response => response.text()).then(outputResult => {
-        // document.querySelector(".output").innerHTML = outputResult;
-    })
+    //     .then(response => response.text()).then(outputResult => {
+    //     //document.querySelector(".output").innerHTML = outputResult;
+    // })
 }
 
 function createPage() {
@@ -29,28 +30,32 @@ function createPage() {
     let elementInputUsername = document.createElement("input");
     elementInputUsername.placeholder = "Username";
     elementInputUsername.classList.add("inputForm");
+    elementInputUsername.type = "text";
     form.append(elementInputUsername);
 
     let elementInputPassword = document.createElement("input");
     elementInputPassword.placeholder = "Password";
     elementInputPassword.classList.add("inputForm");
+    elementInputPassword.type = "password";
     form.append(elementInputPassword);
 
     let elementInputConfirmPassword = document.createElement("input");
     elementInputConfirmPassword.placeholder = "Confirm password";
     elementInputConfirmPassword.classList.add("inputForm");
+    elementInputConfirmPassword.type = "password";
     form.append(elementInputConfirmPassword);
 
     let elementInputEMail = document.createElement("input");
     elementInputEMail.placeholder = "EMail";
     elementInputEMail.classList.add("inputForm");
+    elementInputEMail.type = "text";
     form.append(elementInputEMail);
 
     let button = document.createElement("input");
     button.classList.add("buttonReg");
     button.type = "submit";
-    button.name = "submit";
-    button.onclick = "send(event)";
+    // button.name = "submit";
+    button.onclick = send(event);
     button.innerText = "Register";
     form.append(button);
 

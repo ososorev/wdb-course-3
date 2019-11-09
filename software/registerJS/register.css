@@ -73,6 +73,11 @@ html, body {
     border-radius: 19px;
 }
 
+.buttonReg:hover {
+    cursor: pointer;
+    background-color: #0055ff;
+}
+
 .output {
 
 }
