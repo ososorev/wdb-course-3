@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	background:#A3A3A3;
+	margin: 0;
+}
+
+.inputs {
+	border: 1px solid black;
+	font-size:18px;
+	height: 30px;
+	width: 160px;
+}
+
+.strip {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background:#e6e6e6;
+	font-size:14px; 
+}
+
+
+#main{
+	text-align: center;
+}
+
+#strip_start{
+	height: 60px;
+}
+
+#strip_end{
+	height: 30px;
+	position: fixed;
+	left: 0; bottom: 0;
+	width: 100%;
+}
+
+#button {
+	background:#008cff;
+	border-radius: 12px;
+	color: white;
+	text-align: center;
+	style:color:#FFFFFF;
+}
