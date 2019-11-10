@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d171f4f6-3e0c-4b09-a6fa-4849b6b61606" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calculation.php" beforeDir="false" afterPath="$PROJECT_DIR$/calculation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calcsession/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../calcsession/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calcsession/calculation.php" beforeDir="false" afterPath="$PROJECT_DIR$/../calcsession/calculation.php" afterDir="false" />
-    </list>
+    <list default="true" id="d171f4f6-3e0c-4b09-a6fa-4849b6b61606" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +111,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../supernotebook" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -169,12 +163,12 @@
       <workItem from="1573074320345" duration="756000" />
       <workItem from="1573075187981" duration="22000" />
       <workItem from="1573075211761" duration="2867000" />
-      <workItem from="1573317794028" duration="1378000" />
+      <workItem from="1573317794028" duration="1984000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27320000" />
+    <option name="totallyTimeSpent" value="27926000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -188,7 +182,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2048583" />
       <window_info id="Structure" order="1" weight="0.25" />
