@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", createPage);
 function send(event) {
     event.preventDefault();
     fetch("register.php", {method: "POST", body: new FormData(document.forms[0])})
-    //     .then(response => response.text()).then(outputResult => {
-    //     //document.querySelector(".output").innerHTML = outputResult;
-    // })
+         .then(response => response.text()).then(outputResult => {
+        document.querySelector(".output").innerHTML = outputResult;
+    })
 }
 
 function createPage() {
@@ -62,7 +62,7 @@ function createPage() {
     button.type = "submit";
     button.name = "button";
     button.onclick = send;
-    button.innerText = "Register";
+    button.value = "Register";
     form.append(button);
 
     let elementOutputResult = document.createElement("div");
