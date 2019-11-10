@@ -54,8 +54,7 @@ class DataBase{
 
 
 
-    function select($arrWhat, $tableName, $order, $sort, $limit){
-        $query = "SELECT ".$this->parseToSelect($arrWhat)."FROM `".$tableName."` ORDER BY `".$order."` ".$sort." LIMIT ".$limit;
+    function select($query){
         $sqlResult = mysqli_query($this->connection, $query);
         $arrResult = null;
         foreach ($sqlResult as $row){

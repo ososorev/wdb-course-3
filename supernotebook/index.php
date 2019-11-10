@@ -5,6 +5,7 @@
     <title>SUPER NOTEBOOK</title>
     <link rel="stylesheet" href="style.css">
     <script src="sendToServer.js"></script>
+    <script src="functions.js"></script>
 
 </head>
 <body>
@@ -14,8 +15,9 @@
                 super notebook
             </div>
         </div>
-        <div class="registration">
+        <div class="registration flexContainer column">
             <script src="generateForm.js"></script>
+            <div class="registration__ok"></div>
         </div>
         <div class="footer">
             <div class="footer__content bg-gray flexContainer">

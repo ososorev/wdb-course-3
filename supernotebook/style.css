@@ -80,3 +80,15 @@ body{
 .footer{
     margin-top: 70px;
 }
+
+.errors{
+    color: brown;
+    font-size: 12px;
+
+}
+
+.registration__ok{
+    color: forestgreen;
+    font-size: 20px;
+    margin-top: 30px;
+}
