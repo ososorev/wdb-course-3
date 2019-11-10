@@ -45,6 +45,7 @@ function createPage() {
     let elementInputConfirmPassword = document.createElement("input");
     elementInputConfirmPassword.placeholder = "Confirm password";
     elementInputConfirmPassword.classList.add("inputForm");
+    elementInputConfirmPassword.name = "inputConfirmPassword";
     elementInputConfirmPassword.type = "password";
     elementInputConfirmPassword.required = true;
     form.append(elementInputConfirmPassword);
