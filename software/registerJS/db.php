@@ -4,8 +4,11 @@ class Database {
     private static function connection() {
         return mysqli_connect("localhost", "root", "", "register");
     }
+    static function query($sql) {
+        mysqli_query(self::connection(), $sql);
+    }
     static function insert($inputUsername, $inputPassword, $inputEMail) {
-        mysqli_query(self::connection(), "INSERT INTO user(username, password, email)
-        VALUES ('$inputUsername', '$inputPassword', '$inputEMail')");
+        self::query("INSERT INTO user(username, password, email)
+        VALUES ('$inputUsername', MD5('$inputPassword'), '$inputEMail')");
     }
 }
