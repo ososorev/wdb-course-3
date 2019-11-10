@@ -25,7 +25,7 @@ function calc() {
     }
 
     document.querySelector(".output").innerHTML = outputResult;
-    document.getElementById("forma").onsubmit = function(){return false};
+    document.getElementById("form").onsubmit = function(){return false};
 }
 
 function createPage() {
@@ -34,7 +34,7 @@ function createPage() {
     document.body.append(elementMainContainer);
 
     let form = document.createElement("form");
-    form.id = "forma";
+    form.id = "form";
     form.onsubmit = "return false";
     elementMainContainer.append(form);
 

@@ -6,10 +6,8 @@
     $inputTwo=$_REQUEST["inputTwo"];
     $operation=$_REQUEST["operation"];
     $button=$_REQUEST["button"];
-    $result="";
-    if (!empty($inputOne) && !empty($inputTwo)) {
-        if (!empty($button)) {
-            $result = calculator($inputOne, $inputTwo, $operation);
-            echo $result;
-        }
+    if (!!isset($inputOne) && !!isset($inputTwo)) {
+        echo calculator($inputOne, $inputTwo, $operation);
+//    } elseif (!isset($button)) {
+//        echo "Введите входные данные"; // не работает((
     }
