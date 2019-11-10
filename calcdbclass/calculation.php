@@ -11,11 +11,11 @@
         'operator' => $operator
     );
     $arrWhat = array('number_1', 'number_2', 'result', 'operator');
-    $db = new DataBase('localhost','root', '', 'calculation_archive');
+    $db = new DataBase('localhost','root', '', 'user');
     $db->insert('data', $arrData);
-    $fiveLastRow = $db->select($arrWhat, 'data', 'id', 'DESC', 5);
+    //$fiveLastRow = $db->select($arrWhat, 'data', 'id', 'DESC', 5);
     //print_r (parseArrayToHtml($fiveLastRow));
-    echo "<div>Результат: ".$calcRes."</div>".parseArrayToHtml($fiveLastRow);
+    //echo "<div>Результат: ".$calcRes."</div>".parseArrayToHtml($fiveLastRow);
 
 
 

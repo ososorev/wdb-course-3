@@ -31,6 +31,9 @@ button.type = "button";
 button.name = "register";
 button.className = "registration__form__item button";
 button.value = "Register";
+button.onclick = function (){
+    sendToServer(event);
+};
 
 form.append(username);
 form.append(password);

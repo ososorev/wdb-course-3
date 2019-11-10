@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Калькулятор</title>
+    <title>SUPER NOTEBOOK</title>
     <link rel="stylesheet" href="style.css">
     <script src="sendToServer.js"></script>
 
@@ -17,7 +17,6 @@
         <div class="registration">
             <script src="generateForm.js"></script>
         </div>
-
         <div class="footer">
             <div class="footer__content bg-gray flexContainer">
                 Copyright by Mikhaylova, 2018
