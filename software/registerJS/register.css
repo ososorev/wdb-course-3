@@ -5,13 +5,13 @@
     outline: none;
 }
 
-.clear {
-    clear: both;
-}
-
 html, body {
     height: 100%;
     width: 100%;
+}
+
+.clear {
+    clear: both;
 }
 
 .container {

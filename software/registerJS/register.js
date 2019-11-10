@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", createPage);
 
 function send(event) {
-    console.log("event - ", event);
     event.preventDefault();
     fetch("register.php", {method: "POST", body: new FormData(document.forms[0])})
     //     .then(response => response.text()).then(outputResult => {
@@ -32,6 +31,7 @@ function createPage() {
     elementInputUsername.classList.add("inputForm");
     elementInputUsername.name = "inputUsername";
     elementInputUsername.type = "text";
+    elementInputUsername.required = true;
     form.append(elementInputUsername);
 
     let elementInputPassword = document.createElement("input");
@@ -39,12 +39,14 @@ function createPage() {
     elementInputPassword.classList.add("inputForm");
     elementInputPassword.name = "inputPassword";
     elementInputPassword.type = "password";
+    elementInputPassword.required = true;
     form.append(elementInputPassword);
 
     let elementInputConfirmPassword = document.createElement("input");
     elementInputConfirmPassword.placeholder = "Confirm password";
     elementInputConfirmPassword.classList.add("inputForm");
     elementInputConfirmPassword.type = "password";
+    elementInputConfirmPassword.required = true;
     form.append(elementInputConfirmPassword);
 
     let elementInputEMail = document.createElement("input");
@@ -58,7 +60,7 @@ function createPage() {
     button.classList.add("buttonReg");
     button.type = "submit";
     button.name = "button";
-    button.onclick = send(event);
+    button.onclick = send;
     button.innerText = "Register";
     form.append(button);
 

@@ -6,15 +6,12 @@ $inputUsername=$_REQUEST["inputUsername"];
 $inputPassword=$_REQUEST["inputPassword"];
 $inputConfirmPassword=$_REQUEST["inputConfirmPassword"];
 $inputEMail=$_REQUEST["inputEMail"];
-$button=$_REQUEST["button"];
 //if (!empty($inputUsername) && !empty($inputPassword) && !empty($inputConfirmPassword)) {
-//    if ($inputPassword === $inputConfirmPassword) {
-        //if (!empty($button)) {
-            $createDatabase = new Database($inputUsername, $inputPassword, $inputEMail);
-            $createDatabase->insert();
-        //}
-    //}
+    if ($inputPassword == $inputConfirmPassword) {
+        Database::insert($inputUsername, $inputPassword, $inputEMail);
+    }
 //}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
