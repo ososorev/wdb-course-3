@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic" rel="stylesheet"> -->
+    <script src="calc.js"></script>
+    <title>Calculator</title>
+</head>
+
+<body>
+    <!-- <?php require_once("database.php"); ?>  -->
+
+    <form>
+        <div name="form" class="form">
+
+            <h1 class="calculator">Calculator</h1>
+
+            <div class="description">
+                <h2 class="description-text">
+                    PHP calculator which saves the results in MySQL.
+                </h2>
+            </div>
+
+            <div name="inputs" class="inputs">
+                <input type="number" name="number1" class="number1" placeholder="Enter number here" required>
+
+
+                <select name="operator" size="1">
+                    <option value="multiply">*</option>
+                    <option value="divide">:</option>
+                    <option value="sumUp">+</option>
+                    <option value="subtract">-</option>
+
+                </select>
+
+                <input type="number" name="number2" placeholder="Enter number here" required>
+                <input type="submit" name="submit" class="resultButton" value="=" onclick="send(event)" />
+
+                <input name="result" disabled=true class="input_result" value=""></input>
+            </div>
+        </div>
+    </form>
+
+    <br><input type="submit" id="show_history" name="show_history" class="show_history" value="Show history" onclick="history(event)"/></input>
+
+    <div class="history_field" value=""></div>
+
+
+</body>
+
+</html>
