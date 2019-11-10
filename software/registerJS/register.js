@@ -30,12 +30,14 @@ function createPage() {
     let elementInputUsername = document.createElement("input");
     elementInputUsername.placeholder = "Username";
     elementInputUsername.classList.add("inputForm");
+    elementInputUsername.name = "inputUsername";
     elementInputUsername.type = "text";
     form.append(elementInputUsername);
 
     let elementInputPassword = document.createElement("input");
     elementInputPassword.placeholder = "Password";
     elementInputPassword.classList.add("inputForm");
+    elementInputPassword.name = "inputPassword";
     elementInputPassword.type = "password";
     form.append(elementInputPassword);
 
@@ -48,13 +50,14 @@ function createPage() {
     let elementInputEMail = document.createElement("input");
     elementInputEMail.placeholder = "EMail";
     elementInputEMail.classList.add("inputForm");
+    elementInputEMail.name = "inputEMail";
     elementInputEMail.type = "text";
     form.append(elementInputEMail);
 
     let button = document.createElement("input");
     button.classList.add("buttonReg");
     button.type = "submit";
-    // button.name = "submit";
+    button.name = "button";
     button.onclick = send(event);
     button.innerText = "Register";
     form.append(button);

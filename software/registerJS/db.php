@@ -1,22 +1,23 @@
 <?php
 
 class Database {
-    function connection() {
-        return mysqli_connect("localhost", "root", "", "user");
+    private function connection() {
+        return mysqli_connect("localhost", "root", "", "register");
     }
     private $inputUsername;
     private $inputPassword;
     private $inputEMail;
     function _construct($inputUsername, $inputPassword, $inputEMail) {
+        $this->connection();
         $this->inputUsername = $inputUsername;
         $this->inputPassword = $inputPassword;
         $this->inputEMail = $inputEMail;
     }
-    function query($sql) {
-        mysqli_query(connection(), $sql);
+    private function query($sql) {
+        mysqli_query($this->connection(), $sql);
     }
     function insert() {
-        query("INSERT INTO user(username, password, email)
+        $this->query("INSERT INTO user(username, password, email)
         VALUES ('$this->inputUsername', '$this->inputPassword', '$this->inputEMail')");
     }
 }
