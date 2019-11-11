@@ -8,20 +8,21 @@
     $email= $_REQUEST['email'];
 
     $arrData = array(
-        'username' => $username,
-        'password' => $password,
-        'email'=> $email
-    );
+    'username' => $username,
+    'password' => $password,
+    'email'=> $email
+);
 
-    $db = new DataBase('localhost','root', '', 'users');
     $errors = new checkRegData($username, $password, $confirmPass, $email);
+
     $errorsArr = $errors->getErrors();
-    if ($errorsArr == null){
+    if ($errorsArr['error'] == 0){
+        $db = new DataBase('localhost','root', '', 'users');
         $db->insert('registration_data', $arrData);
     }
-    else{
-        echo json_encode($errorsArr, JSON_UNESCAPED_UNICODE);
-    }
+
+    echo json_encode($errorsArr, JSON_UNESCAPED_UNICODE);
+
 
 
 

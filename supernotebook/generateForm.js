@@ -1,57 +1,55 @@
-let form = document.createElement("form");
-form.setAttribute('method',"post");
-form.className ="registration__form flexContainer column";
+function ObjectForm(){
+    let form = document.createElement("form");
+    form.setAttribute('method',"post");
+    form.className ="registration__form flexContainer column";
 
-let username = document.createElement("input");
-username.type = "text";
-username.name = "username";
-username.className = "registration__form__item";
-username.placeholder = "Username";
+    let inputCssClassName = "registration__form__item";
+    let errorCssClassName = "errors";
 
-let userNameError = document.createElement("div");
-userNameError.className = "errors error_username";
+    this.addInputToForm = function (type, name, placeholder) {
+        let input = document.createElement("input");
+        input.type = type;
+        input.name = name;
+        input.className = inputCssClassName;
+        input.placeholder = placeholder;
+        form.append(input);
+    };
 
-let password = document.createElement("input");
-password.type = "password";
-password.name = "password";
-password.className = "registration__form__item";
-password.placeholder = "Password";
+     this.addDivErrorsToForm = function (classname) {
+         let divErrors = document.createElement("div");
+         divErrors.className = errorCssClassName + ' ' + classname;
+         form.append(divErrors);
+     };
 
-let confirmPass = document.createElement("input");
-confirmPass.type = "password";
-confirmPass.name = "confirmPass";
-confirmPass.className = "registration__form__item";
-confirmPass.placeholder = "Confirm password";
+     this.addRegisterButton = function () {
+         let button = document.createElement("input");
+         button.type = "button";
+         button.name = "register";
+         button.className = "registration__form__item button";
+         button.value = "Register";
+         button.onclick = function (){
+             sendToServer(event);
+         };
+         form.append(button);
+     };
 
-let passwordError = document.createElement("div");
-passwordError.className = "errors error_password";
-
-let email = document.createElement("input");
-email.type = "email";
-email.name = "email";
-email.className = "registration__form__item";
-email.placeholder = "Email";
-
-let emailError = document.createElement("div");
-emailError.className = "errors error_email";
-
-let button = document.createElement("input");
-button.type = "button";
-button.name = "register";
-button.className = "registration__form__item button";
-button.value = "Register";
-button.onclick = function (){
-    sendToServer(event);
-};
-
-form.append(username);
-form.append(userNameError);
-form.append(password);
-form.append(confirmPass);
-form.append(passwordError);
-form.append(email);
-form.append(emailError);
-form.append(button);
+     this.addFormToPage = function (selector){
+        document.querySelector(selector).append(form);
+    };
 
 
-document.querySelector(".registration").append(form);
+}
+
+
+form = new ObjectForm();
+
+form.addInputToForm('text', 'username', "Username");
+form.addDivErrorsToForm('error_username');
+form.addInputToForm('password', 'password', 'Password');
+form.addInputToForm('password', 'confirmPass', 'Confirm password');
+form.addDivErrorsToForm('error_password');
+form.addInputToForm('email', 'email', 'Email');
+form.addDivErrorsToForm('error_email');
+form.addRegisterButton();
+form.addFormToPage(".registration" );
+

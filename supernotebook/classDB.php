@@ -35,17 +35,6 @@ class DataBase{
         return array('keys'=>$strKey, 'values'=>$strValue);
     }
 
-    function parseToSelect($data){
-        $strKey = null;
-            foreach ($data as $key){
-                if($strKey!=null){
-                    $strKey.=",";
-                }
-                $strKey .= "`".$key."`";
-            }
-         return $strKey;
-    }
-
     function insert($tableName, $data){
         $parseData = $this->parseForInsert($data);
         $query = "INSERT INTO `".$tableName."`(".$parseData['keys'].") VALUES (".$parseData['values'].")";

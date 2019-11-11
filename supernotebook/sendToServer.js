@@ -19,6 +19,5 @@ function sendToServer(event) {
                    document.querySelector('.error_email').innerHTML = errors.error_email
                }
            }
-
        });
 }

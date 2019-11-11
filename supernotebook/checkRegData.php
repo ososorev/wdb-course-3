@@ -64,7 +64,7 @@ class checkRegData
         }
     }
 
-    function getErrors(){
+    public function getErrors(){
 
         return $this->arrError;
     }
