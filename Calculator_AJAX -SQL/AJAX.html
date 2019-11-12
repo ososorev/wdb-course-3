@@ -1,0 +1,21 @@
+<head>
+	<meta charset="utf-8">
+	<title>Calculator</title>
+	<script src="script.js"></script>
+</head>
+<body>
+	<form>
+		<p>Число1: <input type="Number" name="num1"></p>
+		<p>Число2: <input type="Number" name="num2"></p>
+		<p> Выберете действие <select value="schet" name="schet">
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="*">*</option>
+			<option value="/">/</option>
+		</select>
+	<hr>
+	<button type="submit" name="submit" value="Вычислить" onclick="send(event)"/>Вычислить</button>
+	</form>
+	<br>Результат:<div id="result"></div>
+</body>
+</html>
