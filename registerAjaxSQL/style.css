@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+}
+.clear {
+    clear: both;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 15px;
+    line-height: 30px;
+}
+.header {
+    font-family: Times;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    flex: 0 auto;
+    color:#000;
+    background-color: #d1d1d1;
+    height: 60px;
+    padding-top: 30px;
+}
+.info {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    margin: auto;
+    padding-top: 150px;
+    background-color: #fff;
+    text-align: center;
+}
+.inputWindow {
+    display: flex;
+    margin: 30px;
+    padding: 5px;
+    height: 40px;
+    width: 244px;
+    font-size: 18px;
+    line-height: 30px;
+    border: 1px solid #60666b;
+}
+.buttonReg {
+    display: block;
+    text-align: center;
+    margin: 30px;
+    width: 250px;
+    padding: 10px;
+    color: #fff;
+    background-color: #007dff;
+    font-size: 18px;
+    line-height: 28px;
+    border: 1px solid #60666b;
+    border-radius: 25px;
+}
+.buttonReg:hover {
+    cursor: pointer;
+    background-color: #0000ff;
+}
+.footer {
+    font-family: Times;
+    display: flex;
+    justify-content: center;
+    flex: 0 auto;
+    color:#000;
+    background-color: #d1d1d1;
+    height: 60px;
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
