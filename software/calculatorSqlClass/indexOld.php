@@ -1,7 +1,7 @@
 <?php
     header ("Content-Type: text/html; charset=utf-8");
     require_once "calc.php";
-    require_once "db.php";
+    require_once "dbOld.php";
 
     $inputOne=$_REQUEST["inputOne"];
     $inputTwo=$_REQUEST["inputTwo"];
@@ -10,7 +10,8 @@
     $result="";
     if (isset($inputOne) && isset($inputTwo)) {
         $result=calculator($inputOne, $inputTwo, $operation);
-        Database::insert($inputOne, $operation, $inputTwo, $result);
+        $createDatabase = new Database($inputOne, $operation, $inputTwo, $result);
+        $createDatabase->insert();
     }
 ?>
 <!DOCTYPE html>
@@ -51,12 +52,12 @@
         <div class="outputSql">
             <span class="outputSqlLabel">ИСТОРИЯ => пять последних вычислений:</span>
             <?php
-            Database::select();
+            $createDatabase->select();
             ?>
         </div>
     </body>
 </html>
 
 <!--
-http://localhost/wdb-course-3/software/calculatorPhpSql/index.php
+http://localhost/wdb-course-3/software/calculatorPhpSql/indexOld.php
 -->

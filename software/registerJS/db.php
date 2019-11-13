@@ -4,7 +4,7 @@ class Database {
     private static function connection() {
         return mysqli_connect("localhost", "root", "", "register");
     }
-    static function query($sql) {
+    private static function query($sql) {
         mysqli_query(self::connection(), $sql);
     }
     static function insert($inputUsername, $inputPassword, $inputEMail) {

@@ -1,33 +1,37 @@
 <?php
 
 class Database {
-    private $inputOne;
-    private $inputTwo;
-    private $operation;
-    private $result;
-    function _construct($inputOne, $operation, $inputTwo, $result) {
-        $this->inputOne = $inputOne;
-        $this->operation = $operation;
-        $this->inputTwo = $inputTwo;
-        $this->result = $result;
-    }
-    function connection() {
+    private static function connection() {
         return mysqli_connect("localhost", "root", "", "calculate");
     }
-    public function insert() {
-        $resource = mysqli_query(connection(), "SELECT first_operand, operation, second_operand 
+
+    private static function query($sql) {
+        mysqli_query(self::connection(), $sql);
+    }
+
+    private static function checkingUniquenessOfExample($inputOne, $operation, $inputTwo) {
+        $resource = static::query("SELECT first_operand, operation, second_operand 
       FROM calc ORDER BY id_calc DESC LIMIT 1");
-        $last = [];
+        $prev = [];
         foreach ($resource as $row) {
-            $last[] = $row;
+            $prev[] = $row;
         }
-        if ($last[0]['first_operand'] != $this->inputOne || $last[0]['operation'] != $this->operation ||
-            $last[0]['second_operand'] != $this->inputTwo) {
-            mysqli_query(connection(), "INSERT INTO calc(first_operand, operation, second_operand, result)
-        VALUES ('$this->inputOne', '$this->operation', '$this->inputTwo', '$this->result')");
+        if ($prev[0]['first_operand'] != $inputOne || $prev[0]['operation'] != $operation ||
+            $prev[0]['second_operand'] != $inputTwo) {
+            return true;
+        } else {
+            return false;
         }
     }
-    function createdRow($arr, $index) {
+
+    public static function insert($inputOne, $operation, $inputTwo, $result) {
+        if (self::checkingUniquenessOfExample($inputOne, $operation, $inputTwo)) {
+            self::query("INSERT INTO calc(first_operand, operation, second_operand, result)
+        VALUES ($inputOne, $operation, $inputTwo, $result)");
+        }
+    }
+
+    private static function createdRow($arr, $index) {
         if ($arr[$index]['operation'] === '/' ) {
             $arr[$index]['operation'] = '\\';
         }
@@ -35,14 +39,15 @@ class Database {
             " = ".$arr[$index]['result']."<br />";
         return $row;
     }
-    public function select() {
-        $resource = mysqli_query(connection(), "SELECT first_operand, operation, second_operand, result 
+
+    public static function select() {
+        $resource = self::query("SELECT first_operand, operation, second_operand, result 
       FROM calc ORDER BY id_calc DESC LIMIT 5");
         $calc = [];
         $print = '';
         foreach ($resource as $i => $row) {
             $calc[] = $row;
-            $print = $print.createdRow($calc, $i);
+            $print = $print.self::createdRow($calc, $i);
         }
         echo $print;
     }
