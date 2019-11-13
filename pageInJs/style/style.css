@@ -72,6 +72,11 @@ html, body {
     border-radius: 19px;
 }
 
+.button:hover {
+    cursor: pointer;
+    background-color: #0055ff;
+}
+
 .footer {
     display: flex;
     justify-content: center;
