@@ -20,7 +20,6 @@ html, body {
     justify-content: space-between;
     width: 100%;
     min-height: 100%;
-    margin: 0 auto;
     text-align: center;
     font-family: Georgia;
     font-size: 19px;
@@ -47,6 +46,9 @@ html, body {
     text-align: center;
 }
 
+.formBlock {
+    margin: 0 auto;
+}
 .inputForm {
     display: flex;
     margin: 20px;
@@ -79,6 +81,8 @@ html, body {
 }
 
 .output {
+    display: flex;
+    margin: 0 auto;
     color: red;
 }
 

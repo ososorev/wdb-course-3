@@ -24,6 +24,7 @@ function createPage() {
 
     let form = document.createElement("form");
     form.id = "form";
+    form.classList.add("formBlock");
     elementContent.append(form);
 
     let elementInputUsername = document.createElement("input");
@@ -67,7 +68,7 @@ function createPage() {
 
     let elementOutputResult = document.createElement("div");
     elementOutputResult.classList.add("output");
-    form.append(elementOutputResult);
+    elementContent.append(elementOutputResult);
 
     let elementFooter = document.createElement("div");
     elementFooter.classList.add("header");
