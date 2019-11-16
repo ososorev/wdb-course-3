@@ -22,14 +22,14 @@ if (!empty($inputUsername) && !empty($inputPassword) && !empty($inputConfirmPass
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="register.css">
+        <link rel="stylesheet" href="style/register.css">
         <title>Register</title>
-        <script src="register.js"></script>
+        <script src="js/register.js"></script>
     </head>
     <body>
     </body>
 </html>
 
 <!--
-http://localhost/wdb-course-3/software/registerJS/register.php
+http://localhost/wdb-course-3/software/notebook/register.php
 -->
