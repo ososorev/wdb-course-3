@@ -6,7 +6,7 @@
     $email = $_REQUEST["email"];
     if (!empty($username) && !empty($password) && !empty($confirmPassword)) {
         if ($password == $confirmPassword) {
-            sql::queryInsert("INSERT INTO identification(username, password, email)
+            sql::queryInsert("INSERT INTO user(username, password, email)
                 VALUES ('$username', '$password', '$email')");
         } else {
             echo "Проверьте введенный пароль!";

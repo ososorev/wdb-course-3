@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", createPage);
 
-function send(event) {
-    event.preventDefault();
-    fetch("php/index.php", {method: "POST", body: new FormData(document.forms[0])})
-        .then(response => response.text()).then(outputResult => {
-           document.querySelector(".oshibka").innerHTML = outputResult;
-    })
+function register(){
+    window.location.href = "http://localhost/wdb-course-3/projectNotebook/pageRegistration/index.html";
+}
+
+function login(){
+    
 }
 
 function createPage() {
@@ -30,6 +30,7 @@ function createPage() {
     inputUsername.placeholder = "Username";
     inputUsername.classList.add("input");
     inputUsername.name = "username";
+    inputUsername.type = "text";
     inputUsername.required = true;
     form.append(inputUsername);
 
@@ -41,26 +42,18 @@ function createPage() {
     inputPassword.required = true;
     form.append(inputPassword);
 
-    let inputConfirmPassword = document.createElement("input");
-    inputConfirmPassword.placeholder = "Confirm password";
-    inputConfirmPassword.classList.add("input");
-    inputConfirmPassword.name = "confirmPassword";
-    inputConfirmPassword.type = "password";
-    inputConfirmPassword.required = true;
-    form.append(inputConfirmPassword);
+    let buttonLogin = document.createElement("button");
+    buttonLogin.classList.add("button");
+    buttonLogin.type = "submit";
+    buttonLogin.innerText = "Login";
+    //buttonLogin.onclick = send;
+    form.append(buttonLogin);
 
-    let inputEMail = document.createElement("input");
-    inputEMail.placeholder = "EMail";
-    inputEMail.classList.add("input");
-    inputEMail.name = "email";
-    form.append(inputEMail);
-
-    let button = document.createElement("button");
-    button.classList.add("button");
-    button.type = "submit";
-    button.innerText = "Register";
-    button.onclick = send;
-    form.append(button);
+    let buttonregister = document.createElement("button");
+    buttonregister.classList.add("button");
+    buttonregister.innerText = "Register";
+    buttonregister.onclick = register;
+    form.append(buttonregister);
 
     let oshibka = document.createElement("div");
     oshibka.classList.add("oshibka");

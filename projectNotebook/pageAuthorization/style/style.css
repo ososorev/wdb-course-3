@@ -22,8 +22,7 @@ html, body {
     min-height: 100%;
     margin: 0 auto;
     text-align: center;
-    font-family: Georgia;
-    font-size: 19px;
+    font-weight:bold;
     line-height: 32px;
 }
 
@@ -34,7 +33,7 @@ html, body {
     color:#000;
     background-color: #e6e6e6;
     height: 62px;
-    padding-top: 16px;
+    padding-top: 25px;
 }
 
 .content {
@@ -62,14 +61,13 @@ html, body {
     display: block;
     text-align: center;
     margin: 20px;
-    height: 30px;
     width: 178px;
     color: #fff;
     background-color: #008cff;
     font-size: 19px;
     line-height: 32px;
     border: 2px solid #666;
-    border-radius: 19px;
+    border-radius: 12px;
 }
 
 .button:hover {

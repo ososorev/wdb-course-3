@@ -3,7 +3,7 @@ class Sql
 {
     private static function connection()
     {
-        return mysqli_connect("localhost", "root", "", "test");
+        return mysqli_connect("localhost", "root", "", "project");
     }
 
     static function queryInsert($insert)
