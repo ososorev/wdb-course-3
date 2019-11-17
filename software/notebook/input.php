@@ -10,15 +10,17 @@ $buttonLog = $_REQUEST["buttonLogin"];
 $error = '';
 if (isset($buttonReg)) {
     return;
-} elseif (!empty($inputUsername) && !empty($inputPassword) && isset($buttonLog)) {
-    if (Database::checkPair($inputUsername, $inputPassword)) {
-        return;
+}
+if (isset($buttonLog)) {
+    if (!empty($inputUsername) && !empty($inputPassword)) {
+        if (Database::checkPair($inputUsername, $inputPassword)) {
+            return;
+        } else {
+            $error .= "Проверьте введенные имя и пароль";
+        }
     } else {
-        $error .= "Проверьте введенные имя и пароль";
+        $error .= "Введите свое имя и пароль, если Вы зарегистрированы";
     }
-// } elseif (isset($buttonLog) && (empty($inputUsername) || empty($inputPassword))) {
-} else {
-    $error .= "Введите свое имя и пароль, если Вы зарегистрированы";
 }
 
 ?>

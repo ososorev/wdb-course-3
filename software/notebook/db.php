@@ -51,6 +51,18 @@ class Database {
         return $users;
     }
 
+    private static function getPasswordByUsername($inputUsername)
+    {
+        self::query("SELECT password FROM user WHERE username = $inputUsername");
+    }
+
+    public static function checkPassword($inputUsername, $inputPassword)
+    {
+        $validPasswordHash = self::getPasswordByUsername($inputUsername)[0]['password'];
+        $passwordHash = md5($inputPassword);
+        return ($passwordHash == $validPasswordHash);
+    }
+
     public static function checkPair($inputUsername, $inputPassword) {
 //        self::query("SELECT username, password FROM user");
 //        if (username = $inputUsername && password = $inputPassword) {
