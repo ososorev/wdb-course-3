@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", createPage);
 
 function register() {
-    window.location.href = "http://localhost/wdb-course-3/software/notebook/register.php";
+    window.location.href = "http://localhost/wdb-course-3/software/notebook/input.php";
 }
 
 function createPage() {

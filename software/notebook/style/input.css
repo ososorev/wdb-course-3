@@ -49,6 +49,7 @@ html, body {
 .formBlock {
     margin: 0 auto;
 }
+
 .inputForm {
     display: flex;
     margin: 20px;
@@ -60,7 +61,8 @@ html, body {
     border: 2px solid #666;
 }
 
-.buttonReg {
+.buttonReg,
+.buttonLog {
     display: block;
     text-align: center;
     margin: 20px;
@@ -75,7 +77,12 @@ html, body {
     border-radius: 19px;
 }
 
-.buttonReg:hover {
+.buttonReg {
+    max-height: 252px;
+}
+
+.buttonReg:hover,
+.buttonLog:hover {
     cursor: pointer;
     background-color: #0055ff;
 }

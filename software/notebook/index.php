@@ -1,7 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
-require_once('common.inc.php');
-
+require_once('inc/common.inc.php');
 
 ?>
 <!DOCTYPE html>
@@ -26,4 +25,5 @@ require_once('common.inc.php');
 
 <!--
 http://localhost/wdb-course-3/software/notebook/index.php
+$username = getFromSession('username');
 -->

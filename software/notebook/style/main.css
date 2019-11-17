@@ -22,7 +22,7 @@ html, body {
     height: 100%;
     overflow: hidden;
     background: url("../image/main.jpg") no-repeat center;
-    background-size: contain;
+    background-size: cover;
 }
 
 .title {

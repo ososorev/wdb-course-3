@@ -47,7 +47,7 @@ class Database {
         $print = '';
         foreach ($resource as $i => $row) {
             $calc[] = $row;
-            $print = $print.self::createdRow($calc, $i);
+            $print .= self::createdRow($calc, $i);
         }
         echo $print;
     }

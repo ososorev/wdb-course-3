@@ -3,15 +3,27 @@ document.addEventListener("DOMContentLoaded", createPage);
 function send(event) {
     event.preventDefault();
     fetch("register.php", {method: "POST", body: new FormData(document.forms[0])})
-         .then(response => response.text()).then(outputResult => {
+        .then(response => response.text()).then(outputResult => {
         document.querySelector(".output").innerHTML = outputResult;
     })
 }
 
+function addClass($element, $class) {
+    $element.classList.add($class);
+}
+function createElement($tag, $parent) {
+    let element = document.createElement($tag);
+    $parent.append(element);
+}
+function createElementWithClass($tag, $parent) {
+    let element = document.createElement($tag);
+    addClass(element, $class);
+    $parent.append(element);
+}
+
 function createPage() {
-    let elementContainer = document.createElement("div");
+    createElement("div", document.body);
     elementContainer.classList.add("container");
-    document.body.append(elementContainer);
 
     let elementHeader = document.createElement("div");
     elementHeader.classList.add("header");
