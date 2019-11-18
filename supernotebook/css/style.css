@@ -28,6 +28,7 @@ body{
     flex-direction: column;
     min-height: 100vh;
     justify-content: space-between;
+
 }
 .header{
     position: relative;
@@ -53,7 +54,6 @@ body{
 .header__content{
     height: 110px;
     width: 100%;
-    text-transform: uppercase;
 }
 
 .flexContainer{
@@ -93,6 +93,9 @@ body{
     border-radius: 10px;
     font-weight: 600;
     cursor: pointer;
+    font-size: 14px;
+    border: 1px solid #000000;
+
 }
 
 .errors{
@@ -105,4 +108,35 @@ body{
     color: forestgreen;
     font-size: 20px;
     margin-top: 30px;
+}
+
+.link_button{
+    padding: 10px;
+    width: 100%;
+}
+
+.column{
+    flex-direction: column;
+}
+
+.list_notes{
+    width: 100%;
+}
+
+.see_note{
+    width: 100%;
+}
+
+.note_name{
+    width: 50%;
+}
+
+.note_name{
+    cursor: pointer;
+}
+
+.marker{
+    cursor: pointer;
+    color: #8b8b8b;
+    margin-left: 15px;
 }

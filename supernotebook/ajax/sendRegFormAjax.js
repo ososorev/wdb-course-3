@@ -1,12 +1,12 @@
-function sendToServer(event) {
+function sendRegFormAjax(event) {
     event.preventDefault();
     removeErrors();
-    fetch("getFormData.php", {method: "POST", body: new FormData(document.forms[0])})
+    fetch("getFormData.php", {method: "POST", body: new FormData(document.querySelector('.registration__form'))})
        .then(response => response.json())
        .then(errors => {
            if(!errors.error){
-               document.querySelector('.registration__ok').innerHTML = "Регистрация прошла успешно!";
-               document.querySelector('.registration__form').reset();
+               document.querySelector('.registration__ok').innerHTML = "Регистрация прошла успешно! Вы будете перенаправлены на страницу авторизации";
+               setTimeout('location.replace("index.php")', 3500);
            }
            else {
                if (errors.error_username) {

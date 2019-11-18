@@ -1,6 +1,6 @@
 <?php
-    require_once("classDB.php");
-    require_once ("checkRegData.php");
+    require_once("phpClass/classDB.php");
+    require_once("phpClass/checkRegData.php");
 
     $username = $_REQUEST['username'];
     $password = (($_REQUEST['password'] != null) ? md5($_REQUEST['password']) : null );
@@ -16,6 +16,7 @@
     $errors = new checkRegData($username, $password, $confirmPass, $email);
 
     $errorsArr = $errors->getErrors();
+
     if ($errorsArr['error'] == 0){
         $db = new DataBase('localhost','root', '', 'users');
         $db->insert('registration_data', $arrData);

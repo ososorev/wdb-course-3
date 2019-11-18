@@ -1,6 +1,8 @@
 <?php
     global $id;
     require_once ("functions.php");
+    header('Access-Control-Allow-Origin: http://calcsession/');
+    header('Access-Control-Allow-Credentials: true');
     if (!isset($_SESSION))
     {
         session_start();

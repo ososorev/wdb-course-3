@@ -20,9 +20,8 @@ class checkRegData
         $this->checkUsername();
         $this->checkPassword();
         $this->checkEmail();
-
-
     }
+
     private function checkUsername(){
         $db = new DataBase('localhost', 'root', '', 'users');
         if ($this->username != null) {
