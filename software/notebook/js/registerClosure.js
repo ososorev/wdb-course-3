@@ -37,6 +37,7 @@ function createPage() {
     let form = document.createElement("form");
     form.id = "form";
     form.classList.add("formBlock");
+    form.method = "POST";
     elementContent.append(form);
 
     let elementInputUsername = document.createElement("input");

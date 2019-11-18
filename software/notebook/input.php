@@ -6,7 +6,6 @@ require_once('inc/common.inc.php');
 
 $inputUsername = $_REQUEST["inputUsername"];
 $inputPassword = $_REQUEST["inputPassword"];
-$buttonReg = $_REQUEST["buttonRegister"];
 $buttonLog = $_REQUEST["buttonLogin"];
 $error = '';
 if (isset($buttonLog)) {
@@ -35,7 +34,7 @@ ob_end_flush();
         <div class="mainContainer">
             <div class="header">SUPER NOTEBOOK</div>
             <div class="content">
-                <form id=form class="formBlock">
+                <form id=form class="formBlock" method="post">
                     <input placeholder="Username" class="inputForm" name="inputUsername" type="text">
                     <input placeholder="Password" class="inputForm" name="inputPassword" type="password">
                     <input class="buttonLog" type="submit" name="buttonLogin" value="Login">

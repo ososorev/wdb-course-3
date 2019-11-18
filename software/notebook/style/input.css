@@ -14,7 +14,7 @@ html, body {
     clear: both;
 }
 
-.container {
+.mainContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;

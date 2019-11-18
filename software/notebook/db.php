@@ -13,7 +13,7 @@ class Database {
     {
         $resource = self::query("SELECT username FROM user WHERE username = $inputUsername");
         $username = [];
-        if (isset($resource)){
+        if (!empty($resource)){
             foreach ($resource as $row) {
                 $username[] = $row;
             }
@@ -31,15 +31,15 @@ class Database {
 //    }
 
     public static function insert($inputUsername, $inputPassword, $inputEMail) {
-        if (self::checkingUniquenessOfUsername($inputUsername)) {
+        // if (!self::checkingUniquenessOfUsername($inputUsername)) {
         // if (!in_array("$inputUsername", self::getUserList())) {
             self::query("INSERT INTO user(username, password, email)
             VALUES ('$inputUsername', MD5('$inputPassword'), '$inputEMail')");
-        }
+        // }
     }
 
     private static function getAllUsers() {
-        self::query("SELECT username FROM user ORDER BY username");
+        return self::query("SELECT username FROM user ORDER BY username");
     }
 
     private static function getUserList() {
@@ -53,7 +53,7 @@ class Database {
 
     private static function getPasswordByUsername($inputUsername)
     {
-        self::query("SELECT password FROM user WHERE username = $inputUsername");
+        return self::query("SELECT password FROM user WHERE username = $inputUsername");
     }
 
     public static function checkPassword($inputUsername, $inputPassword)
@@ -64,12 +64,21 @@ class Database {
     }
 
     public static function checkPair($inputUsername, $inputPassword) {
-//        self::query("SELECT username, password FROM user");
-//        if (username = $inputUsername && password = $inputPassword) {
-            return true;
-//        } else {
-//            return false;
-//        }
+        $resource = self::query("SELECT password FROM user WHERE  username = $inputUsername");
+        if (!empty($resource)) {
+            $password = [];
+            foreach ($resource as $row) {
+                $password[] = $row;
+            }
+            if ($password['password'] == $inputPassword) {
+                return true;
+            } else {
+                echo "Введите правильный пароль";
+            }
+        } else {
+            echo "Такого пользователя не существует";
+        }
+        return false;
     }
 }
 
