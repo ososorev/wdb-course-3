@@ -1,4 +1,5 @@
 <?php
+ob_start();
 // header ('Content-Type: text/html; charset=utf-8');
 // header('Location: http://localhost/wdb-course-3/software/notebook/mainPage.php');
 require_once('inc/common.inc.php');
@@ -8,13 +9,11 @@ $inputPassword = $_REQUEST["inputPassword"];
 $buttonReg = $_REQUEST["buttonRegister"];
 $buttonLog = $_REQUEST["buttonLogin"];
 $error = '';
-if (isset($buttonReg)) {
-    return;
-}
 if (isset($buttonLog)) {
     if (!empty($inputUsername) && !empty($inputPassword)) {
         if (Database::checkPair($inputUsername, $inputPassword)) {
-            return;
+            header('Location: http://localhost/wdb-course-3/software/notebook/mainPage.php');
+            exit();
         } else {
             $error .= "Проверьте введенные имя и пароль";
         }
@@ -22,7 +21,7 @@ if (isset($buttonLog)) {
         $error .= "Введите свое имя и пароль, если Вы зарегистрированы";
     }
 }
-
+ob_end_flush();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +39,7 @@ if (isset($buttonLog)) {
                     <input placeholder="Username" class="inputForm" name="inputUsername" type="text">
                     <input placeholder="Password" class="inputForm" name="inputPassword" type="password">
                     <input class="buttonLog" type="submit" name="buttonLogin" value="Login">
-                    <input class="buttonReg" type="submit" name="buttonRegister" onclick="register()" value="Register">
+                    <input class="buttonReg" name="buttonRegister" onclick="register()" value="Register">
                 </form>
             </div>
             <div class="output"><?php echo $error ?></div>

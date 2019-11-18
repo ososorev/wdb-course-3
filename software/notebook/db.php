@@ -6,7 +6,7 @@ class Database {
     }
 
     private static function query($sql) {
-        mysqli_query(self::connection(), $sql);
+        return mysqli_query(self::connection(), $sql);
     }
 
     private static function checkingUniquenessOfUsername($inputUsername)
@@ -60,7 +60,7 @@ class Database {
     {
         $validPasswordHash = self::getPasswordByUsername($inputUsername)[0]['password'];
         $passwordHash = md5($inputPassword);
-        return ($passwordHash == $validPasswordHash);
+        return $passwordHash == $validPasswordHash;
     }
 
     public static function checkPair($inputUsername, $inputPassword) {
