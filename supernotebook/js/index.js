@@ -1,3 +1,3 @@
 let App = {};
 //App.start();
-document.addEventListener("DOMContentLoaded", App.start);
+window.addEventListener("load", App.start);

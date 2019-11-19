@@ -29,7 +29,6 @@
 </div>
 <div class="content flexContainer">
     <div class="list_notes">
-<!--        <script>generateNoteList(--><?//echo json_encode($noteList);?>//)</script--!>
     </div>
     <div class="see_note">
     </div>

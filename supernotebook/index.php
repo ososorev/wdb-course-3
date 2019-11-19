@@ -6,9 +6,15 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/index.js"></script>
     <script src="js/resetErrorContainer.js"></script>
+    <script src="jsObject/ObjectForm.js"></script>>
+    <script src="js/generateLoginForm.js"></script>
     <script src="ajax/sendLoginFormAjax.js"></script>
-    <script> window.onload = App.generateLoginForm</script>
+    <script src="js/start.js"></script>
 
+    <script>
+        window.addEventListener("load", App.start);
+        window.addEventListener("load", App.generateLoginForm);
+    </script>
 
 </head>
 <body>
@@ -17,10 +23,10 @@
         super notebook
     </div>
 </div>
-<div class="content">
+<div class="content flexContainer column">
     <div class="login flexContainer column">
-        <button class="button registration__form__item" onclick="document.location='register.php'">Register</button>
     </div>
+    <button class="button registration__form__item" onclick="document.location='register.php'">Register</button>
 </div>
 <div class="footer">
     <div class="footer__content bg-gray flexContainer">
