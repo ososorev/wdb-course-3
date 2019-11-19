@@ -2,11 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fee81c4c-43d0-4a68-9a2b-2e3df4a129a1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../calcdbclass/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../calcdbclass/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calcdbclass/calculation.php" beforeDir="false" afterPath="$PROJECT_DIR$/../calcdbclass/calculation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calcdbclass/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/../calcdbclass/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../supernotebook/ajax/sendLoginFormAjax.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../supernotebook/getLoginData.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../supernotebook/js/generateLoginForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../supernotebook/js/generateRegForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../supernotebook/jsObject/ObjectForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../supernotebook/notebook.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../supernotebook/phpClass/note.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../supernotebook/phpClass/user.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../supernotebook/register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/calculation.php" beforeDir="false" afterPath="$PROJECT_DIR$/calculation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sendToServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/sendToServer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supernotebook/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../supernotebook/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supernotebook/checkRegData.php" beforeDir="false" afterPath="$PROJECT_DIR$/../supernotebook/phpClass/checkRegData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supernotebook/classDB.php" beforeDir="false" afterPath="$PROJECT_DIR$/../supernotebook/phpClass/classDB.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supernotebook/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../supernotebook/js/resetErrorContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supernotebook/generateForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supernotebook/getFormData.php" beforeDir="false" afterPath="$PROJECT_DIR$/../supernotebook/getFormData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supernotebook/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/../supernotebook/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supernotebook/sendToServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../supernotebook/ajax/sendRegFormAjax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supernotebook/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../supernotebook/css/style.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +39,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
+            <state relative-caret-position="296">
               <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
             </state>
           </provider>
@@ -47,8 +62,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sendToServer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="4" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+            <state relative-caret-position="34">
+              <caret line="2" column="107" selection-start-line="2" selection-start-column="83" selection-end-line="2" selection-end-column="107" />
             </state>
           </provider>
         </entry>
@@ -61,19 +76,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/calculation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="68">
+              <caret line="4" column="21" selection-start-line="3" selection-end-line="4" selection-end-column="53" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/calc.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://W:/domains/calcphp/index.php">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
@@ -92,9 +102,9 @@
       <list>
         <option value="$PROJECT_DIR$/../calcdb/functions.php" />
         <option value="W:/modules/php/PHP_7.1-x64/php.ini" />
+        <option value="$PROJECT_DIR$/functions.php" />
         <option value="$PROJECT_DIR$/sendToServer.js" />
         <option value="$PROJECT_DIR$/calculation.php" />
-        <option value="$PROJECT_DIR$/functions.php" />
       </list>
     </option>
   </component>
@@ -188,17 +198,18 @@
       <updated>1572544687529</updated>
       <workItem from="1572544688746" duration="13543000" />
       <workItem from="1573071004431" duration="287000" />
+      <workItem from="1573992170363" duration="1796000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13830000" />
+    <option name="totallyTimeSpent" value="15626000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2534413" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2574899" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -213,7 +224,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="PHP-CGI Server" order="10" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="12" side_tool="true" visible="true" weight="0.3285968" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" visible="true" weight="0.3285968" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -224,15 +235,6 @@
     <option name="version" value="1" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/calculation.php</url>
-          <line>4</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="calculation.php">
         <watch expression="$_SESSION" language="PHP" />
@@ -252,20 +254,8 @@
     <entry file="file://$PROJECT_DIR$/style.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://W:/modules/php/PHP_7.1-x64/php.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="383" column="31" selection-start-line="383" selection-start-column="31" selection-end-line="383" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://W:/modules/php/PHP_7.1-x64/php.ini" />
+    <entry file="file://W:/domains/calcphp/index.php" />
     <entry file="file://$PROJECT_DIR$/../calcdb/functions.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="833">
@@ -276,26 +266,30 @@
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/sendToServer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="4" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../calcdb/calculation.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/calc.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://W:/domains/calcphp/index.php">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sendToServer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="107" selection-start-line="2" selection-start-column="83" selection-end-line="2" selection-end-column="107" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/calculation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="68">
+          <caret line="4" column="21" selection-start-line="3" selection-end-line="4" selection-end-column="53" />
         </state>
       </provider>
     </entry>

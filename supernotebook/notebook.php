@@ -8,9 +8,15 @@
     <meta charset="UTF-8">
     <title>SUPER NOTEBOOK</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="jsObject/ObjectForm.js"></script>
+    <script src="js/index.js"></script>
     <script src="js/generateNote.js"></script>
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch("notes_list.php").then().then(notes => {
+                generateNoteList(notes)
+            })
+        })
+    </script>
 </head>
 <body>
 <div class="header">
@@ -23,7 +29,7 @@
 </div>
 <div class="content flexContainer">
     <div class="list_notes">
-        <script>generateNoteList(<?echo json_encode($noteList);?>)</script>
+<!--        <script>generateNoteList(--><?//echo json_encode($noteList);?>//)</script--!>
     </div>
     <div class="see_note">
     </div>

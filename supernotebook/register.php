@@ -5,7 +5,7 @@
     <title>SUPER NOTEBOOK</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="ajax/sendRegFormAjax.js"></script>
-    <script src="jsObject/ObjectForm.js"></script>
+    <script src="js/index.js"></script>
     <script src="js/resetErrorContainer.js"></script>
 
 

@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>SUPER NOTEBOOK</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="jsObject/ObjectForm.js"></script>
+    <script src="js/index.js"></script>
     <script src="js/resetErrorContainer.js"></script>
     <script src="ajax/sendLoginFormAjax.js"></script>
+    <script> window.onload = App.generateLoginForm</script>
 
 
 </head>
@@ -18,7 +19,6 @@
 </div>
 <div class="content">
     <div class="login flexContainer column">
-        <script src="js/generateLoginForm.js"></script>
         <button class="button registration__form__item" onclick="document.location='register.php'">Register</button>
     </div>
 </div>

@@ -1,4 +1,4 @@
-let form = ObjectForm;
+let form = App.ObjectForm;
 
 form.addClassToForm("registration__form flexContainer column")
 form.addInputToForm('text', 'username', "Username");

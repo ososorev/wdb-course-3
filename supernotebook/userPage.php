@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once ('phpClass/user.php');
     require_once ('phpClass/classDB.php');
     $user = null;

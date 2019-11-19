@@ -1,15 +1,15 @@
 let ObjectForm = {};
 
-(function (formClass) {
+(function () {
     ObjectForm.addInputToForm = addInputToForm;
     ObjectForm.addFormToPage = addFormToPage;
     ObjectForm.addDivErrorsToForm = addDivErrorsToForm;
     ObjectForm.addButton = addButton;
-    ObjectForm.addClassToForm =addClassToForm;
+    ObjectForm.addClassToForm = addClassToForm;
 
     let form = document.createElement("form");
     form.setAttribute('method',"post");
-   // form.className ="registration__form flexContainer column";
+
 
     function addClassToForm(formClassName){
         form.className = formClassName;
