@@ -8,12 +8,15 @@
     	$result = validate();
 		echo ($result);
 	}
-	function validate() {					
-		if ($password === $confirmPassword) {
+	function validate() {
+		global $password;
+		global $confirmPassword;
+		global $email;
+		if ($password == $confirmPassword) {
 			if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 				$result = "Successful!";
 			} 
-			else{
+			else {
 				$result = "Invalid email";
 			}
 		}
