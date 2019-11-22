@@ -17,29 +17,49 @@ html, body {
 .mainContainer {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 100%;
-    // height:100vh;
-    height: 100%;
-    overflow: hidden;
-    background: url("../image/main.jpg") no-repeat center;
-    background-size: cover;
-}
-
-.title {
-    display: flex;
-    color: blue;
-    font-size: 48px;
-    margin: 160px  auto 0;
-}
-
-.mainButton {
-    display: flex;
+    min-height: 100%;
     text-align: center;
-    text-decoration: none;
-    margin: 60px  auto 0;
+    font-family: Georgia;
+    font-size: 19px;
+    line-height: 32px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    flex: 0 0 auto;
+    color:#000;
+    background-color: #e6e6e6;
+    height: 62px;
+    padding-top: 16px;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    flex: 1 0 auto;
+    margin: 0 auto;
+    padding-top: 28px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.listOfNotesContainer {
+    display: flex;
+    background-color: bisque;
+    width: 40%;
+    border-left: 2px;
+}
+
+.buttonAddNote {
+    display: block;
+    text-align: center;
+    margin: 20px;
     min-height: 30px;
-    min-width: 178px;
-    padding: 8px 58px;
+    min-width: 252px;
+    padding: 8px;
     color: #fff;
     background-color: #008cff;
     font-size: 19px;
@@ -48,7 +68,25 @@ html, body {
     border-radius: 19px;
 }
 
-.mainButton:hover {
+.buttonAddNote:hover {
     cursor: pointer;
     background-color: #0055ff;
+}
+
+
+.infoContainer {
+    display: flex;
+    background-color: antiquewhite;
+}
+
+.output {
+    display: flex;
+    margin: 0 auto;
+    color: red;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    padding-top: 28px;
 }
