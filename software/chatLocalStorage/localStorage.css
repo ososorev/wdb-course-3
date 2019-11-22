@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.clear {
+    clear: both;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: beige;
+    color: black;
+    margin: auto;
+    max-width: 500px;
+}
+
+.field {
+    display: flex;
+    flex-grow: 1;
+    border: 2px solid green;
+    margin: 20px;
+    max-width: 600px;
+    padding-left: 12px;
+}
+
+.name {
+   display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+}
+
+.labelName {
+    color: blue;
+    margin-top: 28px;
+}
+
+.inputName {
+    border: 2px solid green;
+    color: blue;
+    height: 36px;
+}
+
+.outputField {
+    min-height: 200px;
+    border: 2px solid green;
+    color: brown;
+}
+
+.inputField {
+    min-height: 200px;
+    border: 2px solid green;
+    color: mediumvioletred;
+}
+
+.sendMessage {
+    display: block;
+    text-align: center;
+    margin: 20px;
+    min-height: 30px;
+    width: 180px;
+    padding: 8px;
+    color: #fff;
+    background-color: #008cff;
+    font-size: 19px;
+    line-height: 32px;
+    border: 2px solid #666;
+    border-radius: 19px;
+}
+
+.buttonReg:hover {
+    cursor: pointer;
+    background-color: #0055ff;
+}
+
+div.mainContainer > div {
+    margin-top: 6px;
+}

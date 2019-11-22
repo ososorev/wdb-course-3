@@ -1,0 +1,27 @@
+.container {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+}
+
+.user-field {
+    display: flex;
+}
+
+.user-input {
+    flex-grow: 1;
+    padding-left: 10px;
+}
+
+.user-name {
+    width: 100%;
+}
+
+.message, button {
+    width: 100%;
+}
+
+div.container > div {
+    margin-top: 10px;
+}
