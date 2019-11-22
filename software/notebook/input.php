@@ -10,11 +10,12 @@ $buttonLog = $_REQUEST["buttonLogin"];
 $error = '';
 if (isset($buttonLog)) {
     if (!empty($inputUsername) && !empty($inputPassword)) {
-        if (Database::checkPair($inputUsername, $inputPassword)) {
+        $result = Database::checkPair($inputUsername, $inputPassword);
+        if ($result === true) {
             header('Location: http://localhost/wdb-course-3/software/notebook/mainPage.php');
             exit();
         } else {
-            $error .= "Проверьте введенные имя и пароль";
+            $error .= "Проверьте введенные имя и пароль; " . $result;
         }
     } else {
         $error .= "Введите свое имя и пароль, если Вы зарегистрированы";
@@ -37,8 +38,8 @@ ob_end_flush();
                 <form id=form class="formBlock" method="post">
                     <input placeholder="Username" class="inputForm" name="inputUsername" type="text">
                     <input placeholder="Password" class="inputForm" name="inputPassword" type="password">
-                    <input class="buttonLog" type="submit" name="buttonLogin" value="Login">
-                    <input class="buttonReg" name="buttonRegister" onclick="register()" value="Register">
+                    <input class="buttonInput buttonLog" type="submit" name="buttonLogin" value="Login">
+                    <input class="buttonInput buttonReg" name="buttonRegister" onclick="register()" value="Register">
                 </form>
             </div>
             <div class="output"><?php echo $error ?></div>

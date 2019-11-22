@@ -61,8 +61,7 @@ html, body {
     border: 2px solid #666;
 }
 
-.buttonReg,
-.buttonLog {
+.buttonInput {
     display: block;
     text-align: center;
     margin: 20px;
@@ -78,11 +77,10 @@ html, body {
 }
 
 .buttonReg {
-    max-height: 252px;
+    box-sizing: border-box;
 }
 
-.buttonReg:hover,
-.buttonLog:hover {
+.buttonInput:hover {
     cursor: pointer;
     background-color: #0055ff;
 }
