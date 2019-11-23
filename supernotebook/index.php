@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/index.js"></script>
     <script src="js/resetErrorContainer.js"></script>
-    <script src="jsObject/ObjectForm.js"></script>>
+    <script src="jsObject/ObjectForm.js"></script>
     <script src="js/generateLoginForm.js"></script>
     <script src="ajax/sendLoginFormAjax.js"></script>
     <script src="js/start.js"></script>

@@ -1,6 +1,6 @@
 <?php
-    require_once("phpClass/classDB.php");
-    require_once("phpClass/checkRegData.php");
+    require_once($_SERVER['DOCUMENT_ROOT']."/phpClass/classDB.php");
+    require_once($_SERVER['DOCUMENT_ROOT']."/phpClass/checkRegData.php");
 
     $username = $_REQUEST['username'];
     $password = (($_REQUEST['password'] != null) ? md5($_REQUEST['password']) : null );

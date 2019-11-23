@@ -1,6 +1,6 @@
 <?php
-require_once("phpClass/classDB.php");
-require_once("phpClass/checkUserData.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/phpClass/classDB.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/phpClass/checkUserData.php");
 
 header('Access-Control-Allow-Origin: http://supernotebook/');
 header('Access-Control-Allow-Credentials: true');

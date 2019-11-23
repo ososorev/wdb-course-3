@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <title>SUPER NOTEBOOK</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="ajax/sendRegFormAjax.js"></script>
     <script src="js/index.js"></script>
     <script src="js/resetErrorContainer.js"></script>
+    <script src="jsObject/ObjectForm.js"></script>
+    <script src="js/generateRegForm.js"></script>
+    <script src="ajax/sendRegFormAjax.js"></script>
+    <script src="js/start.js"></script>
 
-
+    <script>
+        window.addEventListener("load", App.generateRegForm);
+    </script>
 </head>
 <body>
     <div class="header">
@@ -18,7 +23,6 @@
     </div>
     <div class="content">
         <div class="registration flexContainer column">
-            <script src="js/generateRegForm.js"></script>
             <div class="registration__ok"></div>
         </div>
     </div>

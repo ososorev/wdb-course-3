@@ -8,9 +8,9 @@ class user
     private $arrUserNotes;
     private $userId;
 
-    function __construct($userId, $userSession){
+    function __construct($userId){
         $this->userId = $userId;
-        $this->userSession = $userSession;
+        //$this->userSession = $userSession;
         $this->getUserData();
 
     }
