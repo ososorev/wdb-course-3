@@ -1,6 +1,6 @@
 let form = App.ObjectForm;
 
-form.addClassToForm("registration__form flexContainer column")
+form.addClassToForm("registration__form flexContainer column");
 form.addInputToForm('text', 'username', "Username");
 form.addDivErrorsToForm('error_username');
 form.addInputToForm('password', 'password', 'Password');

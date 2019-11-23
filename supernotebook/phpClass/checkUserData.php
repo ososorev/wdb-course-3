@@ -43,7 +43,7 @@ class checkUserData
     private function checkPassword($password){
         if ($password!= $this->password){
             $this->arrError['error'] = 1;
-            $this->arrError['error_username'] = "Пароль неверный";
+            $this->arrError['error_password'] = "Пароль неверный";
         }
 
     }

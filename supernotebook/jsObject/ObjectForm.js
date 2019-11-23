@@ -1,11 +1,12 @@
-let ObjectForm = {};
+// let ObjectForm = {};
 
 (function () {
-    ObjectForm.addInputToForm = addInputToForm;
-    ObjectForm.addFormToPage = addFormToPage;
-    ObjectForm.addDivErrorsToForm = addDivErrorsToForm;
-    ObjectForm.addButton = addButton;
-    ObjectForm.addClassToForm = addClassToForm;
+    App.ObjectForm = {};
+    App.ObjectForm.addInputToForm = addInputToForm;
+    App.ObjectForm.addFormToPage = addFormToPage;
+    App.ObjectForm.addDivErrorsToForm = addDivErrorsToForm;
+    App.ObjectForm.addButton = addButton;
+    App.ObjectForm.addClassToForm = addClassToForm;
 
     let form = document.createElement("form");
     form.setAttribute('method',"post");

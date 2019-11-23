@@ -23,9 +23,3 @@
     }
 
     echo json_encode($errorsArr, JSON_UNESCAPED_UNICODE);
-
-
-
-
-
-

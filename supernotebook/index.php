@@ -12,7 +12,6 @@
     <script src="js/start.js"></script>
 
     <script>
-        window.addEventListener("load", App.start);
         window.addEventListener("load", App.generateLoginForm);
     </script>
 
