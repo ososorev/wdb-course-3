@@ -10,7 +10,9 @@
             })
                 .then(response => response.text())
                 .then(response => {
-                    alert(response);
+                    //alert(response);
+
+                    $('.ok_save').modal();
                     document.querySelector('.note_work_area').innerHTML = '';
                     App.getNoteListAjax(event);
                 });

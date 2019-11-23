@@ -44,6 +44,7 @@ class Note
 
     public function delete(){
 
+
     }
 
     public function add(){
