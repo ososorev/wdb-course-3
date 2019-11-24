@@ -26,7 +26,10 @@ if (!empty($inputUsername) && !empty($inputPassword) && !empty($inputConfirmPass
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style/register.css">
         <title>Register</title>
+        <script src="js/registerClosure.js"></script>
+        <!--
         <script src="js/register.js"></script>
+        -->
     </head>
     <body>
     </body>

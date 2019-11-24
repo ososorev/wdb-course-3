@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", createPage);
+let App = {}; // всё складываем сюда
+document.addEventListener("DOMContentLoaded", start);
 
 function send(event) {
     event.preventDefault();
@@ -7,84 +8,83 @@ function send(event) {
         document.querySelector(".output").innerHTML = outputResult;
     })
 }
+let forms = {};
 
-function addClass($element, $class) {
-    $element.classList.add($class);
-}
-function createElement($tag, $parent) {
-    let element = document.createElement($tag);
-    $parent.append(element);
-}
-function createElementWithClass($tag, $parent) {
-    let element = document.createElement($tag);
-    addClass(element, $class);
-    $parent.append(element);
-}
+(function(){
+    forms.divElement=divElement;
+    function divElement(className, parent) {
+        let elementDiv = document.createElement("div");
+        elementDiv.classList.add(className);
+        parent.append(elementDiv);
+    }
+    forms.formElement=formElement;
+    function formElement(parent) {
+        let form = document.createElement("form");
+        form.id = "form";
+        form.classList.add("formBlock");
+        form.method = "POST";
+        parent.append(form);
+    }
+    forms.inputElement=inputElement;
+    function inputElement(placeholder, name, type, form) {
+        let elementInput = document.createElement("input");
+        elementInput.placeholder = placeholder;
+        elementInput.classList.add("inputForm");
+        elementInput.name = name;
+        elementInput.type = type;
+        elementInput.required = true;
+        form.append(elementInput);
+    }
+    forms.buttonElement=buttonElement;
+    function buttonElement(form) {
+        let button = document.createElement("input");
+        button.classList.add("buttonReg");
+        button.type = "submit";
+        button.name = "button";
+        button.onclick = send;
+        button.value = "Register";
+        form.append(button);
+    }
+    forms.headerOrFooterElement=headerOrFooterElement;
+    function headerOrFooterElement(different, value, elementContainer) {
+        let elementHeaderOrFooter = document.createElement("div");
+        elementHeaderOrFooter.classList.add("header", different);
+        elementHeaderOrFooter.innerText = value;
+        elementContainer.append(elementHeaderOrFooter);
+    }
+})();
 
-function createPage() {
-    createElement("div", document.body);
-    elementContainer.classList.add("container");
+// (function(){
+//     App.start = start;
+function start() {
+    let elementContainer = document.createElement("div");
+    elementContainer.classList.add('container');
+    document.body.append(elementContainer);
+    //forms.divElement("container", document.body);
 
-    let elementHeader = document.createElement("div");
-    elementHeader.classList.add("header");
-    elementHeader.innerText = "SUPER NOTEBOOK";
-    elementContainer.append(elementHeader);
+    forms.headerOrFooterElement("header", "SUPER NOTEBOOK", elementContainer);
 
     let elementContent = document.createElement("div");
     elementContent.classList.add("content");
     elementContainer.append(elementContent);
+    // forms.divElement("content", elementContainer);
 
     let form = document.createElement("form");
     form.id = "form";
     form.classList.add("formBlock");
     form.method = "POST";
     elementContent.append(form);
+    // forms.formElement(elementContent);
 
-    let elementInputUsername = document.createElement("input");
-    elementInputUsername.placeholder = "Username";
-    elementInputUsername.classList.add("inputForm");
-    elementInputUsername.name = "inputUsername";
-    elementInputUsername.type = "text";
-    elementInputUsername.required = true;
-    form.append(elementInputUsername);
+    forms.inputElement("Username", "inputUsername", "text", form);
+    forms.inputElement("Password", "inputPassword", "password", form);
+    forms.inputElement("Confirm password", "inputConfirmPassword", "password", form);
+    forms.inputElement("EMail", "inputEMail", "text", form);
 
-    let elementInputPassword = document.createElement("input");
-    elementInputPassword.placeholder = "Password";
-    elementInputPassword.classList.add("inputForm");
-    elementInputPassword.name = "inputPassword";
-    elementInputPassword.type = "password";
-    elementInputPassword.required = true;
-    form.append(elementInputPassword);
+    forms.buttonElement(form);
 
-    let elementInputConfirmPassword = document.createElement("input");
-    elementInputConfirmPassword.placeholder = "Confirm password";
-    elementInputConfirmPassword.classList.add("inputForm");
-    elementInputConfirmPassword.name = "inputConfirmPassword";
-    elementInputConfirmPassword.type = "password";
-    elementInputConfirmPassword.required = true;
-    form.append(elementInputConfirmPassword);
+    forms.divElement("output", elementContainer);
 
-    let elementInputEMail = document.createElement("input");
-    elementInputEMail.placeholder = "EMail";
-    elementInputEMail.classList.add("inputForm");
-    elementInputEMail.name = "inputEMail";
-    elementInputEMail.type = "text";
-    form.append(elementInputEMail);
-
-    let button = document.createElement("input");
-    button.classList.add("buttonReg");
-    button.type = "submit";
-    button.name = "button";
-    button.onclick = send;
-    button.value = "Register";
-    form.append(button);
-
-    let elementOutputResult = document.createElement("div");
-    elementOutputResult.classList.add("output");
-    elementContent.append(elementOutputResult);
-
-    let elementFooter = document.createElement("div");
-    elementFooter.classList.add("header", "footer");
-    elementFooter.innerText = "Copyright by ..., 2016";
-    elementContainer.append(elementFooter);
+    forms.headerOrFooterElement("footer", "Copyright by ..., 2016", elementContainer);
 }
+// })();
