@@ -15,7 +15,7 @@ if (isset($buttonLog)) {
             header('Location: http://localhost/wdb-course-3/software/notebook/mainPage.php');
             exit();
         } else {
-            $error .= "Проверьте введенные имя и пароль; " . $result;
+            $error .= $result;
         }
     } else {
         $error .= "Введите свое имя и пароль, если Вы зарегистрированы";
