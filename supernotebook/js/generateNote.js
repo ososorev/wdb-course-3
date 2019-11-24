@@ -36,7 +36,7 @@
                 del.className = 'marker';
 
                 del.onclick = function(){
-                    App.deleteNote(note['id']);
+                    App.deleteNote(note['id'], note['name']);
                 }
                 tr.append(td_name);
                 tr.append(td_date);
@@ -141,7 +141,12 @@
 
 (function() {
     App.deleteNote =
-        function deleteNote(noteId) {
+        function deleteNote(noteId, noneName) {
+            document.querySelector('.delete_modal .note_name').innerHTML = noneName;
+            document.querySelector('.delete_modal .btn_delete').onclick = function () {
+                App.deleteNoteAjax(noteId, event);
+            }
+            $('.delete_modal').modal();
 
         }
 })();

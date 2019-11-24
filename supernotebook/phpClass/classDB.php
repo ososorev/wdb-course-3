@@ -45,11 +45,24 @@ class DataBase{
 
     function select($query){
         $sqlResult = mysqli_query($this->connection, $query);
-        $arrResult = null;
-        foreach ($sqlResult as $row){
-            $arrResult[] = $row;
+        if($sqlResult){
+            $arrResult = null;
+            foreach ($sqlResult as $row){
+                $arrResult[] = $row;
+            }
+            return $arrResult;
         }
-        return $arrResult;
+       else
+           return 0;
+    }
+
+    function query($query){
+        if(mysqli_query($this->connection, $query)){
+            return 1;
+        }
+        else{
+            return 0;
+        }
     }
 
 }
