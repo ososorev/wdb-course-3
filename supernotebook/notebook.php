@@ -3,6 +3,7 @@
     require ('php/deleteNote.php');
     require('php/modalDelete.php');
     require('php/modalCreate.php');
+    require('php/editNote.php');
 ?>
 
 <!DOCTYPE html>
@@ -19,8 +20,18 @@
     <script src="js/start.js"></script>
     <script src="ajax/saveNoteAjax.js"></script>
     <script src="ajax/delNoteAjax.js"></script>
+    <script src="ajax/editNoteAjax.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/ru.js"></script>
+    <script src="js/bootstrap/tempusdominus-bootstrap-4.min.js"></script>
+    <link rel="stylesheet" href="css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+
+
     <script>
       document.addEventListener("DOMContentLoaded", App.getNoteListAjax);
+
     </script>
 </head>
 <body>
@@ -42,6 +53,7 @@
         </div>
         <div class="col-8 border-left">
             <div class="note_work_area row">
+
             </div>
         </div>
     </div>

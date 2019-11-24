@@ -27,8 +27,9 @@
                 edit.innerHTML ="&#10000;";
                 edit.className = 'marker';
 
+
                 edit.onclick = function(){
-                    App.editNote(note['id']);
+                    App.editNote(note);
 
                 }
                 let del = document.createElement('td');
@@ -84,11 +85,62 @@
 
 (function() {
     App.editNote =
-        function editNote(noteId) {
+        function editNote(noteData) {
             let editNote = document.querySelector('.note_work_area');
             editNote.innerHTML = '';
 
+            let form = document.createElement("form");
+            form.setAttribute('method',"post");
+            form.className = "col-12 edit_note";
 
+            let titleEdit = document.createElement("div");
+            titleEdit.className = "title_edit col-12 border-bottom col-sm-10 my-2 text-lg-left";
+            titleEdit.innerHTML = "<p>Edit node</p>";
+
+            let noteName = document.createElement("input");
+            noteName.type = "text";
+            noteName.className = "name_note form-control form-control-lg col-sm-10 my-2";
+            noteName.name = "name_note";
+            noteName.value = noteData.name;
+
+            let dateTime = document.createElement('input');
+            dateTime.type = "text";
+            dateTime.className = "form-control datetimepicker-input col-sm-10 my-2";
+            dateTime.id = "datetimepicker";
+            dateTime.id = "datetimepicker";
+            dateTime.setAttribute('data-toggle', "datetimepicker");
+            dateTime.setAttribute('data-target', "#datetimepicker");
+           /* <input type="text" class="form-control datetimepicker-input" id="datetimepicker5" data-toggle="datetimepicker" data-target="#datetimepicker5"/>*/
+
+            let  textNote = document.createElement("textarea");
+            textNote.className = "text_note form-control form-control-lg col-sm-10 my-2 ";
+            textNote.name = "text_note";
+            textNote.value = noteData.text;
+
+
+            let  sendButton = document.createElement("button");
+            sendButton.className = "button_send btn btn-primary btn-lg my-2";
+            sendButton.name = "save_button";
+            sendButton.innerHTML = "Save";
+            sendButton.onclick = function () {
+                App.editNoteAjax(noteData.id, event);
+            }
+
+
+            form.append(titleEdit);
+            form.append(noteName);
+            form.append(dateTime);
+            form.append(textNote);
+            form.append(sendButton);
+            editNote.append(form);
+
+            $('#datetimepicker').datetimepicker(
+                {
+                    format: 'YYYY-MM-DD h:mm:ss'
+                    //defaultDate: noteData['date_create']
+                    //2019-11-23 13:38:40
+                }
+            );
 
         }
 })();
@@ -105,7 +157,7 @@
 
             let titleEdit = document.createElement("div");
             titleEdit.className = "title_edit col-12 border-bottom col-sm-10 my-2 text-lg-left";
-            titleEdit.innerHTML = "<p>Create node</p>";
+            titleEdit.innerHTML = "<p>Редактирование заметки</p>";
 
             let noteName = document.createElement("input");
             noteName.type = "text";
@@ -113,10 +165,12 @@
             noteName.name = "name_note";
             noteName.placeholder = "Note name";
 
+
             let  textNote = document.createElement("textarea");
             textNote.className = "text_note form-control form-control-lg col-sm-10 my-2 ";
             textNote.placeholder = "Note text";
             textNote.name = "text_note";
+
 
             let  sendButton = document.createElement("button");
             sendButton.className = "button_send btn btn-primary btn-lg my-2";
@@ -132,6 +186,7 @@
             form.append(textNote);
             form.append(sendButton);
             createNote.append(form);
+
 
 
 

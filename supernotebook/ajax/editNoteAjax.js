@@ -1,11 +1,10 @@
 (function() {
-    App.saveNoteAjax =
-        function saveNoteAjax(event) {
+    App.editNoteAjax =
+        function editNoteAjax(noteId, event) {
             event.preventDefault();
-
-            fetch("php/createNote.php", {
+            fetch("php/editNote.php", {
                 method: "POST",
-                body: new FormData(document.querySelector('.create_note')),
+                body: new FormData(document.querySelector('.edit_note')),
                 credentials: 'include'
             })
                 .then(response => response.text())
