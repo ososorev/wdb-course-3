@@ -31,9 +31,6 @@
     <script src="ajax/delNoteAjax.js"></script>
     <script src="ajax/editNoteAjax.js"></script>
 
-
-
-
     <script>
       document.addEventListener("DOMContentLoaded", App.getNoteListAjax);
     </script>

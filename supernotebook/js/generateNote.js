@@ -86,6 +86,10 @@
 (function() {
     App.editNote =
         function editNote(noteData) {
+        //create_form();
+        //create_title_edit();
+        //Create_date_edit();
+
             let editNote = document.querySelector('.note_work_area');
             editNote.innerHTML = '';
 
@@ -108,7 +112,7 @@
             dateTime.className = "form-control datetimepicker-input col-sm-10 my-2";
             dateTime.id = "datetimepicker";
             dateTime.name = "datetime_create";
-            //dateTime.value = noteData.date_create;
+            dateTime.value = noteData.date_create;
 
             dateTime.setAttribute('data-toggle', "datetimepicker");
             dateTime.setAttribute('data-target', "#datetimepicker");
@@ -139,9 +143,10 @@
 
 
                 $('#datetimepicker').datetimepicker({
-                    format: 'YYYY-MM-DD hh:mm:ss',
-                    defaultDate: noteData.date_create
+                    format: 'YYYY-MM-DD HH:mm:ss'//,
+                   // defaultDate: noteData.date_create
                 });
+                $("#datetimepicker").val(noteData.date_create);
 
 
 
