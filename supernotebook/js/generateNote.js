@@ -107,11 +107,12 @@
             dateTime.type = "text";
             dateTime.className = "form-control datetimepicker-input col-sm-10 my-2";
             dateTime.id = "datetimepicker";
-            dateTime.value = noteData.date_create;
+            dateTime.name = "datetime_create";
+            //dateTime.value = noteData.date_create;
 
             dateTime.setAttribute('data-toggle', "datetimepicker");
             dateTime.setAttribute('data-target', "#datetimepicker");
-           /* <input type="text" class="form-control datetimepicker-input" id="datetimepicker5" data-toggle="datetimepicker" data-target="#datetimepicker5"/>*/
+
 
             let  textNote = document.createElement("textarea");
             textNote.className = "text_note form-control form-control-lg col-sm-10 my-2 ";

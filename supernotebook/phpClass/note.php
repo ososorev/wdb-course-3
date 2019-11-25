@@ -42,6 +42,11 @@ class Note
         return $this->text;
     }
 
+    public  function  update($newName, $newDate, $newText){
+        $query = "UPDATE `notes` SET `name` = '" . $newName . "', `text` = '" . $newText . "', `date_create` = '" . $newDate . "' WHERE `notes`.`id` LIKE '" . $this->id . "'";
+        $this->db->query($query);
+        return $query;
+    }
 
     public function delete(){
         $this->db->query("DELETE FROM `notes` WHERE `id` LIKE '".$this->id."'" );
