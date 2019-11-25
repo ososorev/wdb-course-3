@@ -161,7 +161,7 @@
 
             let titleEdit = document.createElement("div");
             titleEdit.className = "title_edit col-12 border-bottom col-sm-10 my-2 text-lg-left";
-            titleEdit.innerHTML = "<p>Редактирование заметки</p>";
+            titleEdit.innerHTML = "<p>Создание заметки</p>";
 
             let noteName = document.createElement("input");
             noteName.type = "text";
