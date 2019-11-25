@@ -13,6 +13,15 @@
     <title>SUPER NOTEBOOK</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery-3.4.1.slim.min.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/ru.js"></script>
+    <script src="js/bootstrap/tempusdominus-bootstrap-4.min.js"></script>
+    <link rel="stylesheet" href="css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+
+
     <script src="js/index.js"></script>
     <script src="js/generateNote.js"></script>
     <script src="js/start.js"></script>
@@ -21,17 +30,12 @@
     <script src="ajax/saveNoteAjax.js"></script>
     <script src="ajax/delNoteAjax.js"></script>
     <script src="ajax/editNoteAjax.js"></script>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/moment.js"></script>
-    <script src="js/ru.js"></script>
-    <script src="js/bootstrap/tempusdominus-bootstrap-4.min.js"></script>
-    <link rel="stylesheet" href="css/tempusdominus-bootstrap-4.min.css">
-    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+
+
 
 
     <script>
       document.addEventListener("DOMContentLoaded", App.getNoteListAjax);
-
     </script>
 </head>
 <body>
@@ -63,8 +67,6 @@
         Copyright by Mikhaylova, 2019
     </div>
 </footer>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="js/bootstrap/bootstrap.min.js"></script>
 </body>
 </html>

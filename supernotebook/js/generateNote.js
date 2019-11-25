@@ -107,7 +107,8 @@
             dateTime.type = "text";
             dateTime.className = "form-control datetimepicker-input col-sm-10 my-2";
             dateTime.id = "datetimepicker";
-            dateTime.id = "datetimepicker";
+            dateTime.value = noteData.date_create;
+
             dateTime.setAttribute('data-toggle', "datetimepicker");
             dateTime.setAttribute('data-target', "#datetimepicker");
            /* <input type="text" class="form-control datetimepicker-input" id="datetimepicker5" data-toggle="datetimepicker" data-target="#datetimepicker5"/>*/
@@ -134,13 +135,15 @@
             form.append(sendButton);
             editNote.append(form);
 
-            $('#datetimepicker').datetimepicker(
-                {
-                    format: 'YYYY-MM-DD h:mm:ss'
-                    //defaultDate: noteData['date_create']
-                    //2019-11-23 13:38:40
-                }
-            );
+
+
+                $('#datetimepicker').datetimepicker({
+                    format: 'YYYY-MM-DD hh:mm:ss',
+                    defaultDate: noteData.date_create
+                });
+
+
+
 
         }
 })();
