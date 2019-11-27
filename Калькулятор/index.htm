@@ -1,0 +1,45 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Калькулятор</title>
+		<link rel="stylesheet" href="buttons.css"/>
+		<script>
+			function send(event){
+				event.preventDefault();
+				fetch("index.php",{method:"POST",body:new FormData(document.forms[0])}).then(response=>response.text()).then(textA=>{document.querySelector(".s5").innerHTML=textA;})
+			}
+		</script>
+	</head>
+	<body>
+		<form>
+		<center>
+		<div class="general">
+			Введите первое число
+			<br>
+			<input type="number" class="first" name="first" value="0" autofocus>
+			<br>
+			Введите второе число
+			<br>
+			<input type="number" class="second" name="second" value="0">
+			<br>
+			<p>
+			Произвести:
+			<br>
+			<select class="produce" name="produce">
+			<option disabled>Выберите действие</option>
+			<option>+</option>
+			<option>-</option>
+			<option>*</option>
+			<option>/</option>
+			</select>
+			</p>
+			<p>
+			<input type="submit" class="output" name="output" value="Результат" onclick="send(event)"/>
+			</p>
+		</div>
+		<div class="s5" style="color:#770033; font:14pt impact;">Результат</div>
+		</center>
+		</form>
+	</body>
+</html>
