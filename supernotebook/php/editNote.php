@@ -13,4 +13,4 @@ if ($note->getUserId() == $_SESSION['user_id']){
     echo $note->update($noteName, $noteDate, $noteText);
 }
 
-//echo $noteName.' '.$noteText.' '.$noteID.' '.$noteDate;
+

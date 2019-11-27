@@ -138,3 +138,7 @@ body{
 .title_edit{
     font-size: x-large;
 }
+
+.none_display{
+    display: none;
+}

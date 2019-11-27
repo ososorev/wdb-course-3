@@ -7,9 +7,7 @@
             let tbody = document.createElement("tbody");
 
 
-            let note;
-            let i;
-            arrDataJson.forEach(function (note, i, arrDataJson){
+            arrDataJson.forEach(function (note){
 
                 let tr = document.createElement('tr');
                 let td_name = document.createElement('td');
@@ -211,6 +209,24 @@
                 App.deleteNoteAjax(noteId, event);
             }
             $('.delete_modal').modal();
+
+        }
+})();
+
+(function() {
+    App.searchNote =
+        function searchNote() {
+        $('tr.none_display').each(function () {
+            $(this).removeClass('none_display');
+        })
+        let search_str = $('.search_input').val();
+        $('td.note_name').each(function () {
+            if (this.innerHTML.toUpperCase().match(search_str.toUpperCase()) == null){
+                $(this).parent().addClass("none_display");
+            }
+        })
+
+
 
         }
 })();

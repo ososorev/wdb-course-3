@@ -17,6 +17,7 @@
     <script src="js/moment.js"></script>
     <script src="js/ru.js"></script>
     <script src="js/bootstrap/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="https://use.fontawesome.com/4c58a82fe2.js"></script>
     <link rel="stylesheet" href="css/tempusdominus-bootstrap-4.min.css">
     <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
 
@@ -30,6 +31,8 @@
     <script src="ajax/delNoteAjax.js"></script>
     <script src="ajax/editNoteAjax.js"></script>
     <script src="ajax/logoutAjax.js"></script>
+
+
 
 
     <script>
@@ -49,6 +52,15 @@
 <main class=" container-fluid align-top">
     <div class="content row">
         <div class="col-4 border-right">
+            <form role="search" class="mb-3 mt-3">
+                <div class="input-group">
+                    <input type="text" class="form-control search_input" placeholder="Поиск">
+                    <button class="btn btn-primary" onclick="App.searchNote()" type="button">
+                            <i class="fa fa-search"></i>
+                    </button>
+	                </span>
+                </div>
+            </form>
             <div class="list_notes">
             </div>
             <button class="add_note btn btn-primary btn-lg btn-block" onclick="App.createNote()">Add note</button>

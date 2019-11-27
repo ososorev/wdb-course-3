@@ -21,7 +21,6 @@ $errors = $checkUser->getLoginResult();
 
 $_SESSION['user_id'] = $checkUser->getUserID();
 
-//setcookie("user_id", $checkUser->getUserID());
 echo json_encode($errors, JSON_UNESCAPED_UNICODE);
 
 
