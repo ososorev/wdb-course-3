@@ -10,7 +10,6 @@ class user
 
     function __construct($userId){
         $this->userId = $userId;
-        //$this->userSession = $userSession;
         $this->getUserData();
 
     }
@@ -44,10 +43,6 @@ class user
         return $this->userName;
     }
 
-    public function getUserSession()
-    {
-        return $this->userSession;
-    }
 
 
 

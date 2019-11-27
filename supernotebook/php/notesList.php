@@ -8,3 +8,6 @@
         $user = new user($_SESSION['user_id']);
         echo json_encode($user->getArrUserNotes(), JSON_UNESCAPED_UNICODE);
     }
+    else{
+        echo 0;
+    }

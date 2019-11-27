@@ -5,7 +5,14 @@
             fetch("php/notesList.php").
             then((response => response.json())).
             then(notes => {
-                App.generateNoteList(notes)
+                if(notes)
+                {
+                    App.generateNoteList(notes);
+                }
+                else {
+                    location.replace("index.php");
+                }
+
             });
         }
 })();

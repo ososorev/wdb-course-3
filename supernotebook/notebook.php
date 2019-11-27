@@ -1,9 +1,8 @@
 <?
     require('php/userPage.php');
-    require ('php/deleteNote.php');
     require('php/modalDelete.php');
     require('php/modalCreate.php');
-    require('php/editNote.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +29,8 @@
     <script src="ajax/saveNoteAjax.js"></script>
     <script src="ajax/delNoteAjax.js"></script>
     <script src="ajax/editNoteAjax.js"></script>
+    <script src="ajax/logoutAjax.js"></script>
+
 
     <script>
       document.addEventListener("DOMContentLoaded", App.getNoteListAjax);
@@ -39,8 +40,8 @@
 <header class="header">
     <div class="container-fluid header__content bg-gray center flexContainer column">
         <div>SUPER NOTEBOOK</div>
-        <div>Welcome, <a href="#"><?echo $user->getUserName();?></a>.
-            <a href="#">Logout</a>
+        <div>Welcome, <a class="username" href="#"><?echo $user->getUserName();?></a>.
+            <a class="logout" onclick="App.logoutAjax(event)" href="#">Logout</a>
         </div>
     </div>
 </header>

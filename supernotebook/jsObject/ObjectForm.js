@@ -1,5 +1,3 @@
-// let ObjectForm = {};
-
 (function () {
     App.ObjectForm = {};
     App.ObjectForm.addInputToForm = addInputToForm;
