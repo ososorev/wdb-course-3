@@ -1,5 +1,4 @@
 let App = {}; // всё складываем сюда
-document.addEventListener("DOMContentLoaded", start);
 
 function send(event) {
     event.preventDefault();
@@ -9,7 +8,6 @@ function send(event) {
     })
 }
 let forms = {};
-
 (function(){
     forms.divElement=divElement;
     function divElement(className, parent) {
@@ -33,6 +31,7 @@ let forms = {};
         elementInput.name = name;
         elementInput.type = type;
         elementInput.required = true;
+        //return elementInput;
         form.append(elementInput);
     }
     forms.buttonElement=buttonElement;
@@ -54,37 +53,41 @@ let forms = {};
     }
 })();
 
-// (function(){
-//     App.start = start;
-function start() {
-    let elementContainer = document.createElement("div");
-    elementContainer.classList.add('container');
-    document.body.append(elementContainer);
-    //forms.divElement("container", document.body);
+(function(){
+    App.start = start;
+    function start() {
+        let elementContainer = document.createElement("div");
+        elementContainer.classList.add('container');
+        document.body.append(elementContainer);
+        //forms.divElement("container", document.body);
 
-    forms.headerOrFooterElement("header", "SUPER NOTEBOOK", elementContainer);
+        forms.headerOrFooterElement("header", "SUPER NOTEBOOK", elementContainer);
 
-    let elementContent = document.createElement("div");
-    elementContent.classList.add("content");
-    elementContainer.append(elementContent);
-    // forms.divElement("content", elementContainer);
+        let elementContent = document.createElement("div");
+        elementContent.classList.add("content");
+        elementContainer.append(elementContent);
+        // forms.divElement("content", elementContainer);
 
-    let form = document.createElement("form");
-    form.id = "form";
-    form.classList.add("formBlock");
-    form.method = "POST";
-    elementContent.append(form);
-    // forms.formElement(elementContent);
+        let form = document.createElement("form");
+        form.id = "form";
+        form.classList.add("formBlock");
+        form.method = "POST";
+        elementContent.append(form);
+        // forms.formElement(elementContent);
 
-    forms.inputElement("Username", "inputUsername", "text", form);
-    forms.inputElement("Password", "inputPassword", "password", form);
-    forms.inputElement("Confirm password", "inputConfirmPassword", "password", form);
-    forms.inputElement("EMail", "inputEMail", "text", form);
+        forms.inputElement("Username", "inputUsername", "text", form);
+        // let element = forms.inputElement("Username", "inputUsername", "text");
+        //form.append(element);
+        forms.inputElement("Password", "inputPassword", "password", form);
+        forms.inputElement("Confirm password", "inputConfirmPassword", "password", form);
+        forms.inputElement("EMail", "inputEMail", "text", form);
 
-    forms.buttonElement(form);
+        forms.buttonElement(form);
 
-    forms.divElement("output", elementContainer);
+        forms.divElement("output", elementContainer);
 
-    forms.headerOrFooterElement("footer", "Copyright by ..., 2016", elementContainer);
-}
-// })();
+        forms.headerOrFooterElement("footer", "Copyright by ..., 2016", elementContainer);
+    }
+})();
+
+document.addEventListener("DOMContentLoaded", App.start);
