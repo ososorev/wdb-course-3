@@ -4,16 +4,27 @@ function databaseConnection() {
     return mysqli_connect("localhost", "root", "", "calculate");
 }
 
-function databaseInsert($inputOne, $operation, $inputTwo, $result) {
-    $resource = mysqli_query(databaseConnection(), "SELECT first_operand, operation, second_operand 
-      FROM calc ORDER BY id_calc DESC LIMIT 1");
-    $last = [];
+function query($sql) {
+    return mysqli_query(databaseConnection(), $sql);
+}
+
+function checkingUniquenessOfLastExample($inputOne, $operation, $inputTwo) {
+    $resource = query("SELECT first_operand, operation, second_operand FROM calc ORDER BY id_calc DESC LIMIT 1");
+    $prev = [];
     foreach ($resource as $row) {
-        $last[] = $row;
+        $prev[] = $row;
     }
-    if ($last[0]['first_operand'] != $inputOne || $last[0]['operation'] != $operation ||
-        $last[0]['second_operand'] != $inputTwo) {
-        mysqli_query(databaseConnection(), "INSERT INTO calc(first_operand, operation, second_operand, result)
+    if ($prev[0]['first_operand'] != $inputOne || $prev[0]['operation'] != $operation ||
+        $prev[0]['second_operand'] != $inputTwo) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function databaseInsert($inputOne, $operation, $inputTwo, $result) {
+    if (checkingUniquenessOfLastExample($inputOne, $operation, $inputTwo)) {
+        query("INSERT INTO calc(first_operand, operation, second_operand, result)
         VALUES ('$inputOne', '$operation', '$inputTwo', '$result')");
     }
 }
@@ -27,12 +38,14 @@ function databaseRowPrint($arr, $index) {
     return $row;
 }
 
+// not used
 function databasePrint($arr) {
     for ($i = 0; $i <= 4; $i++) {
         databaseRowPrint($arr, $i);
     }
 }
 
+// not used
 function databaseValue($arr) {
     foreach ($arr as $index => $row) {
         foreach ($row as $value) {
@@ -43,7 +56,7 @@ function databaseValue($arr) {
 }
 
 function databaseSelect() {
-    $resource = mysqli_query(databaseConnection(), "SELECT first_operand, operation, second_operand, result 
+    $resource = query("SELECT first_operand, operation, second_operand, result 
       FROM calc ORDER BY id_calc DESC LIMIT 5");
     $calc = [];
     $print = '';

@@ -6,7 +6,6 @@
     $inputOne=$_REQUEST["inputOne"];
     $inputTwo=$_REQUEST["inputTwo"];
     $operation=$_REQUEST["operation"];
-    $button=$_REQUEST["button"];
     $result="";
     if (isset($inputOne) && isset($inputTwo)) {
         $result=calculator($inputOne, $inputTwo, $operation);
@@ -51,12 +50,12 @@
         <div class="outputSql">
             <span class="outputSqlLabel">ИСТОРИЯ => пять последних вычислений:</span>
             <?php
-            Database::select();
+                Database::resultsPrint();
             ?>
         </div>
     </body>
 </html>
 
 <!--
-http://localhost/wdb-course-3/software/calculatorPhpSql/index.php
+http://localhost/wdb-course-3/software/calculatorSqlClass/index.php
 -->
