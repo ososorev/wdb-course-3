@@ -11,7 +11,7 @@ class Database {
 
     private static function checkingUniquenessOfUsername($inputUsername)
     {
-        $resource = self::query("SELECT username FROM user WHERE username = $inputUsername");
+        $resource = self::query("SELECT username FROM user WHERE username = '$inputUsername'");
         $user = mysqli_fetch_assoc($resource); // array или NULL
         if (empty($user)) {
             return true;
@@ -30,10 +30,23 @@ class Database {
         // mysqli_errors
     }
 
+    public static function checkPair($inputUsername, $inputPassword) {
+        $resource = self::query("SELECT password FROM user
+            WHERE  username = '$inputUsername' AND password=md5('$inputPassword')");
+        $user = mysqli_fetch_assoc($resource); // array или NULL
+        if (!empty($user)) {
+            return true;
+        } else {
+            return "Проверьте введенные имя и пароль";
+        }
+    }
+
+    // not used
     private static function getAllUsers() {
         return self::query("SELECT username FROM user ORDER BY username");
     }
 
+    // not used
     private static function getUserList() {
         $users = [];
         $userList = self::getAllUsers();
@@ -43,42 +56,17 @@ class Database {
         return $users;
     }
 
+    // not used
     private static function getPasswordByUsername($inputUsername)
     {
-        return self::query("SELECT password FROM user WHERE username = $inputUsername");
+        return self::query("SELECT password FROM user WHERE username = '$inputUsername'");
     }
 
+    // not used
     public static function checkPassword($inputUsername, $inputPassword)
     {
         $validPasswordHash = self::getPasswordByUsername($inputUsername)[0]['password'];
         $passwordHash = md5($inputPassword);
         return $passwordHash == $validPasswordHash;
-    }
-
-    public static function checkPair($inputUsername, $inputPassword) {
-        $resource = self::query("SELECT password FROM user
-            WHERE  username = '$inputUsername' AND password='$inputPassword'");
-        $user = mysqli_fetch_assoc($resource); // array или NULL
-        if (!empty($user)) {
-            return true;
-        } else {
-            return "Проверьте введенные имя и пароль";
-//            echo "Проверьте введенные имя и пароль";
-//            return false;
-        }
-//        if (!empty($resource)) {
-//            $password = [];
-//            foreach ($resource as $row) {
-//                $password[] = $row;
-//            }
-//            if ($password['password'] == $inputPassword) {
-//                return true;
-//            } else {
-//                return "Введите правильный пароль";
-//            }
-//        } else {
-//            return "Такого пользователя не существует";
-//        }
-//        return false;
     }
 }

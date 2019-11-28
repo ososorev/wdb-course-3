@@ -37,7 +37,7 @@ ob_end_flush();
             <div class="content">
                 <form id=form class="formBlock" method="post">
                     <input placeholder="Username" class="inputForm" name="inputUsername" type="text">
-                    <input placeholder="Password" class="inputForm" name="inputPassword" type="password">
+                    <input placeholder="Password" class="inputForm" name="inputPassword" autocomplete="off" type="password">
                     <input class="buttonInput buttonLog" type="submit" name="buttonLogin" value="Login">
                     <input class="buttonInput buttonReg" name="buttonRegister" onclick="register()" value="Register">
                 </form>
