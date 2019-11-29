@@ -41,30 +41,53 @@ html, body {
     flex-direction: row;
     flex: 1 0 auto;
     margin: 0 auto;
-    padding-top: 28px;
+    height: calc(100vh - 2 * 62px - 16px - 28px);
+    width: 100%;
     background-color: #fff;
     text-align: center;
 }
-
-.listOfNotesContainer {
+.leftContainer {
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: bisque;
     width: 40%;
     border-left: 2px;
 }
 
+.searchBlock {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #666;
+    margin: 12px;
+    padding: 4px;
+    min-height: 30px;
+}
+
+.inputSearchBlock {
+    font-size: 14px;
+    color: blue;
+    background-color: bisque;
+}
+
+.listOfNotesContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 12px;
+}
+
 .buttonAddNote {
     display: block;
     text-align: center;
-    margin: 20px;
+    margin: 12px;
     min-height: 30px;
     min-width: 252px;
     padding: 8px;
     color: #fff;
     background-color: #008cff;
     font-size: 19px;
-    line-height: 32px;
-    border: 2px solid #666;
+    line-height: 24px;
+    border: 1px solid #666;
     border-radius: 19px;
 }
 
@@ -73,10 +96,23 @@ html, body {
     background-color: #0055ff;
 }
 
-
-.infoContainer {
+.betweenContainer {
     display: flex;
+    width: 2%;
+    background-color: #fff;
+    border-left: 1px solid #666;
+    border-right: 1px solid #666;
+}
+
+.rightContainer {
+    display: flex;
+    width: 100%;
     background-color: antiquewhite;
+}
+
+.infoBlock {
+    display: flex;
+    padding: 8px;
 }
 
 .output {

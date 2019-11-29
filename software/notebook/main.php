@@ -7,6 +7,7 @@ $inputUsername = $_REQUEST["inputUsername"];
 $inputPassword = $_REQUEST["inputPassword"];
 $buttonLog = $_REQUEST["buttonLogin"];
 $error = '';
+$username = getFromSession('username');
 
 ?>
 <!DOCTYPE html>
@@ -19,14 +20,23 @@ $error = '';
     </head>
     <body>
         <div class="mainContainer">
-            <div class="header">SUPER NOTEBOOK</br>Welcome, </div>
+            <div class="header">SUPER NOTEBOOK</br>Welcome, <?php echo $username?></div>
             <div class="content">
-                <div class="listOfNotesContainer">
-                    <button type="button" class="buttonAdd" name="buttonAddNote" onclick="addNewNote()">
-                        Add new note
-                    </button>
+                <div class="leftContainer">
+                    <div class="searchBlock">
+                        <input class="inputSearchBlock" type="text" placeholder="Search">
+                    </div>
+                    <div class="listOfNotesBlock"></div>
+                    <div class="buttonBlock">
+                        <button type="button" class="buttonAddNote" name="buttonAddNote" onclick="addNewNote()">
+                            Add new note
+                        </button>
+                    </div>
                 </div>
-                <div class="infoContainer">Name note,  Data</div>
+                <div class="betweenContainer"></div>
+                <div class="rightContainer">
+                    <div class="infoBlock">Name note,  Data</div>
+                </div>
             </div>
             <div class="output"><?php echo $error ?></div>
             <div class="header footer">Copyright by ..., 2016</div>
