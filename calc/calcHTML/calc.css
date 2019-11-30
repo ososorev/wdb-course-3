@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* CSS Document */
+
+ body {
+    background: #828282;
+   }
+
+.container {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+	max-width: 350px;
+}
+
+.strip_first {
+	display: flex;
+	justify-content: space-between;
+   	flex-grow: 1;
+	max-width: 350px;
+}
+
+.strip_second {
+	display: flex;
+	justify-content: space-between;
+	flex-grow: 1;
+	max-width: 350px;
+}
+
+.number_first {
+}
+
+.input_first{
+	width: 120px;
+}
+
+.input_second{
+	width: 120px;
+}
+
+.list_select {
+	flex-grow: 1;
+}
+
+.number_second {
+}
+
+.output {
+	width: 200px;
+	text-align: center;
+    border: 1px solid black;
+	background-color: #C1C1C1;
+}
+
+.button_div {
+	width: 100%;
+}
+
+div.container > div {
+    margin-top: 10px;
+}
