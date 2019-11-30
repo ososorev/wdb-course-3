@@ -35,7 +35,14 @@ body {
 	width: 100%;
 }
 
-#button {
+#button_log {
+	background:#008cff;
+	border-radius: 12px;
+	color: white;
+	text-align: center;
+	style:color:#FFFFFF;
+}
+#button_reg {
 	background:#008cff;
 	border-radius: 12px;
 	color: white;
