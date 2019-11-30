@@ -1,0 +1,28 @@
+<?php
+class dataBase
+{
+    private $connection;
+    function __construct($host, $username, $password, $db)
+    {
+        $this->connection = mysqli_connect($host, $username, $password, $db);
+        if($this->connection->connect_error)
+        {
+            die("Connection failed: " . $this->connection->connect_error);
+        }
+    }
+    public function query($sql)
+    {
+        mysqli_query($this->connection, $sql);
+    }
+    public function Select()
+    {
+        $resultat = mysqli_query($this->connection,"SELECT * FROM `Login`");
+        $rows = [];
+        foreach($resultat as $row)
+        {
+            $rows[]=$row;
+        }
+        return $rows;
+    }
+}
+?>
