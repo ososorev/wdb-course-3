@@ -33,6 +33,7 @@ html, body {
     color:#000;
     background-color: #e6e6e6;
     height: 62px;
+    line-height: 24px;
     padding-top: 16px;
 }
 
@@ -106,12 +107,36 @@ html, body {
 
 .rightContainer {
     display: flex;
+    flex-direction: column;
     width: 100%;
     background-color: antiquewhite;
 }
 
+.noteHeaderBlock {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #666;
+    margin: 12px;
+    min-height: 30px;
+}
+
+.noteNameBlock {
+    display: flex;
+    width: 100%;
+    flex-grow: 1;
+    padding: 8px;
+}
+
+.noteDateBlock {
+    display: flex;
+    width: 180px;
+    padding: 8px;
+    // background-color: darkgoldenrod;
+}
+
 .infoBlock {
     display: flex;
+    margin: 12px;
     padding: 8px;
 }
 

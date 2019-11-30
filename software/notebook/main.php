@@ -35,7 +35,11 @@ $username = getFromSession('username');
                 </div>
                 <div class="betweenContainer"></div>
                 <div class="rightContainer">
-                    <div class="infoBlock">Name note,  Data</div>
+                    <div class="noteHeaderBlock">
+                        <div class="noteNameBlock">Note 3</div>
+                        <div class="noteDateBlock">26.01.2016</div>
+                    </div>
+                    <div class="infoBlock">Some note text here!</div>
                 </div>
             </div>
             <div class="output"><?php echo $error ?></div>
