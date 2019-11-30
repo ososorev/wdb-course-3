@@ -20,7 +20,17 @@ $username = getFromSession('username');
     </head>
     <body>
         <div class="mainContainer">
-            <div class="header">SUPER NOTEBOOK</br>Welcome, <?php echo $username?></div>
+            <div class="header">
+                <div>SUPER NOTEBOOK</div>
+                <div class="link">Welcome,
+                    <span class="linkName" href="register.php">
+                        <?php echo $username?>
+                    </span> .
+                    <span class="linkName" href="input.php">
+                        Logout
+                    </span>
+                </div>
+            </div>
             <div class="content">
                 <div class="leftContainer">
                     <div class="searchBlock">

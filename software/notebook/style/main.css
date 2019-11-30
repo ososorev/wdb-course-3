@@ -21,13 +21,14 @@ html, body {
     width: 100%;
     min-height: 100%;
     text-align: center;
-    font-family: Georgia;
+    font-family: "Georgia";
     font-size: 19px;
     line-height: 32px;
 }
 
 .header {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     flex: 0 0 auto;
     color:#000;
@@ -35,6 +36,22 @@ html, body {
     height: 62px;
     line-height: 24px;
     padding-top: 16px;
+}
+
+.link {
+    font: 16px/20px "Georgia", serif;
+    text-decoration: none;
+    color: inherit;
+}
+
+.linkName {
+    color: blue;
+    text-decoration: underline;
+}
+
+.linkName:hover {
+    color: #0055ff;
+    cursor: pointer;
 }
 
 .content {
