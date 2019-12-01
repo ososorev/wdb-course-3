@@ -23,12 +23,12 @@ $username = getFromSession('username');
             <div class="header">
                 <div>SUPER NOTEBOOK</div>
                 <div class="link">Welcome,
-                    <span class="linkName" href='register.php'>
+                    <a class="linkName" href='register.php'>
                         <?php echo $username?>
-                    </span> .
-                    <span class="linkName" href='input.php'>
+                    </a> .
+                    <a class="linkName" href='input.php'>
                         Logout
-                    </span>
+                    </a>
                 </div>
             </div>
             <div class="content">
