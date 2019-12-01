@@ -24,14 +24,7 @@
 			mysqli_query($this->conn, $sql);
 		}
 	}
-if (!empty($userName)||!empty($password)||!empty($passwordCheck)||!empty($email)){
-	global $connection;
-	global $userName;
-	$sql = "SELECT EXISTS(SELECT `name` FROM `users` WHERE name = '$userName')";
-	$result = mysqli_query($connection, $sql);
-	print_r($result);
-	exit();
-}
+
 	function validate($connection,$userName,$password,$passwordCheck,$email){
 		$validate_res;
 		if	(empty($userName)){
@@ -54,10 +47,9 @@ if (!empty($userName)||!empty($password)||!empty($passwordCheck)||!empty($email)
 				$validate_res="Введите корректный адрес E-Mail`а";
 			}
 			else{
-				$validate_res="Вы успешно зарегестрированны";
-				if (validate_user($userName)){						// тут не работает проверка validate_user поэтому всегда будет регистрировать
+				if (validate_user($userName)){
 					$validate_res="Вы успешно зарегестрированны";
-					}
+				}
 				else{
 					$validate_res= "Такое имя пользователя уже занято";
 				}
@@ -81,28 +73,32 @@ if (!empty($userName)||!empty($password)||!empty($passwordCheck)||!empty($email)
 		return (filter_var($email, FILTER_VALIDATE_EMAIL));
 	}
 
-	function validate_user($user_name){					// планировалась как проверка на уникальность имени юзера
+	function validate_user($user_name){		
 		global $connection;
-		$sql = "SELECT EXISTS(SELECT `name` FROM `users` WHERE name = '$user_name')";
-		if (mysqli_query($connection, $sql)){  //данный запрос возвращает в любом случаее строку mysqli_result Object ( [current_field] => 0 [field_count] => 1 [lengths] => [num_rows] => 1 [type] => 0 ), а в phpMyAdmin`е значение 1 или 0, не знаю как вернуть в php те же 1 или 0
-			return (1);
+		$res = mysqli_query($connection, "SELECT id FROM users WHERE name = '$user_name'");
+		$row = mysqli_fetch_assoc($res);
+		if (empty($row['id'])){
+			return(1);
 		}
-		else {
-			return(0);
+		else{
+			return(0);;
 		}
 	}
 
 	if (!empty($userName)||!empty($password)||!empty($passwordCheck)||!empty($email)){
-		if (validate($connection,$userName,$password,$passwordCheck,$email) == "Вы успешно зарегестрированны") {
+		$check_user = validate($connection,$userName,$password,$passwordCheck,$email);
+		if ($check_user == "Вы успешно зарегестрированны") {
 			$firstRequest = new dataBase($connection, $userName, $password, $email);
 			$firstRequest-> insertData();
-			echo (validate($connection,$userName,$password,$passwordCheck,$email));
+			echo ($check_user);
 			echo "<META HTTP-EQUIV='Refresh' content='2; URL=index.html'>";
         	exit(); 
 		}
 		else{
-			echo(validate($connection,$userName,$password,$passwordCheck,$email));
+			echo($check_user);
 			}
 	}
+
+
 
 ?>
