@@ -23,10 +23,10 @@ $username = getFromSession('username');
             <div class="header">
                 <div>SUPER NOTEBOOK</div>
                 <div class="link">Welcome,
-                    <span class="linkName" href="register.php">
+                    <span class="linkName" href='register.php'>
                         <?php echo $username?>
                     </span> .
-                    <span class="linkName" href="input.php">
+                    <span class="linkName" href='input.php'>
                         Logout
                     </span>
                 </div>
@@ -36,7 +36,9 @@ $username = getFromSession('username');
                     <div class="searchBlock">
                         <input class="inputSearchBlock" type="text" placeholder="Search">
                     </div>
-                    <div class="listOfNotesBlock"></div>
+                    <div class="listOfNotesBlock">
+
+                    </div>
                     <div class="buttonBlock">
                         <button type="button" class="buttonAddNote" name="buttonAddNote" onclick="addNewNote()">
                             Add new note

@@ -83,15 +83,22 @@ html, body {
 }
 
 .inputSearchBlock {
-    font-size: 14px;
+    font-size: 19px;
     color: blue;
     background-color: bisque;
 }
 
-.listOfNotesContainer {
+.listOfNotesBlock {
     display: flex;
     flex-direction: column;
-    margin: 12px;
+    margin: 0 12px;
+    flex-grow: 1;
+    background-color: blanchedalmond;
+}
+
+.buttonBlock {
+    display: flex;
+    justify-content: center;
 }
 
 .buttonAddNote {
@@ -99,7 +106,7 @@ html, body {
     text-align: center;
     margin: 12px;
     min-height: 30px;
-    min-width: 252px;
+    width: 100%;
     padding: 8px;
     color: #fff;
     background-color: #008cff;
