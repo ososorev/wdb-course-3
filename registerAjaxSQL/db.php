@@ -1,5 +1,5 @@
 <?php
-class Database
+class dataBase
 {
     private $connection;
     function __construct($host, $username, $password, $dbname)

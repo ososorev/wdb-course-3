@@ -8,9 +8,6 @@ html, body {
     height: 100%;
     width: 100%;
 }
-.clear {
-    clear: both;
-}
 .container {
     display: flex;
     flex-direction: column;
@@ -42,35 +39,25 @@ html, body {
     background-color: #fff;
     text-align: center;
 }
+.form-style {
+    max-width: 400px;
+    padding: 15px;
+    margin: 0 auto;
+}
 .inputWindow {
     display: flex;
-    margin: 30px;
-    padding: 5px;
-    height: 40px;
-    width: 244px;
-    font-size: 18px;
-    line-height: 30px;
-    border: 1px solid #60666b;
+    height: 30px;
+    font-style: Georgia;
+    line-height: 32px;
+    border: 1px solid dimgrey;
+    padding: 24px;
+    margin: 15px;
 }
 .buttonReg {
-    display: block;
-    text-align: center;
-    margin: 30px;
-    width: 250px;
-    padding: 10px;
-    color: #fff;
-    background-color: #007dff;
-    font-size: 18px;
-    line-height: 28px;
-    border: 1px solid #60666b;
-    border-radius: 25px;
-}
-.buttonReg:hover {
-    cursor: pointer;
-    background-color: #0000ff;
+    margin: 15px;
 }
 .footer {
-    font-family: Times;
+font-style: Georgia;
     display: flex;
     justify-content: center;
     flex: 0 auto;
@@ -82,3 +69,4 @@ html, body {
     justify-content: center;
     padding-top: 30px;
 }
+
