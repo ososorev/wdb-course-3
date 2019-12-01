@@ -1,3 +1,4 @@
+
 function sendToServer(event) {
             event.preventDefault();
             fetch("register.php", {method: "POST", body: new FormData(document.forms[0])})
