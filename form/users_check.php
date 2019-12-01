@@ -2,18 +2,19 @@
 	$connection= mysqli_connect("localhost", "root", "", "database");
 	$userName=$_REQUEST['username'];
 	$password=$_REQUEST['password'];
-	$message = "wrong answer";
+	$message = "SUPER NOTEBOOK";
 
 if (!empty($userName)||!empty($password)){
-	$sql = "SELECT * FROM `users` WHERE `name` = 'mysql_real_escape_string($userName)' AND `pass` = 'mysql_real_escape_string($password)'";
-	echo "<script type='text/javascript'>alert('$message');</script>";
-	if (mysqli_query($connection, $sql) == 1){
-		header('Location: register.html');
+	$res = mysqli_query($connection, "SELECT id FROM users WHERE name = '$userName' AND password = '$password'");
+	$row = mysqli_fetch_assoc($res);
+	if (!empty($row['id'])){
+		echo "<META HTTP-EQUIV='Refresh' content='2; URL=notebook.html'>";
+        exit();
+	}
+	else{
+		$message = "Неверный логин или пароль";
 	}
 }
-//else {
-//	header('Location: index.html');
-//}
 
 ?>
 
@@ -30,7 +31,9 @@ if (!empty($userName)||!empty($password)){
 
 	<body>
 		<div id="main">
-			<div id="strip_start" class="strip">SUPER NOTEBOOK</div>
+			<div id="strip_start" class="strip">
+<?php echo($message) ?>
+			</div>
 		<form action="users_check.php">
 			<div>
 				<p></p>

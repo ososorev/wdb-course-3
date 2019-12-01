@@ -98,7 +98,4 @@
 			echo($check_user);
 			}
 	}
-
-
-
 ?>
