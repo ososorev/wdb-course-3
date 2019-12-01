@@ -14,9 +14,9 @@ $username = getFromSession('username');
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="style/main.css">
-        <title>Notebook main</title>
-        <script src="js/main.js"></script>
+        <link rel="stylesheet" href="style/edit.css">
+        <title>Notebook edit</title>
+        <script src="js/edit.js"></script>
     </head>
     <body>
         <div class="mainContainer">
@@ -34,7 +34,7 @@ $username = getFromSession('username');
             <div class="content">
                 <div class="leftContainer">
                     <div class="searchBlock">
-                        <input class="inputSearchBlock" type="text" placeholder="Search">
+                        <input placeholder="Search" class="inputSearchBlock" type="text">
                     </div>
                     <div class="listOfNotesBlock">
 
@@ -48,10 +48,16 @@ $username = getFromSession('username');
                 <div class="betweenContainer"></div>
                 <div class="rightContainer">
                     <div class="noteHeaderBlock">
-                        <div class="noteNameBlock">Note 3</div>
-                        <div class="noteDateBlock">02.10.2019</div>
+                        <span class="noteEditBlock">Edit mode</span>
                     </div>
-                    <div class="infoBlock">Some note text here!</div>
+                    <form id=form class="formBlock" method="post">
+                        <input placeholder="Note 3" class="noteNameBlock inputForm" name="inputNoteName" type="text" required>
+                        <input placeholder="02.10.2019" class="noteDateBlock inputForm" name="inputNoteDate" type="date" required>
+                        <input placeholder="Line 1" class="infoBlock inputForm" name="inputNoteValue" type="text" required>
+                        <div class="buttonBlock">
+                            <input class="buttonSave" type="submit" name="buttonSave" onclick="send()" value="Save"/>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="output"><?php echo $error ?></div>
@@ -61,7 +67,7 @@ $username = getFromSession('username');
 </html>
 
 <!--
-http://localhost/wdb-course-3/software/notebook/main.php
+http://localhost/wdb-course-3/software/notebook/edit.php
 $username = getFromSession('username');
 
 <a href="register.php">

@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.clear {
+    clear: both;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 100%;
+    text-align: center;
+    font-family: "Georgia";
+    font-size: 19px;
+    line-height: 32px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 0 0 auto;
+    color:#000;
+    background-color: #e6e6e6;
+    height: 62px;
+    line-height: 24px;
+    padding-top: 16px;
+}
+
+.link {
+    font: 16px/20px "Georgia", serif;
+    text-decoration: none;
+    color: inherit;
+}
+
+.linkName {
+    color: blue;
+    text-decoration: underline;
+}
+
+.linkName:hover {
+    color: #0055ff;
+    cursor: pointer;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    flex: 1 0 auto;
+    margin: 0 auto;
+    height: calc(100vh - 2 * 62px - 16px - 28px);
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+}
+.leftContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: bisque;
+    width: 40%;
+    border-left: 2px;
+}
+
+.searchBlock {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #666;
+    margin: 12px;
+    padding: 4px;
+    min-height: 30px;
+}
+
+.inputSearchBlock {
+    font-size: 19px;
+    color: blue;
+    background-color: bisque;
+}
+
+.listOfNotesBlock {
+    display: flex;
+    flex-direction: column;
+    margin: 0 12px;
+    flex-grow: 1;
+    background-color: blanchedalmond;
+}
+
+.buttonBlock {
+    display: flex;
+    justify-content: center;
+}
+
+.buttonAddNote {
+    display: block;
+    text-align: center;
+    margin: 12px;
+    min-height: 30px;
+    width: 100%;
+    padding: 8px;
+    color: #fff;
+    background-color: #008cff;
+    font-size: 19px;
+    line-height: 24px;
+    border: 1px solid #666;
+    border-radius: 19px;
+}
+
+.buttonAddNote:hover {
+    cursor: pointer;
+    background-color: #0055ff;
+}
+
+.betweenContainer {
+    display: flex;
+    width: 2%;
+    background-color: #fff;
+    border-left: 1px solid #666;
+    border-right: 1px solid #666;
+}
+
+.rightContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: antiquewhite;
+}
+
+.noteHeaderBlock {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #666;
+    margin: 12px;
+    min-height: 30px;
+}
+
+.noteEditBlock {
+    display: flex;
+    color: #000;
+    font: 16px/20px "Georgia", serif;
+}
+
+.formBlock {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    font-size: 19px;
+    margin: 12px;
+}
+
+.inputForm {
+    display: flex;
+    flex-grow: 1;
+    margin: 12px 0;
+    padding: 8px;
+    font-size: 19px;
+    line-height: 32px;
+    border: 1px solid #666;
+}
+
+.inputForm:first-child {
+    margin-top: -12px;
+}
+
+.noteNameBlock {
+    display: flex;
+    max-height: 30px;
+    padding: 8px;
+}
+
+.noteDateBlock {
+    display: flex;
+    max-height: 30px;
+    padding: 8px;
+    // background-color: darkgoldenrod;
+}
+
+.infoBlock {
+    display: flex;
+    flex-grow: 1;
+    padding: 8px;
+}
+
+.buttonSave {
+    display: block;
+    text-align: center;
+    margin: 20px;
+    min-height: 30px;
+    min-width: 180px;
+    padding: 8px;
+    color: #fff;
+    background-color: #008cff;
+    font-size: 19px;
+    line-height: 32px;
+    border: 1px solid #666;
+    border-radius: 19px;
+}
+
+.buttonSave:hover {
+    cursor: pointer;
+    background-color: #0055ff;
+}
+
+.output {
+    display: flex;
+    margin: 0 auto;
+    color: red;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    padding-top: 28px;
+}
