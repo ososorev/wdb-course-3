@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Calc_bd</title>
+        <link rel="stylesheet" href="style1.css" >
+        <script src="sendToServer.js"></script>
+    </head>
+        <body>
+            <form>
+                <p><input type="text" name="num1" class="Inn" placeholder="1-е число"></p>
+                <select name="operators" class="Inn">
+                    <option value="+">сложить</option>
+                    <option value="-">вычесть</option>
+                    <option value="*">умножить</option>
+                    <option value="/">делить</option>
+                </select>    
+                <p><input type="text" name="num2" class="Inn" placeholder="2-е число"></p>
+                <p><input type="submit" name="res" class="Inn" value="Считать"onclick = sendToServer(event)></p>
+            </form>  
+                <div id="res" class="Inn">
+                </div>
+        </body>
+</html>
