@@ -1,0 +1,40 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: auto;
+}
+
+.user{
+    display: flex;
+}
+
+.name{
+    flex-grow: 1;
+    padding-left: 10px;
+}
+
+.nameInput{
+    width: 100%;
+}
+
+.chat{
+    height: 100px;
+    width: 100%;
+}
+
+.sms, button{
+    width: 100%;
+    height: 30px;
+    /* height: 50px; */
+}
+
+.button{
+    background-color: brown;
+    color: darkblue;
+    border-radius: 10px;
+}
+
+div.container > div{
+    margin-top: 10px;
+}
