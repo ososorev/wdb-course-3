@@ -20,6 +20,9 @@ class DataBase
     private function connect()
     {
         $this->connection = mysqli_connect($this->host, $this->user, $this->pass, $this->nameDB);
+        if ($this->connection->connect_error) {
+            die("Connection failed: " . $this->connection->connect_error);
+        }
     }
 
     private function parseForInsert($data)
