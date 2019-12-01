@@ -12,6 +12,7 @@ if (isset($buttonLog)) {
     if (!empty($inputUsername) && !empty($inputPassword)) {
         $result = Database::checkPair($inputUsername, $inputPassword);
         if ($result === true) {
+            saveToSession('username', $inputUsername);
             header('Location: http://localhost/wdb-course-3/software/notebook/mainPage.php');
             exit();
         } else {
