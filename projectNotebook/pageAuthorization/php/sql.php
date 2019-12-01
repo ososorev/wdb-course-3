@@ -10,5 +10,11 @@ class Sql
     {
         mysqli_query(self::connection(), $insert);
     }
+
+    static function querySelect($select)
+    {
+        $resource = mysqli_query(self::connection(), $select);
+        return $resource;
+    }
 }
 ?>
