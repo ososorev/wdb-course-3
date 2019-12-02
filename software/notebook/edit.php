@@ -53,7 +53,7 @@ $username = getFromSession('username');
                     <form id=form class="formBlock" method="post">
                         <input placeholder="Note 3" class="noteNameBlock inputForm" name="inputNoteName" type="text" required>
                         <input placeholder="02.10.2019" class="noteDateBlock inputForm" name="inputNoteDate" type="date" required>
-                        <input placeholder="Line 1" class="infoBlock inputForm" name="inputNoteValue" type="text" required>
+                        <textarea placeholder="Line 1" class="infoBlock inputForm" name="inputNoteValue" required></textarea>
                         <div class="buttonBlock">
                             <input class="buttonSave" type="submit" name="buttonSave" onclick="send()" value="Save"/>
                         </div>
