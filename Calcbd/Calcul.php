@@ -18,35 +18,31 @@
     elseif ($operators=="/"){
         $res=$num1/$num2;
     }
-    $output = "Результат: " . $res;
+    $output = "Результат: " . $res .'<br>';
     echo $output;
 
-//    $save = mysqli_connect("localhost", "root", "", "db_calc");
-//    $num1 = $_REQUEST["Num1"];
-//    $operators = $_REQUEST["Opp"];
-//    $num2 = $_REQUEST["Num2"];
-//    $res = $_REQUEST["Res"];
-//    mysqli_query($save, "INSERT INTO `calc`(`num1`, `operators`, `num2`, `res`) values ('$Num1','$Opp','$Num2','$Res')");
-
-//    $resource = mysqli_query($save, "SELECT * FROM calc ORDER BY Id DESC LIMIT 5;");
-//    $save = [];
-//    foreach($resource as $row) {
-//        $save[] = $row;
-//        echo '<div>'.$row['num1'].' '.$row['opp'].' '.$row['num2'].' = '.$row['res'].'</div>';
-//}
-
-$output = mysqli_connect("localhost", "root", "", "db_calc");
+$link = mysqli_connect("localhost", "root", "", "db_calc");
 $num1 = $_REQUEST["num1"];
 $operators = $_REQUEST["operators"];
 $num2 = $_REQUEST["num2"];
 $result = $_REQUEST["res"];
-mysqli_query($output, "INSERT INTO `calc`(`Num1`, `Opp`, `Num2`, `Res`) VALUES ('$num1','$operators','$num2','$res')");
+mysqli_query($link, "INSERT INTO `calc`(`Num1`, `Opp`, `Num2`, `Res`) VALUES ('$num1','$operators','$num2','$res')");
 
-$resource = mysqli_query($output, "SELECT * FROM calc ORDER BY id DESC LIMIT 5;");
-$output = [];
-foreach($resource as $row) {
-    $output[] = $row;
-    echo '<div>'.$row['num1'].' '.$row['operator'].' '.$row['num2'].' = '.$row['result'].'</div>';
+$query="SELECT * FROM calc ORDER BY Id DESC LIMIT 5";
+
+$resourse = mysqli_query($link, $query);
+if($resourse)
+{
+    $rows = mysqli_num_rows($resourse);
+     
+    echo '<br>'.'История результатов:'.'<br>';
+    for ($i = 0 ; $i < $rows ; ++$i)
+    {
+        $row = mysqli_fetch_row($resourse);
+        echo "<br>";
+            for ($j = 0 ; $j < 1 ; ++$j) echo $row[1].$row[2].$row[3]. "=" .$row[4];    
+    }
+     
 }
 
 ?>
