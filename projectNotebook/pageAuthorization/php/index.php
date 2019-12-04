@@ -26,7 +26,7 @@
         if (!empty($username) && !empty($password)) {
             if (rad($username, $password)) {
                 saveToSession('username', $username);
-                header('Location: http://localhost/wdb-course-3/projectNotebook/pageWork/index.html');
+                header('Location: http://localhost/wdb-course-3/projectNotebook/pageWork/php/index.php');
                 exit();
             } else {
                 $error .= "Проверьте введенные имя и пароль";
