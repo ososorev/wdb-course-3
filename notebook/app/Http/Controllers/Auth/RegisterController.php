@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\users;
 use Illuminate\Foundation\Auth\RegistersUsers;
-//use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/login';
+    protected $redirectTo = '/notes';
 
     /**
      * Create a new controller instance.
@@ -66,7 +66,7 @@ class RegisterController extends Controller
         return users::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => md5($data['password']),
+            'password' => Hash::make($data['password']),
         ]);
     }
 }
