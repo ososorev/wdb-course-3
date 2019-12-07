@@ -5,7 +5,11 @@
 	$email = $_REQUEST ["email"];
 
 	if (!empty($username)&&!empty($password)&&!empty($confirmPassword)&&!empty($email)){
-    	$result = validate();
+    	$result = "Invalid password";
+		echo ($result);
+	}
+	else {
+		$result = "Fill in the empty fields";
 		echo ($result);
 	}
 	function validate() {
@@ -30,7 +34,7 @@ $connection = mysqli_connect("localhost", "root", "", "registration");
 mysqli_query($connection, "INSERT INTO regist(username, password, email) VALUES ('$username', MD5('$password'), '$email')");
 
 	if ($result == "Successful!"){ 
-		echo "<META HTTP-EQUIV='Refresh' content='2; URL=index.php'>";
+		echo "<META HTTP-EQUIV='Refresh' content='2; URL=index.html'>";
 		exit(); 
 	} 
 ?>
