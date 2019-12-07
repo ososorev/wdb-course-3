@@ -46,12 +46,25 @@ $username = getFromSession('username');
                     </div>
                 </div>
                 <div class="betweenContainer"></div>
-                <div class="rightContainer">
-                    <div class="noteHeaderBlock">
-                        <div class="noteNameBlock">Note 3</div>
-                        <div class="noteDateBlock">02.10.2019</div>
+                <div class="rightContainerInfo hidden">
+                    <div class="noteHeaderBlockInfo">
+                        <div class="noteNameBlockInfo">Note 3</div>
+                        <div class="noteDateBlockInfo">02.10.2019</div>
                     </div>
-                    <div class="infoBlock">Some note text here!</div>
+                    <div class="infoBlockInfo">Some note text here!</div>
+                </div>
+                <div class="rightContainerEdit hidden">
+                    <div class="noteHeaderBlockEdit">
+                        <span class="noteEditBlock">Edit mode</span>
+                    </div>
+                    <form id=form class="formBlock" method="post">
+                        <input placeholder="Note 3" class="noteNameBlockEdit inputForm" name="inputNoteName" type="text" required>
+                        <input placeholder="02.10.2019" class="noteDateBlockEdit inputForm" name="inputNoteDate" type="date" required>
+                        <textarea placeholder="Line 1" class="infoBlockEdit inputForm" name="inputNoteValue" required></textarea>
+                        <div class="buttonBlock">
+                            <input class="buttonSave" type="submit" name="buttonSave" onclick="send()" value="Save"/>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="output"><?php echo $error ?></div>

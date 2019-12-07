@@ -70,6 +70,7 @@ html, body {
     justify-content: space-between;
     background-color: bisque;
     width: 40%;
+    max-width: 320px;
     border-left: 2px;
 }
 
@@ -136,7 +137,7 @@ html, body {
     background-color: antiquewhite;
 }
 
-.noteHeaderBlock {
+.noteHeaderBlockEdit {
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid #666;
@@ -172,20 +173,20 @@ html, body {
     margin-top: -12px;
 }
 
-.noteNameBlock {
+.noteNameBlockEdit {
     display: flex;
     max-height: 30px;
     padding: 8px;
 }
 
-.noteDateBlock {
+.noteDateBlockEdit {
     display: flex;
     max-height: 30px;
     padding: 8px;
     // background-color: darkgoldenrod;
 }
 
-.infoBlock {
+.infoBlockEdit {
     display: flex;
     flex-grow: 1;
     padding: 8px;
