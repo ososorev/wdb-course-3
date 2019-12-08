@@ -17,12 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
-
-/*Route::get('/notes', function (){
-    return view('note/notes');
-});*/
-
-Route::get('/notes', 'note\NoteController@index');
+Route::get('/notes', 'Note\NoteController@index');
+Route::post('notes/get_notes', 'Note\NoteController@view');
 
 

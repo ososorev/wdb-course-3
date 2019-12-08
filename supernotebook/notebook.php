@@ -40,14 +40,6 @@
     </script>
 </head>
 <body>
-<header class="header">
-    <div class="container-fluid header__content bg-gray center flexContainer column">
-        <div>SUPER NOTEBOOK</div>
-        <div>Welcome, <a class="username" href="#"><?echo $user->getUserName();?></a>.
-            <a class="logout" onclick="App.logoutAjax(event)" href="#">Logout</a>
-        </div>
-    </div>
-</header>
 
 <main class=" container-fluid align-top">
     <div class="content row">
@@ -55,7 +47,7 @@
             <form role="search" class="mb-3 mt-3">
                 <div class="input-group">
                     <input type="text" class="form-control search_input" placeholder="Поиск">
-                    <button class="btn btn-primary" onclick="App.searchNote()" type="button">
+                    <button class="btn btn-primary" type="button">
                             <i class="fa fa-search"></i>
                     </button>
 	                </span>
@@ -63,20 +55,13 @@
             </form>
             <div class="list_notes">
             </div>
-            <button class="add_note btn btn-primary btn-lg btn-block" onclick="App.createNote()">Add note</button>
+            <button class="add_note btn btn-primary btn-lg btn-block">Add note</button>
         </div>
         <div class="col-8 border-left">
             <div class="note_work_area row">
-
             </div>
         </div>
     </div>
 </main>
-<footer class="footer navbar-fixed-bottom">
-    <div class="container-fluid footer__content bg-gray flexContainer">
-        Copyright by Mikhaylova, 2019
-    </div>
-</footer>
-<script src="js/bootstrap/bootstrap.min.js"></script>
 </body>
 </html>
