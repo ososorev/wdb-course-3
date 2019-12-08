@@ -69,4 +69,49 @@ class Database {
         $passwordHash = md5($inputPassword);
         return $passwordHash == $validPasswordHash;
     }
+
+    public static function insertNoteData($inputNoteName, $username, $inputNoteDate, $inputNoteContent) {
+        self::query("INSERT INTO note(note_name, username, create_date, content)
+            VALUES ('$inputNoteName', '$username', '$inputNoteDate', '$inputNoteContent')");
+        // mysqli_errors
+    }
+
+    public static function selectData() {
+        $resource = self::query("SELECT note_name, create_date, content FROM note
+            ORDER BY id_note DESC LIMIT 1");
+        $note = mysqli_fetch_assoc($resource); // array или NULL
+        if (!empty($note)) {
+            return true;
+        } else {
+            return "Заметок нет";
+        }
+    }
+
+    private static function createdRow($arr, $index) {
+        $row = $arr[$index]['note_name']." ".$arr[$index]['create_date']." ".$arr[$index]['content']."<br />";
+        return $row;
+    }
+
+    private static function resultsSelect($username) {
+        $select = self::query("SELECT note_name, create_date FROM note WHERE  username = '$username' ORDER BY id_note DESC");
+        return $select;
+    }
+
+    private static function resultsAllSelect($username) {
+        $select = self::query("SELECT note_name, create_date, content FROM note WHERE  username = '$username' ORDER BY id_note DESC");
+        return $select;
+    }
+
+    public static function resultsPrint($username) {
+        $resource = self::resultsSelect($username);
+        $noteList = [];
+        $print = '';
+        if (!empty($resource)) {
+            foreach ($resource as $i => $row) {
+                $noteList[] = $row;
+                $print .= self::createdRow($noteList, $i);
+            }
+        }
+        echo $print;
+    }
 }

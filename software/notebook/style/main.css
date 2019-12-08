@@ -97,6 +97,40 @@ html, body {
     background-color: blanchedalmond;
 }
 
+.noteItemBlock {
+    display: flex;
+    flex-direction: row;
+    max-height: 32px;
+}
+
+.noteItemName {
+    display: flex;
+    flex-grow: 1;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.noteItemDate {
+    display: flex;
+}
+
+.noteItemActions {
+    display: flex;
+    flex-direction: row;
+}
+
+.editIcon {
+    display: flex;
+    background: url("../image/icons8_edit_32.png") no-repeat;
+    // background-position: 21px 17px;
+}
+
+.deleteIcon {
+    display: flex;
+    background: url("../image/icons8_delete_32.png") no-repeat;
+    // background-position: 21px 17px;
+}
+
 .buttonBlock {
     display: flex;
     justify-content: center;

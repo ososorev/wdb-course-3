@@ -1,13 +1,21 @@
 <?php
-// header ('Content-Type: text/html; charset=utf-8');
-// header('Location: http://localhost/wdb-course-3/software/notebook/mainPage.php');
+header ('Content-Type: text/html; charset=utf-8');
 require_once('inc/common.inc.php');
 
-$inputUsername = $_REQUEST["inputUsername"];
-$inputPassword = $_REQUEST["inputPassword"];
-$buttonLog = $_REQUEST["buttonLogin"];
+$inputNoteName = $_REQUEST["inputNoteName"];
+$inputNoteDate = $_REQUEST["inputNoteDate"];
+$inputNoteContent = $_REQUEST["inputNoteContent"];
+$buttonSave = $_REQUEST["buttonSave"];
+$result='';
 $error = '';
 $username = getFromSession('username');
+
+if (!empty($inputNoteName) && !empty($inputNoteDate)) {
+    Database::insertNoteData($inputNoteName, $username, $inputNoteDate, $inputNoteContent);
+        // saveToSession('username', $inputUsername);
+    } elseif (isset($buttonSave)) {
+    echo "Заполните обязательные поля Name, Date";
+}
 
 ?>
 <!DOCTYPE html>
@@ -37,7 +45,21 @@ $username = getFromSession('username');
                         <input class="inputSearchBlock" type="text" placeholder="Search">
                     </div>
                     <div class="listOfNotesBlock">
-
+                        <div class="noteItemBlock">
+                            <div class="noteItem">
+                                <?php
+                                Database::resultsPrint($username);
+                                ?>
+                            </div>
+                            <!--
+                            <div class="noteItemName">Название новой заметки</div>
+                            <div class="noteItemDate">02.11.2019</div>
+                            -->
+                            <div class="noteItemActions">
+                                <div class="editIcon"></div>
+                                <div class="deleteIcon"></div>
+                            </div>
+                        </div>
                     </div>
                     <div class="buttonBlock">
                         <button type="button" class="buttonAddNote" name="buttonAddNote" onclick="addNewNote()">
