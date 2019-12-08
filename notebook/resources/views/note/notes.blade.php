@@ -6,6 +6,10 @@
     <script type="text/javascript" src="{{ asset ('js/note/view.js') }}"></script>
     <script type="text/javascript" src="{{ asset ('js/note/eventListener.js') }}"></script>
     <script type="text/javascript" src="{{ asset ('js/note/saveNewNote.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/components/moment.js') }}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
+
 @endpush
 @section('content')
     <main class=" container-fluid align-top">

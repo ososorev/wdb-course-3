@@ -1,14 +1,15 @@
-function viewNote(event) {
+function saveEditNote(event) {
     event.preventDefault();
-    let note_id = $(this).parent().attr("class").replace("note_item-","");
+    let form = $('.edit_note').serialize();
     $.ajax({
-        url: "view_note", // url запроса
-        data: 'note_id=' + note_id,
+        url: "save_edit_note", // url запроса
         cache: false,
         type: "POST", // устанавливаем типа запроса POST
+        data: form,
         success: function (html) {
             $('.work_area').empty();
-            $('.work_area').append(html);
+            $('body').append(html);
+            $('.success_save_note').modal();
         }
     });
 }
