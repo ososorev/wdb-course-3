@@ -1,39 +1,11 @@
 @extends('layouts.app')
-
 @push('scripts')
-    <script type="text/javascript">
-    function addNote(event){
-            event.preventDefault();
-        /*     $.post('/get_notes');
-         alert('121313131');
-
-     }*/
-/*        $(window).load('load', function () {
-            $('.note_name').click(function(){
-             event.preventDefault();
-             $.post('/get_notes');
-            });
-        })*/
-
-     // $('.add_note').click(function () {
-          var btn = $(this)
-          //btn.button('loading')
-          $.ajax({
-              url: "get_notes", // url запроса
-              cache: false,
-              //data: { ids: ids }, // если нужно передать какие-то данные
-              type: "POST", // устанавливаем типа запроса POST
-              beforeSend: function(request) {  // нужно для защиты от CSRF
-                  return request.setRequestHeader('X-CSRF-Token', $("meta[name='csrf-token']").attr('content'));
-              },
-              //success: function(html) { $('#content').append(html);} //контент подгружается в div#content
-          }).always(function () {
-              btn.button('reset')
-          });
-          return false
-     // });
-}
-    </script>
+    <script type="text/javascript" src="{{ asset ('js/note/create.js') }}"></script>
+    <script type="text/javascript" src="{{ asset ('js/note/delete.js') }}"></script>
+    <script type="text/javascript" src="{{ asset ('js/note/edit.js') }}"></script>
+    <script type="text/javascript" src="{{ asset ('js/note/view.js') }}"></script>
+    <script type="text/javascript" src="{{ asset ('js/note/eventListener.js') }}"></script>
+    <script type="text/javascript" src="{{ asset ('js/note/saveNewNote.js') }}"></script>
 @endpush
 @section('content')
     <main class=" container-fluid align-top">
@@ -52,22 +24,23 @@
                     <table class="table_notes table table-striped table-hover">
                         <tbody>
                             @foreach($notes as $note)
-                                <tr class="notes item-{{$note->id}}">
-                                    <td class="note_name">{{$note->name}}</td>
+                                <tr class="note_item-{{$note->id}}">
+                                    <td class="note_name view_note">{{$note->name}}</td>
                                     <td class="note_date">{{$note->created_at}}</td>
-                                    <td class="marker">✐</td>
-                                    <td class="marker">✖</td>
+                                    <td class="edit_note">✐</td>
+                                    <td class="delete_note">✖</td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
 
                 </div>
-                <button class="add_note btn btn-primary btn-lg btn-block" onclick="addNote(event)">Add note</button>
+                <button class="create_note btn btn-primary btn-lg btn-block">Add note</button>
             </div>
-            <div class="col-8 border-left">
+            <div class="work_area col-8 border-left">
                 @yield('work_area')
             </div>
         </div>
     </main>
 @endsection
-
+@include('note.modal.deleteNote')
