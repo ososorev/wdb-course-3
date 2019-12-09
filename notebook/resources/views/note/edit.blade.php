@@ -8,6 +8,7 @@
 <form method="post" class="col-12 edit_note">
     @csrf
     {{ csrf_field() }}
+    @method('POST')
     <div class="title_edit col-12 border-bottom col-sm-10 my-2 text-lg-left">
         <p>Edit node</p>
     </div>

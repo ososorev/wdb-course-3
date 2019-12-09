@@ -22,8 +22,8 @@ Route::post('/view_note', 'Note\NoteController@view');
 Route::post('/edit_note_data', 'Note\NoteController@editData');
 Route::post('/create_note', 'Note\NoteController@create');
 Route::post('/delete_note', 'Note\NoteController@delete');
+Route::post('/save_new_note','Note\NoteController@saveNewNote');
 Route::post('/save_edit_note','Note\NoteController@saveEditNote');
-
 
 
 
