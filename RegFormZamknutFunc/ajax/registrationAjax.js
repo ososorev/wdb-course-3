@@ -1,14 +1,15 @@
+(function() {
     App.registrationAjax = function registrationAjax(event) {
         event.preventDefault();
         errors();
-        fetch("php/errorForm.php", {
+        fetch("validationForm/checkConnectRegistration.php", {
             method: "POST", body: new FormData(document.querySelector('.registration_form'))
         })
             .then(response => response.json())
             .then(errors => {
                 if (!errors.error) {
                     document.querySelector('.registration_result').innerHTML = "Вы зарегестрированы!";
-                    setTimeout('location.replace("index.php")', 3000);
+                    setTimeout('location.replace("login.php")', 3000);
                 } else {
                     if (errors.error_username) {
                         document.querySelector('.error_username').innerHTML = errors.error_username
@@ -21,4 +22,5 @@
                     }
                 }
             });
-    };
+    }
+})();
