@@ -79,7 +79,7 @@ if (!empty($inputNoteName) && !empty($inputNoteDate)) {
                     <form id=form class="formBlock" method="post">
                         <input placeholder="Note 3" class="noteNameBlockEdit inputForm" name="inputNoteName" type="text" required>
                         <input placeholder="02.10.2019" class="noteDateBlockEdit inputForm" name="inputNoteDate" type="date" required>
-                        <textarea placeholder="Line 1" class="infoBlockEdit inputForm" name="$inputNoteContent" required></textarea>
+                        <textarea placeholder="Line 1" class="infoBlockEdit inputForm" name="inputNoteContent" required></textarea>
                         <div class="buttonBlock">
                             <input class="buttonSave" type="submit" name="buttonSave" onclick="send()" value="Save"/>
                         </div>
