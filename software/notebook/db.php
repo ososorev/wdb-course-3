@@ -70,16 +70,37 @@ class Database {
         return $passwordHash == $validPasswordHash;
     }
 
+    private static function checkingUniquenessOfLastNote($inputNoteName, $username, $inputNoteDate, $inputNoteContent) {
+        $resource = self::query("SELECT note_name, username, use_date, content
+        FROM note ORDER BY id_note DESC LIMIT 1");
+        $prev = [];
+        if (!empty($resource)) {
+            foreach ($resource as $row) {
+                $prev[] = $row;
+            }
+        } else {
+            return true;
+        }
+        if ($prev[0]['note_name'] != $inputNoteName || $prev[0]['username'] != $username ||
+            $prev[0]['use_date'] != $inputNoteDate || $prev[0]['content'] != $inputNoteContent) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public static function insertNoteData($inputNoteName, $username, $inputNoteDate, $inputNoteContent) {
-        self::query("INSERT INTO note(note_name, username, create_date, content)
+        if (self::checkingUniquenessOfLastNote($inputNoteName, $username, $inputNoteDate, $inputNoteContent)) {
+            self::query("INSERT INTO note(note_name, username, use_date, content)
             VALUES ('$inputNoteName', '$username', '$inputNoteDate', '$inputNoteContent')");
         // mysqli_errors
+        }
     }
 
     public static function selectData() {
         $resource = self::query("SELECT note_name, create_date, content FROM note
             ORDER BY id_note DESC LIMIT 1");
-        $note = mysqli_fetch_assoc($resource); // array или NULL
+        $note = mysqli_fetch_assoc($resource); // array или NULL - 1 строка ассоциативного массива
         if (!empty($note)) {
             return true;
         } else {
@@ -93,12 +114,14 @@ class Database {
     }
 
     private static function resultsSelect($username) {
-        $select = self::query("SELECT note_name, create_date FROM note WHERE  username = '$username' ORDER BY id_note DESC");
+        $select = self::query("SELECT note_name, create_date FROM note
+                  WHERE  username = '$username' ORDER BY id_note DESC");
         return $select;
     }
 
     private static function resultsAllSelect($username) {
-        $select = self::query("SELECT note_name, create_date, content FROM note WHERE  username = '$username' ORDER BY id_note DESC");
+        $select = self::query("SELECT note_name, use_date, content FROM note
+                  WHERE  username = '$username' ORDER BY id_note DESC");
         return $select;
     }
 
@@ -113,5 +136,22 @@ class Database {
             }
         }
         echo $print;
+    }
+
+    private static function noteOfListSelect ($username) {
+        $select = self::query("SELECT id_note, note_name, use_date FROM note
+                  WHERE  username = '$username' ORDER BY id_note DESC");
+        return $select;
+    }
+
+    public static function resultsNoteOfListSelect ($username) {
+        $resource = self::noteOfListSelect($username);
+        $noteList = [];
+        if (!empty($resource)) {
+            foreach ($resource as $row) {
+                $noteList[] = $row;
+            }
+        }
+        return $noteList;
     }
 }

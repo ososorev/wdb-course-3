@@ -92,22 +92,30 @@ html, body {
 .listOfNotesBlock {
     display: flex;
     flex-direction: column;
+    height: calc(100vh - 2 * 62px - 16px - 28px - 40px - 66px);
     margin: 0 12px;
     flex-grow: 1;
-    background-color: blanchedalmond;
+    overflow-y: scroll;
+    background-color: blanchedalmond;}
+
+
+.listOfNotesBlock::-webkit-scrollbar {
+    width: 0;
 }
 
 .noteItemBlock {
     display: flex;
     flex-direction: row;
     max-height: 32px;
+    max-width: 100%;
 }
 
 .noteItemName {
-    display: flex;
     flex-grow: 1;
     white-space: nowrap;
     text-overflow: ellipsis;
+    text-align: start;
+    overflow: hidden;
 }
 
 .noteItemDate {
@@ -117,18 +125,26 @@ html, body {
 .noteItemActions {
     display: flex;
     flex-direction: row;
+    padding: 6px 0 0 6px;
+}
+
+.editIcon,
+.deleteIcon {
+    display: flex;
+    height: 18px;
+    width: 18px;
+    margin: 2px 0 0 2px;
+// background-position: 21px 17px;
 }
 
 .editIcon {
-    display: flex;
     background: url("../image/icons8_edit_32.png") no-repeat;
-    // background-position: 21px 17px;
+    background-size: 80% auto;
 }
 
 .deleteIcon {
-    display: flex;
     background: url("../image/icons8_delete_32.png") no-repeat;
-    // background-position: 21px 17px;
+    background-size: 80% auto;
 }
 
 .buttonBlock {
@@ -167,7 +183,7 @@ html, body {
 .rightContainerInfo,
 .rightContainerEdit {
     display: flex; //
-    // display: none;
+// display: none;
     flex-direction: column;
     width: 100%;
     background-color: antiquewhite;
@@ -200,7 +216,7 @@ html, body {
     display: flex;
     width: 180px;
     padding: 8px;
-    // background-color: darkgoldenrod;
+// background-color: darkgoldenrod;
 }
 
 .infoBlockInfo {

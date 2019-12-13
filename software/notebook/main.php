@@ -45,21 +45,18 @@ if (!empty($inputNoteName) && !empty($inputNoteDate)) {
                         <input class="inputSearchBlock" type="text" placeholder="Search">
                     </div>
                     <div class="listOfNotesBlock">
-                        <div class="noteItemBlock">
-                            <div class="noteItem">
-                                <?php
-                                Database::resultsPrint($username);
-                                ?>
+                        <?php foreach (Database::resultsNoteOfListSelect($username) as $item) {;?>
+                            <div class="noteItemBlock">
+                                <div class="noteItem">
+                                    <div class="noteItemName"><?php echo $item[note_name];?></div>
+                                    <div class="noteItemDate"><?php echo date("d.m.Y", strtotime($item[use_date]));?></div>
+                                </div>
+                                <div class="noteItemActions">
+                                    <button class="editIcon" onclick="showNote()"></button>
+                                    <button class="deleteIcon" onclick="deleteNote()"></button>
+                                </div>
                             </div>
-                            <!--
-                            <div class="noteItemName">Название новой заметки</div>
-                            <div class="noteItemDate">02.11.2019</div>
-                            -->
-                            <div class="noteItemActions">
-                                <div class="editIcon"></div>
-                                <div class="deleteIcon"></div>
-                            </div>
-                        </div>
+                        <?php };?>
                     </div>
                     <div class="buttonBlock">
                         <button type="button" class="buttonAddNote" name="buttonAddNote" onclick="addNewNote()">
@@ -82,7 +79,7 @@ if (!empty($inputNoteName) && !empty($inputNoteDate)) {
                     <form id=form class="formBlock" method="post">
                         <input placeholder="Note 3" class="noteNameBlockEdit inputForm" name="inputNoteName" type="text" required>
                         <input placeholder="02.10.2019" class="noteDateBlockEdit inputForm" name="inputNoteDate" type="date" required>
-                        <textarea placeholder="Line 1" class="infoBlockEdit inputForm" name="inputNoteValue" required></textarea>
+                        <textarea placeholder="Line 1" class="infoBlockEdit inputForm" name="$inputNoteContent" required></textarea>
                         <div class="buttonBlock">
                             <input class="buttonSave" type="submit" name="buttonSave" onclick="send()" value="Save"/>
                         </div>
