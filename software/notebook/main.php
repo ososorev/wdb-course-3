@@ -47,10 +47,8 @@ if (!empty($inputNoteName) && !empty($inputNoteDate)) {
                     <div class="listOfNotesBlock">
                         <?php foreach (Database::resultsNoteOfListSelect($username) as $item) {;?>
                             <div class="noteItemBlock">
-                                <div class="noteItem">
-                                    <div class="noteItemName"><?php echo $item[note_name];?></div>
-                                    <div class="noteItemDate"><?php echo date("d.m.Y", strtotime($item[use_date]));?></div>
-                                </div>
+                                <div class="noteItemName"><?php echo $item[note_name];?></div>
+                                <div class="noteItemDate"><?php echo date("d.m.Y", strtotime($item[use_date]));?></div>
                                 <div class="noteItemActions">
                                     <button class="editIcon" onclick="showNote()"></button>
                                     <button class="deleteIcon" onclick="deleteNote()"></button>
