@@ -5,10 +5,12 @@ class Database {
         return mysqli_connect("localhost", "root", "", "register");
     }
 
-    private static function query($sql) {
+    protected static function query($sql) {
         return mysqli_query(self::connection(), $sql);
     }
+}
 
+class UserDatabase extends Database {
     private static function checkingUniquenessOfUsername($inputUsername)
     {
         $resource = self::query("SELECT username FROM user WHERE username = '$inputUsername'");
@@ -69,7 +71,9 @@ class Database {
         $passwordHash = md5($inputPassword);
         return $passwordHash == $validPasswordHash;
     }
+}
 
+class NoteDatabase extends Database {
     private static function checkingUniquenessOfLastNote($inputNoteName, $username, $inputNoteDate, $inputNoteContent) {
         $resource = self::query("SELECT note_name, username, use_date, content
         FROM note ORDER BY id_note DESC LIMIT 1");

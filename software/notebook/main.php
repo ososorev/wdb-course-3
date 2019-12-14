@@ -11,7 +11,7 @@ $error = '';
 $username = getFromSession('username');
 
 if (!empty($inputNoteName) && !empty($inputNoteDate)) {
-    Database::insertNoteData($inputNoteName, $username, $inputNoteDate, $inputNoteContent);
+    NoteDatabase::insertNoteData($inputNoteName, $username, $inputNoteDate, $inputNoteContent);
         // saveToSession('username', $inputUsername);
     } elseif (isset($buttonSave)) {
     echo "Заполните обязательные поля Name, Date";
@@ -45,7 +45,7 @@ if (!empty($inputNoteName) && !empty($inputNoteDate)) {
                         <input class="inputSearchBlock" type="text" placeholder="Search">
                     </div>
                     <div class="listOfNotesBlock">
-                        <?php foreach (Database::resultsNoteOfListSelect($username) as $item) {;?>
+                        <?php foreach (NoteDatabase::resultsNoteOfListSelect($username) as $item) {;?>
                             <div class="noteItemBlock">
                                 <div class="noteItemName"><?php echo $item[note_name];?></div>
                                 <div class="noteItemDate"><?php echo date("d.m.Y", strtotime($item[use_date]));?></div>

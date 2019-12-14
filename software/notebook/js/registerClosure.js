@@ -1,12 +1,18 @@
 let App = {}; // всё складываем сюда
 
+function forwarding() {
+    window.location.href = "http://localhost/wdb-course-3/software/notebook/input.php";
+}
+
 function send(event) {
     event.preventDefault();
     fetch("register.php", {method: "POST", body: new FormData(document.forms[0])})
-        .then(response => response.text()).then(outputResult => {
-        document.querySelector(".output").innerHTML = outputResult;
-    })
+        .then(response => response.text())
+        .then(outputResult => {document.querySelector(".output").innerHTML = outputResult});
+        // .then(response => {response = forwarding();})
+        // .catch(error => {alert(error)});
 }
+
 let forms = {};
 (function(){
     forms.divElement=divElement;

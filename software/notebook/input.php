@@ -10,7 +10,7 @@ $buttonLog = $_REQUEST["buttonLogin"];
 $error = '';
 if (isset($buttonLog)) {
     if (!empty($inputUsername) && !empty($inputPassword)) {
-        $result = Database::checkPair($inputUsername, $inputPassword);
+        $result = UserDatabase::checkPair($inputUsername, $inputPassword);
         if ($result === true) {
             saveToSession('username', $inputUsername);
             header('Location: http://localhost/wdb-course-3/software/notebook/mainPage.php');
