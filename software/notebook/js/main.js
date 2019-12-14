@@ -1,7 +1,7 @@
 function addNewNote() {
-    let edit = document.querySelector(".rightContainerEdit");
-    edit.classList.remove("hidden");
-    edit.classList.add("visible");
+    let create = document.querySelector(".rightContainerCreate");
+    create.classList.remove("hidden");
+    create.classList.add("visible");
 }
 
 // button.addEventListener('click', function(event) {
@@ -26,7 +26,7 @@ function closeAndRemove(){
 }
 
 // not done
-function getNoteInfo(event) {
+function getNoteInfo(event, id_note) {
     event.preventDefault();
     // fetch("main.php", {method: "POST", body: new FormData(document.forms[0])})
     //     .then(response => response.text()).then(outputResult => {
@@ -34,13 +34,19 @@ function getNoteInfo(event) {
     // })
 }
 
-function showNote() {
-    let edit = document.querySelector(".rightContainerInfo");
-    getNoteInfo();
+function showNote(id_note) {
+    let edit = document.querySelector(".rightContainerEdit");
+    // getNoteInfo(id_note);
     edit.classList.remove("hidden");
     edit.classList.add("visible");
 }
 
-function deleteNote() {
+function deleteNote(id_note) {
     //
+}
+
+function onClose() {
+    let edit = document.querySelector(".rightContainerEdit");
+    edit.classList.remove("visible");
+    edit.classList.add("hidden");
 }

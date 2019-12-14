@@ -181,6 +181,7 @@ html, body {
 }
 
 .rightContainerInfo,
+.rightContainerCreate,
 .rightContainerEdit {
     display: flex; //
 // display: none;
@@ -223,6 +224,14 @@ html, body {
     display: flex;
     margin: 12px;
     padding: 8px;
+}
+
+.noteHeaderBlockCreate {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #666;
+    margin: 12px;
+    min-height: 30px;
 }
 
 .noteHeaderBlockEdit {
@@ -280,7 +289,8 @@ html, body {
     padding: 8px;
 }
 
-.buttonSave {
+.buttonSave,
+.buttonCancel {
     display: block;
     text-align: center;
     margin: 20px;
@@ -300,6 +310,10 @@ html, body {
     background-color: #0055ff;
 }
 
+.buttonCancel {
+    background-color: red;
+}
+
 .output {
     display: flex;
     margin: 0 auto;
@@ -310,4 +324,8 @@ html, body {
     display: flex;
     justify-content: center;
     padding-top: 28px;
+}
+
+button:hover {
+   cursor: pointer;
 }

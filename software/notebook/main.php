@@ -50,8 +50,8 @@ if (!empty($inputNoteName) && !empty($inputNoteDate)) {
                                 <div class="noteItemName"><?php echo $item[note_name];?></div>
                                 <div class="noteItemDate"><?php echo date("d.m.Y", strtotime($item[use_date]));?></div>
                                 <div class="noteItemActions">
-                                    <button class="editIcon" onclick="showNote()"></button>
-                                    <button class="deleteIcon" onclick="deleteNote()"></button>
+                                    <button class="editIcon" onclick="showNote(<?php $item;?>)"></button>
+                                    <button class="deleteIcon" onclick="deleteNote(<?php $item;?>)"></button>
                                 </div>
                             </div>
                         <?php };?>
@@ -70,6 +70,19 @@ if (!empty($inputNoteName) && !empty($inputNoteDate)) {
                     </div>
                     <div class="infoBlockInfo">Some note text here!</div>
                 </div>
+                <div class="rightContainerCreate hidden">
+                    <div class="noteHeaderBlockCreate">
+                        <span class="noteEditBlock">Edit mode</span>
+                    </div>
+                    <form id=form class="formBlock" method="post">
+                        <input placeholder="Note 3" class="noteNameBlockEdit inputForm" name="inputNoteName" type="text" required>
+                        <input placeholder="02.10.2019" class="noteDateBlockEdit inputForm" name="inputNoteDate" type="date" required>
+                        <textarea placeholder="Line 1" class="infoBlockEdit inputForm" name="inputNoteContent" required></textarea>
+                        <div class="buttonBlock">
+                            <input class="buttonSave" type="submit" name="buttonSave" onclick="send()" value="Save"/>
+                        </div>
+                    </form>
+                </div>
                 <div class="rightContainerEdit hidden">
                     <div class="noteHeaderBlockEdit">
                         <span class="noteEditBlock">Edit mode</span>
@@ -79,7 +92,8 @@ if (!empty($inputNoteName) && !empty($inputNoteDate)) {
                         <input placeholder="02.10.2019" class="noteDateBlockEdit inputForm" name="inputNoteDate" type="date" required>
                         <textarea placeholder="Line 1" class="infoBlockEdit inputForm" name="inputNoteContent" required></textarea>
                         <div class="buttonBlock">
-                            <input class="buttonSave" type="submit" name="buttonSave" onclick="send()" value="Save"/>
+                            <button class="buttonCancel" onclick="onClose()">Cancel changes</button>
+                            <input class="buttonSave" type="submit" name="buttonSaveChanges" onclick="send()" value="Save changes"/>
                         </div>
                     </form>
                 </div>
