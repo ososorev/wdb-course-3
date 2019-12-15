@@ -101,6 +101,7 @@ class NoteDatabase extends Database {
         }
     }
 
+    // not used
     public static function selectData() {
         $resource = self::query("SELECT note_name, create_date, content FROM note
             ORDER BY id_note DESC LIMIT 1");
@@ -112,23 +113,20 @@ class NoteDatabase extends Database {
         }
     }
 
+    // not used
     private static function createdRow($arr, $index) {
         $row = $arr[$index]['note_name']." ".$arr[$index]['create_date']." ".$arr[$index]['content']."<br />";
         return $row;
     }
 
-    private static function resultsSelect($username) {
-        $select = self::query("SELECT note_name, create_date FROM note
-                  WHERE  username = '$username' ORDER BY id_note DESC");
-        return $select;
-    }
-
+    // not used
     private static function resultsAllSelect($username) {
         $select = self::query("SELECT note_name, use_date, content FROM note
                   WHERE  username = '$username' ORDER BY id_note DESC");
         return $select;
     }
 
+    // not used
     public static function resultsPrint($username) {
         $resource = self::resultsSelect($username);
         $noteList = [];
@@ -157,5 +155,22 @@ class NoteDatabase extends Database {
             }
         }
         return $noteList;
+    }
+
+    public static function noteSelect($id) {
+        $select = self::query("SELECT note_name, use_date, content FROM note WHERE  id_note = '$id'");
+        $select = mysqli_fetch_assoc($select);
+        return $select;
+    }
+
+    public static function updateNote($inputNoteName, $username, $inputNoteDate, $inputNoteContent) {
+        self::query("UPDATE note SET note_name = '$inputNoteName', use_date = '$inputNoteDate',
+                    content = '$inputNoteContent'
+                    // [WHERE условие_обновления_id]
+                    ");
+    }
+
+    public static function deleteNote($id) {
+        self::query("DELETE FROM note WHERE note_id='$id';");
     }
 }

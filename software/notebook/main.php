@@ -50,8 +50,8 @@ if (!empty($inputNoteName) && !empty($inputNoteDate)) {
                                 <div class="noteItemName"><?php echo $item[note_name];?></div>
                                 <div class="noteItemDate"><?php echo date("d.m.Y", strtotime($item[use_date]));?></div>
                                 <div class="noteItemActions">
-                                    <button class="editIcon" onclick="showNote(<?php $item;?>)"></button>
-                                    <button class="deleteIcon" onclick="deleteNote(<?php $item;?>)"></button>
+                                    <button class="editIcon" onclick="showNote(event, <?php echo $item[id_note];?>)"></button>
+                                    <button class="deleteIcon" onclick="deleteNote(event, <?php echo $item[id_note];?>)"></button>
                                 </div>
                             </div>
                         <?php };?>
@@ -88,12 +88,12 @@ if (!empty($inputNoteName) && !empty($inputNoteDate)) {
                         <span class="noteEditBlock">Edit mode</span>
                     </div>
                     <form id=form class="formBlock" method="post">
-                        <input placeholder="Note 3" class="noteNameBlockEdit inputForm" name="inputNoteName" type="text" required>
-                        <input placeholder="02.10.2019" class="noteDateBlockEdit inputForm" name="inputNoteDate" type="date" required>
-                        <textarea placeholder="Line 1" class="infoBlockEdit inputForm" name="inputNoteContent" required></textarea>
+                        <input placeholder="Note 3" class="noteNameBlockEdit editName inputForm" name="inputNoteName" type="text" required>
+                        <input placeholder="02.10.2019" class="noteDateBlockEdit editDate inputForm" name="inputNoteDate" type="date" required>
+                        <textarea placeholder="Line 1" class="infoBlockEdit editContent inputForm" name="inputNoteContent" required></textarea>
                         <div class="buttonBlock">
                             <button class="buttonCancel" onclick="onClose()">Cancel</button>
-                            <input class="buttonSave" type="submit" name="buttonSaveChanges" onclick="send()" value="Save changes"/>
+                            <input class="buttonSave" type="submit" name="buttonSaveChanges" onclick="sendChanges()" value="Save changes"/>
                         </div>
                     </form>
                 </div>
