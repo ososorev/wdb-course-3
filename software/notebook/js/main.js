@@ -13,17 +13,15 @@ function addNewNote() {
 function send(event) {
     event.preventDefault();
     fetch("main.php", {method: "POST", body: new FormData(document.forms[0])})
-        .then(response => response.text()).then(outputResult => {
-        document.querySelector(".noteItemBlock").innerHTML = outputResult;
-    })
+        .then(response => response.text())
+        .then(outputResult => {document.querySelector(".noteItemBlock").innerHTML = outputResult;})
 }
 
 function sendChanges(event) {
     event.preventDefault();
     fetch("main.php", {method: "POST", body: new FormData(document.forms[1])})
-        .then(response => response.text()).then(outputResult => {
-        document.querySelector(".noteItemBlock").innerHTML = outputResult;
-    })
+        .then(response => response.text())
+        .then(outputResult => {document.querySelector(".noteItemBlock").innerHTML = outputResult;})
 }
 
 // function closeAndRemove(){
@@ -41,7 +39,7 @@ function splitNote(arr) {
 
 function getNoteInfo(event, id) {
     event.preventDefault();
-    fetch("getNoteData.php", {method: "POST", data: {note_id: id}})
+    fetch("getNoteData.php", {method: "POST", date: {note_id: id}})
         .then(response => response.text())
         .then(noteInfo  => {splitNote(noteInfo)})
 }
@@ -55,7 +53,7 @@ function showNote(event, id) {
 
 function deleteNote(event, $id) {
     event.preventDefault();
-    // fetch("main.php", {method: "POST", body: new FormData(document.forms[0])})
+    fetch("main.php", {method: "POST", body: new FormData(document.querySelector(".noteItemBloc"))})
 }
 
 function onClose() {
