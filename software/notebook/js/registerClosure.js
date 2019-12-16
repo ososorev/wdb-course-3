@@ -9,6 +9,11 @@ function send(event) {
     fetch("register.php", {method: "POST", body: new FormData(document.forms[0])})
         .then(response => response.text())
         .then(outputResult => {document.querySelector(".output").innerHTML = outputResult});
+        // if (outputResult !== "Проверьте введенный пароль!" ||
+        //     outputResult !== "Заполните все обязательные поля:<br />Username, Password, Confirm password") {
+        //     forwarding();
+        // }
+        // .catch(event => {});
         // .then(href => {forwarding() = href;})
         // .catch(error => {alert(error)});
 }

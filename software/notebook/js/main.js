@@ -39,8 +39,10 @@ function splitNote(arr) {
 
 function getNoteInfo(event, id) {
     event.preventDefault();
-    fetch("getNoteData.php", {method: "POST", date: {note_id: id}})
-        .then(response => response.text())
+    let data = new FormData();
+    data.append("note_id", id);
+    fetch("getNoteData.php", {method: "POST", body: data})
+        .then(response => response.json())
         .then(noteInfo  => {splitNote(noteInfo)})
 }
 
@@ -51,9 +53,10 @@ function showNote(event, id) {
     edit.classList.add("visible");
 }
 
-function deleteNote(event, $id) {
+function deleteNote(event, id) {
     event.preventDefault();
-    fetch("main.php", {method: "POST", body: new FormData(document.querySelector(".noteItemBloc"))})
+    // fetch("main.php", {method: "POST", body: new FormData(document.querySelector(".noteItemBloc"))})
+    // confirm();
 }
 
 function onClose() {

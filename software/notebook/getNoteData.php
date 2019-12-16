@@ -2,8 +2,8 @@
 header ('Content-Type: text/html; charset=utf-8');
 require_once('inc/common.inc.php');
 
-$noteId='';
-$result='';
+$noteId = '';
+$result = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['note_id'])) {
@@ -12,5 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $result = NoteDatabase::noteSelect($noteId);
-//print_r($result);
 echo $result[note_name];
+json_encode($result);
+print_r($result);

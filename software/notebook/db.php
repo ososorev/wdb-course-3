@@ -97,7 +97,7 @@ class NoteDatabase extends Database {
         if (self::checkingUniquenessOfLastNote($inputNoteName, $username, $inputNoteDate, $inputNoteContent)) {
             self::query("INSERT INTO note(note_name, username, use_date, content)
             VALUES ('$inputNoteName', '$username', '$inputNoteDate', '$inputNoteContent')");
-        // mysqli_errors
+        // mysqli_errors // mysqli_last_error()
         }
     }
 
