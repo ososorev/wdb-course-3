@@ -12,6 +12,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $result = NoteDatabase::noteSelect($noteId);
-echo $result[note_name];
-json_encode($result);
-print_r($result);
+// echo json_encode($result);
+print_r(json_encode($result));

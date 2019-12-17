@@ -159,8 +159,14 @@ class NoteDatabase extends Database {
 
     public static function noteSelect($id) {
         $select = self::query("SELECT note_name, use_date, content FROM note WHERE  id_note = '$id'");
-        $select = mysqli_fetch_assoc($select);
-        return $select;
+        //$note = mysqli_fetch_assoc($select);
+        $note = [];
+        if (!empty($select)) {
+            foreach ($select as $row) {
+                $note[] = $row;
+            }
+        }
+        return $note;
     }
 
     public static function updateNote($inputNoteName, $username, $inputNoteDate, $inputNoteContent) {

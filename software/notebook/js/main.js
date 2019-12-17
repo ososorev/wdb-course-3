@@ -43,7 +43,9 @@ function getNoteInfo(event, id) {
     data.append("note_id", id);
     fetch("getNoteData.php", {method: "POST", body: data})
         .then(response => response.json())
-        .then(noteInfo  => {splitNote(noteInfo)})
+        .then(noteInfo  => { string = JSON.stringify(noteInfo);
+            noteInfo = JSON.parse(string);
+            splitNote(noteInfo)})
 }
 
 function showNote(event, id) {
