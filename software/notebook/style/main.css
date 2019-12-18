@@ -84,6 +84,7 @@ html, body {
 }
 
 .inputSearchBlock {
+    width: 100%;
     font-size: 19px;
     color: blue;
     background-color: bisque;

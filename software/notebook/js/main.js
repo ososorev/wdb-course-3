@@ -32,9 +32,12 @@ function sendChanges(event) {
 // }
 
 function splitNote(arr) {
-    document.querySelector(".editName").innerHTML = arr[note_name];
-    document.querySelector(".editDate").innerHTML = arr[uee_date];
-    document.querySelector(".editContent").innerHTML = arr[content];
+    const name = arr[0]["note_name"];
+    const date = arr[0]["use_date"];
+    const content = arr[0]["content"];
+    document.querySelector(".editName").value = name;
+    document.querySelector(".editDate").value = date;
+    document.querySelector(".editContent").innerHTML = content;
 }
 
 function getNoteInfo(event, id) {
@@ -43,8 +46,8 @@ function getNoteInfo(event, id) {
     data.append("note_id", id);
     fetch("getNoteData.php", {method: "POST", body: data})
         .then(response => response.json())
-        .then(noteInfo  => { string = JSON.stringify(noteInfo);
-            noteInfo = JSON.parse(string);
+        .then(noteInfo  => {
+            JSON.parse(JSON.stringify(noteInfo));
             splitNote(noteInfo)})
 }
 
@@ -57,8 +60,13 @@ function showNote(event, id) {
 
 function deleteNote(event, id) {
     event.preventDefault();
-    // fetch("main.php", {method: "POST", body: new FormData(document.querySelector(".noteItemBloc"))})
-    // confirm();
+    const confirmationOfDeletion = confirm("Are you sure want to delete?");
+    if(confirmationOfDeletion) {
+        //УДАЛЯТЬ ЗДЕСЬ
+        // fetch("main.php", {method: "POST", body: new FormData(document.querySelector(".noteItemBloc"))})
+    }
+    // alert(confirmationOfDeletion);
+    // удаление из базы и закрытие
 }
 
 function onClose() {
