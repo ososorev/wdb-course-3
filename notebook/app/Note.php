@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Note extends Model
 {
-
+    protected $fillable = [
+        "name",
+        ///...
+    ];
+    protected $dates =[];
 }

@@ -1,11 +1,13 @@
 function createNote(event) {
+    event.preventDefault();
     $.ajax({
-        url: "create_note", // url запроса
+        url: "create_note",
         cache: false,
-        type: "POST", // устанавливаем типа запроса POST
+        type: "POST",
         success: function (html) {
             $('.work_area').empty();
             $('.work_area').append(html);
         }
+
     });
 }

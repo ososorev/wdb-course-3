@@ -1,15 +1,17 @@
 function saveEditNote(event) {
     event.preventDefault();
-    let form = $('.edit_note').serialize();
+    //let form = new FormData(document.querySelector('.edit_note_form'));
+    let form = $('.edit_note_form').serialize();
     $.ajax({
-        url: "save_edit_note", // url запроса
+        url: "save_edit_note",
         cache: false,
-        type: "POST", // устанавливаем типа запроса POST
+        type: "POST",
         data: form,
         success: function (html) {
             $('.work_area').empty();
-            $('body').append(html);
-            $('.success_save_note').modal();
+            $('.work_area').append(html);
+            //$('.success_save_note').modal();
+            resetListNotes();
         }
     });
 }

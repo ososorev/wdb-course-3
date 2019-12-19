@@ -20,7 +20,7 @@ class NoteController extends Controller
 
     public function index()
     {
-        $userID = Auth::user()->getAuthIdentifier();
+        $userID = Auth::user()->getAuthIdentifier(); // Auth::id()
         $notes = Note::where('user_id', 'like', $userID)->get();
         return view('note\notes', ['notes' => $notes]);
     }
@@ -36,17 +36,20 @@ class NoteController extends Controller
     public function editData(Request $request){
         $note_id = $request->input('note_id');
         $note = Note::where('id', 'like', $note_id)->first();
-        return view('note\edit', ['name' => $note->name, 'created_at' => $note->created_at, 'content' => $note->content]);
+        return view('note\edit', ['id'=> $note->id, 'name' => $note->name, 'created_at' => $note->created_at, 'content' => $note->content]);
     }
 
 
     public function saveEditNote(Request $request){
-        $Note = Note::where('id', "like", $request->input('id_note'));
+        //dd($request);
+        $Note = Note::where('id', "like", $request->input('id'))->first();
         $Note->name = $request->input('name_note');
-        $Note->content =  $request->input('name_note');
+        $Note->content =  $request->input('text_note');
         $Note->created_at = $request->input('datetime_create');
         $Note->save();
-        return view('note\modal\saveNewNote');
+
+//        $Note->save($request->all());
+        return 'заметка сохранена';
     }
 
 
@@ -62,6 +65,7 @@ class NoteController extends Controller
 
 
     public function saveNewNote(Request $request){
+//        $Note = Note::create($request->all());
         $Note = new Note;
         $Note->name = $request->input('name_note');
         $Note->content =  $request->input('text_note');
