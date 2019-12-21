@@ -2,20 +2,8 @@
 header ('Content-Type: text/html; charset=utf-8');
 require_once('inc/common.inc.php');
 
-$inputNoteName = $_REQUEST["inputNoteName"];
-$inputNoteDate = $_REQUEST["inputNoteDate"];
-$inputNoteContent = $_REQUEST["inputNoteContent"];
-$buttonSave = $_REQUEST["buttonSave"];
-$result='';
 $error = '';
 $username = getFromSession('username');
-
-if (!empty($inputNoteName) && !empty($inputNoteDate)) {
-    NoteDatabase::insertNoteData($inputNoteName, $username, $inputNoteDate, $inputNoteContent);
-        // saveToSession('username', $inputUsername);
-    } elseif (isset($buttonSave)) {
-    echo "Заполните обязательные поля Name, Date";
-}
 
 ?>
 <!DOCTYPE html>

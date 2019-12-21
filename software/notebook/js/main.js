@@ -8,9 +8,10 @@ function addNewNote() {
 
 function send(event) {
     event.preventDefault();
-    fetch("main.php", {method: "POST", body: new FormData(document.forms[0])})
+    fetch("insertNoteData.php", {method: "POST", body: new FormData(document.forms[0])})
         .then(response => response.text())
-        .then(outputResult => {document.querySelector(".noteItemBlock").innerHTML = outputResult;})
+        .then(errorResult => {document.querySelector(".output").innerHTML = errorResult;})
+        .then(location.reload(true))
 }
 
 function sendChanges(event) {
@@ -18,7 +19,9 @@ function sendChanges(event) {
     let data = new FormData(document.forms[1]);
     data.append("note_id", idUpdate);
     fetch("updateNoteData.php", {method: "POST", body: data})
-        .then(onClose())
+        .then(response => response.text())
+        .then(errorResult => {document.querySelector(".output").innerHTML = errorResult;})
+        .then(location.reload(true))
 }
 
 // function closeAndRemove(){
