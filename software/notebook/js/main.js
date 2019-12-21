@@ -1,14 +1,10 @@
+let idUpdate;
+
 function addNewNote() {
     let create = document.querySelector(".rightContainerCreate");
     create.classList.remove("hidden");
     create.classList.add("visible");
 }
-
-// button.addEventListener('click', function(event) {
-//     event.preventDefault();
-//     button.classList.add('hidden');
-//     films_block.classList.add('visible');
-// });
 
 function send(event) {
     event.preventDefault();
@@ -19,9 +15,10 @@ function send(event) {
 
 function sendChanges(event) {
     event.preventDefault();
-    fetch("main.php", {method: "POST", body: new FormData(document.forms[1])})
-        .then(response => response.text())
-        .then(outputResult => {document.querySelector(".noteItemBlock").innerHTML = outputResult;})
+    let data = new FormData(document.forms[1]);
+    data.append("note_id", idUpdate);
+    fetch("updateNoteData.php", {method: "POST", body: data})
+        .then(onClose())
 }
 
 // function closeAndRemove(){
@@ -32,9 +29,10 @@ function sendChanges(event) {
 // }
 
 function splitNote(arr) {
-    const name = arr[0]["note_name"];
-    const date = arr[0]["use_date"];
-    const content = arr[0]["content"];
+    idUpdate = arr["id_note"];
+    const name = arr["note_name"]; // или так arr.note_name;
+    const date = arr["use_date"]; // или так arr.use_date;
+    const content = arr["content"]; // или так arr.content;
     document.querySelector(".editName").value = name;
     document.querySelector(".editDate").value = date;
     document.querySelector(".editContent").innerHTML = content;

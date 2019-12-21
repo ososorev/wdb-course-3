@@ -15,9 +15,8 @@ function send(event) {
                 forwarding();
             }
         })
-        .catch(event => {});
-        // .then(href => {forwarding() = href;})
-        // .catch(error => {alert(error)});
+        // .catch(event => {});
+        .catch(error => {alert(error)});
 }
 
 let forms = {};

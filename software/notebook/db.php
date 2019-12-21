@@ -158,22 +158,22 @@ class NoteDatabase extends Database {
     }
 
     public static function noteSelect($id) {
-        $select = self::query("SELECT note_name, use_date, content FROM note WHERE  id_note = '$id'");
-        //$note = mysqli_fetch_assoc($select);
-        $note = [];
-        if (!empty($select)) {
-            foreach ($select as $row) {
-                $note[] = $row;
-            }
-        }
+        $select = self::query("SELECT id_note, note_name, use_date, content FROM note WHERE  id_note = '$id'");
+        $note = mysqli_fetch_assoc($select);
+        // другой вариант:
+//        $note = [];
+//        if (!empty($select)) {
+//            foreach ($select as $row) {
+//                $note[] = $row;
+//            }
+//        }
         return $note;
     }
 
-    public static function updateNote($inputNoteName, $username, $inputNoteDate, $inputNoteContent) {
+    public static function updateNote($noteId, $inputNoteName, $inputNoteDate, $inputNoteContent) {
         self::query("UPDATE note SET note_name = '$inputNoteName', use_date = '$inputNoteDate',
                     content = '$inputNoteContent'
-                    // [WHERE условие_обновления_id]
-                    ");
+                    WHERE id_note = '$noteId'");
     }
 
     public static function deleteNote($id) {
