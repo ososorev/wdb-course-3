@@ -61,7 +61,7 @@ html, body {
     margin: 0 auto;
     height: calc(100vh - 2 * 62px - 16px - 28px);
     width: 100%;
-    background-color: #fff;
+    background-color: bisque;
     text-align: center;
 }
 .leftContainer {
@@ -98,7 +98,7 @@ html, body {
     height: 27px;
     width: 30px;
     margin-top: 3px;
-    background: url(../image/icons8-search-32.png) no-repeat;
+    background: url("../image/icons8-search-32.png") no-repeat;
     background-size: 80% auto;
 }
 
@@ -196,8 +196,7 @@ html, body {
 .rightContainerInfo,
 .rightContainerCreate,
 .rightContainerEdit {
-    display: flex; //
-// display: none;
+    display: flex;
     flex-direction: column;
     width: 100%;
     background-color: antiquewhite;
@@ -230,7 +229,6 @@ html, body {
     display: flex;
     width: 180px;
     padding: 8px;
-// background-color: darkgoldenrod;
 }
 
 .infoBlockInfo {
@@ -293,7 +291,6 @@ html, body {
     display: flex;
     max-height: 30px;
     padding: 8px;
-// background-color: darkgoldenrod;
 }
 
 .infoBlockEdit {
