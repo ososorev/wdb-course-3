@@ -177,6 +177,6 @@ class NoteDatabase extends Database {
     }
 
     public static function deleteNote($id) {
-        self::query("DELETE FROM note WHERE note_id='$id';");
+        self::query("DELETE FROM note WHERE id_note='$id'");
     }
 }

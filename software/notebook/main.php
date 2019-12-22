@@ -31,6 +31,7 @@ $username = getFromSession('username');
                 <div class="leftContainer">
                     <div class="searchBlock">
                         <input class="inputSearchBlock" type="text" placeholder="Search">
+                        <button class="searchIcon" onclick="searchNote()"></button>
                     </div>
                     <div class="listOfNotesBlock">
                         <?php foreach (NoteDatabase::resultsNoteOfListSelect($username) as $item) {;?>

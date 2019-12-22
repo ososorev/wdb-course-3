@@ -63,15 +63,19 @@ function deleteNote(event, id) {
     event.preventDefault();
     const confirmationOfDeletion = confirm("Are you sure want to delete?");
     if(confirmationOfDeletion) {
-        //УДАЛЯТЬ ЗДЕСЬ
-        // fetch("main.php", {method: "POST", body: new FormData(document.querySelector(".noteItemBloc"))})
+        let data = new FormData();
+        data.append("note_id", id);
+        fetch("deleteNoteData.php", {method: "POST", body: data})
+            .then(location.reload(true))
     }
-    // alert(confirmationOfDeletion);
-    // удаление из базы и закрытие
 }
 
 function onClose() {
     let edit = document.querySelector(".rightContainerEdit");
     edit.classList.remove("visible");
     edit.classList.add("hidden");
+}
+
+function searchNote() {
+    // поиск
 }
