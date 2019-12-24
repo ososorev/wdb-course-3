@@ -47,7 +47,6 @@ function getNoteInfo(event, id) {
 function showNote(event, id) {
     let edit = document.querySelector(".rightContainerEdit");
     getNoteInfo(event, id);
-    edit.classList.remove("hidden");
     edit.classList.add("visible");
 }
 
@@ -65,7 +64,6 @@ function deleteNote(event, id) {
 function onClose() {
     let edit = document.querySelector(".rightContainerEdit");
     edit.classList.remove("visible");
-    edit.classList.add("hidden");
 }
 
 function searchNote() {
@@ -74,9 +72,9 @@ function searchNote() {
     nameArr.forEach(note => {
         let noteName = note.querySelector(".noteItemName").innerText;
         if (noteName.includes(inputValue)) {
-            note.classList.remove("hidden");
+            note.classList.add("visible");
         } else {
-            note.classList.add("hidden");
+            note.classList.remove("visible");
         }
     })
 }

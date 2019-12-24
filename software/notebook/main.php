@@ -35,7 +35,7 @@ $username = getFromSession('username');
                     </div>
                     <div class="listOfNotesBlock">
                         <?php foreach (NoteDatabase::resultsNoteOfListSelect($username) as $item) {;?>
-                            <div class="noteItemBlock">
+                            <div class="noteItemBlock visible">
                                 <div class="noteItemName searchName"><?php echo $item[note_name];?></div>
                                 <div class="noteItemDate"><?php echo date("d.m.Y", strtotime($item[use_date]));?></div>
                                 <div class="noteItemActions">
