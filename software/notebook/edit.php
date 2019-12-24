@@ -67,10 +67,6 @@ $username = getFromSession('username');
 </html>
 
 <!--
-http://localhost/wdb-course-3/software/notebook/edit.php
-$username = getFromSession('username');
-
-<a href="register.php">
-    <button type="button" onclick="register()" class="mainButton">Войти</button>
-</a>
+как отдельная страница сейчас не используется -> встроен в main.php,
+оставлена в учебных целях - код полностью рабочий
 -->
