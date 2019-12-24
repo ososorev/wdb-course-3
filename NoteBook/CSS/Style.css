@@ -22,9 +22,12 @@ html, body {
   padding-top: 30px;
 }
 
-.content {
-	flex: 1 0 auto;
-}
+.content2 {
+  display: block;
+  padding: 5px; 
+  width: 60%; 
+  height: 78%;
+ }
 
 
 .input {
@@ -32,7 +35,7 @@ html, body {
   margin: 30px;
   padding: 12px;
   height: 28px;
-  width: 250px;
+  width: 27%;
   font-size: 18px;
   margin-left: auto;
   margin-right: auto;
@@ -44,7 +47,23 @@ html, body {
   display: block;
   text-align: center;
   margin: 30px;
-  width: 272px;
+  width: 30%;
+  padding: 12px;
+  color: #fff;
+  background-color: #007dff;
+  font-size: 18px;
+  line-height: 28px;
+  border: 1px solid #60666b;
+  border-radius: 25px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.register1 {
+  display: block;
+  text-align: center;
+  margin: 2%;
+  width: 27%;
   padding: 12px;
   color: #fff;
   background-color: #007dff;
@@ -57,12 +76,119 @@ html, body {
 }
 
 .footer {
-  font-family: Times;
   display: flex;
+  font-family: Times;
   justify-content: center;
-  flex: 0 0 auto;
   color:#000;
   background-color: #d1d1d1;
   height: 60px;
-  padding-top: 40px;
+}
+
+
+
+.left { 
+  position: absolute; 
+  left: 1%; 
+  top: 12%;
+  width: 25%; 
+}
+
+
+.right { 
+  position: absolute; 
+  right: 1%; 
+  top: 10%;
+  width: 72%; 
+} 
+
+
+ .search {
+  vertical-align: top;
+  width: 82%;
+  height: 30px;
+  font: 12px/1.5 cursive;
+  box-shadow: 1px 1px 2px 0 black;
+ }
+
+ .search1 {
+  width: 30px;
+ }
+
+
+.message {
+  text-align: center;
+  margin: 10px;
+  width: 90%;
+  padding: 8px;
+  color: #fff;
+  background-color: #007dff;
+  border: 1px solid #60666b;
+  border-radius: 25px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+   
+ .record1 {
+  width: 26px;
+  height: 26px;
+  
+ }
+
+ .Edit_mode {
+  margin-top: 1%;
+  vertical-align: top;
+  width: 100%;
+  height: 25px;
+  font: 12px/1.5 cursive;
+  box-shadow: 0 1px 0 0 black;
+ }
+
+ .Note_name {
+  display: flex;
+  margin: 2%;
+  padding: 12px;
+  height: 8%;
+  width: 100%;
+  font-size: 18px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 30px;
+  border: 1px solid #60666b;
+}
+
+.Note_text {
+  display: flex;
+  margin: 1%;
+  padding: 12px;
+  height: 50%;
+  width: 100%;
+  text-align:top;
+  font-size: 18px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 30px;
+  border: 1px solid #60666b;
+}
+
+
+.container-fluid {
+  text-align: left;
+  font-size: 40px;
+  font-weight: 300;
+  color: #fff;
+}
+
+.a2 {
+  margin-left: 10%;
+  color: black;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+
+.scr{
+height: 370px;
+overflow-y:scroll;
+align-content: start;
 }

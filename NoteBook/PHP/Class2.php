@@ -24,5 +24,34 @@ class dataBase
         }
         return $rows;
     }
+    public function Select_last_Note()
+    {
+        $resultat = mysqli_query($this->connection,"SELECT * FROM `Note`");
+        $rows = [];
+        foreach($resultat as $row)
+        {
+            $rows[]=$row;
+        }
+        return $row;
+    }
+    public function note_id($note_id)
+    {
+        $resultat = mysqli_query($this->connection,"SELECT * FROM `Note` Where id= $note_id");
+        foreach($resultat as $row)
+        {
+            $rows[]=$row;
+        }
+        return $row;
+    }
+   
+    public function Update($note_id,$note,$date,$name)
+    {
+        $resultat = mysqli_query($this->connection,"UPDATE `Note` SET `id`='$note_id',`name`='$name',`date`='$date',`note`='$note' WHERE id= $note_id");
+        foreach($resultat as $row)
+        {
+            $rows[]=$row;
+        }
+        return $row;
+    }
 }
 ?>

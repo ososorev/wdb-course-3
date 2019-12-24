@@ -1,12 +1,41 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>-->
 <html lang="en">
 <head>
 	<link rel="stylesheet" href="CSS/style.css">
 	<meta charset="UTF-8">
-	<title>
-        Document
-    </title>
-<body>
- <p>Привет я блокнот и меня нет</p>
+	<link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css">
+	<title>NBook</title>
+	<!--<script src="JS\Elem.js"></script>-->
+	<script src="AJAX_note_action.js"></script>
+	
+</head>
+<body class="d-flex flex-column h-100">
+	<header class="header">SUPER NOTEBOOK</header>
+
+	<form class="left" id="form2">
+		<header class=" input-group-prepend container-fluid" >
+			<input type="text" class="search input-group-text" Placeholder="Search"><img src="CSS\Loop.png" class="search1"></input>
+		</header>
+			<div class="scr" id="notes"></div>
+		<footer  class="container_fluid">
+			<button class="message" onclick="Add_Note(Event)">Add Note</button>
+		</footer>
+	</form>
+	
+
+	<form class="right content2" id="form1">
+		<div class="Edit_mode">Edit mode</div>
+		<input type="text" class="Note_name" Placeholder="Name" id="name" name="name"></input>	
+		<input type="date" class=" form-control Note" Placeholder="Data" id="date" name="date"></input>
+		<textarea type="text" class="Note_text" Placeholder="Line 1" id="note" name="note"></textarea>
+		<button class="register1" type="Submit" onclick="Write_note(event)">Save</button>
+	</form>	
+
+	
+
+
+<div class="footer mt-auto py-3">Copyright by ..., 2016</div>
+<!--<script src="C:\OSPanel\bootstrap-4.3.1-dist\js\jquery-3.4.1.min.js"></script>-->
+<!--<script src="C:\OSPanel\bootstrap-4.3.1-dist\js\bootstrap.min.js"></script>-->
 </body>
 </html>
