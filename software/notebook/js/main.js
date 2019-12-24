@@ -2,7 +2,6 @@ let idUpdate;
 
 function addNewNote() {
     let create = document.querySelector(".rightContainerCreate");
-    create.classList.remove("hidden");
     create.classList.add("visible");
 }
 
@@ -23,13 +22,6 @@ function sendChanges(event) {
         .then(errorResult => {document.querySelector(".output").innerHTML = errorResult;})
         .then(location.reload(true))
 }
-
-// function closeAndRemove(){
-//     send();
-//     let edit = document.querySelector(".rightContainerEdit");
-//     edit.classList.remove("visible");
-//
-// }
 
 function splitNote(arr) {
     idUpdate = arr["id_note"];
@@ -77,5 +69,14 @@ function onClose() {
 }
 
 function searchNote() {
-    // поиск
+    let inputValue = document.querySelector(".inputSearchBlock").value;
+    const nameArr = document.querySelectorAll(".noteItemBlock");
+    nameArr.forEach(note => {
+        let noteName = note.querySelector(".noteItemName").innerText;
+        if (noteName.includes(inputValue)) {
+            note.classList.remove("hidden");
+        } else {
+            note.classList.add("hidden");
+        }
+    })
 }

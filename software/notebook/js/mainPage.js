@@ -1,3 +1,6 @@
+// не используется - но вариант рабочий - если <body> пустым оставить
+// оставлен в учебных целях
+
 // document.addEventListener("DOMContentLoaded", createPage);
 //
 // function register() {

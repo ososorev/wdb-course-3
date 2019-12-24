@@ -44,6 +44,4 @@ if (!empty($inputUsername) && !empty($inputPassword) && !empty($inputConfirmPass
     </body>
 </html>
 
-<!--
-http://localhost/wdb-course-3/software/notebook/registerHtml.php
--->
+<!-- в данном проекте не используется, оставлена как пример реализации через <body> -->

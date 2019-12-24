@@ -30,13 +30,13 @@ $username = getFromSession('username');
             <div class="content">
                 <div class="leftContainer">
                     <div class="searchBlock">
-                        <input class="inputSearchBlock" type="text" placeholder="Search">
-                        <button class="searchIcon" onclick="searchNote()"></button>
+                        <input class="inputSearchBlock" type="text" onkeyup="searchNote()" placeholder="Search">
+                        <div class="searchIcon"></div>
                     </div>
                     <div class="listOfNotesBlock">
                         <?php foreach (NoteDatabase::resultsNoteOfListSelect($username) as $item) {;?>
                             <div class="noteItemBlock">
-                                <div class="noteItemName"><?php echo $item[note_name];?></div>
+                                <div class="noteItemName searchName"><?php echo $item[note_name];?></div>
                                 <div class="noteItemDate"><?php echo date("d.m.Y", strtotime($item[use_date]));?></div>
                                 <div class="noteItemActions">
                                     <button class="editIcon" onclick="showNote(event, <?php echo $item[id_note];?>)"></button>
@@ -52,14 +52,14 @@ $username = getFromSession('username');
                     </div>
                 </div>
                 <div class="betweenContainer"></div>
-                <div class="rightContainerInfo hidden">
+                <div class="rightContainerInfo">
                     <div class="noteHeaderBlockInfo">
                         <div class="noteNameBlockInfo">Note 3</div>
                         <div class="noteDateBlockInfo">02.10.2019</div>
                     </div>
                     <div class="infoBlockInfo">Some note text here!</div>
                 </div>
-                <div class="rightContainerCreate hidden">
+                <div class="rightContainerCreate">
                     <div class="noteHeaderBlockCreate">
                         <span class="noteEditBlock">Create mode</span>
                     </div>
@@ -72,7 +72,7 @@ $username = getFromSession('username');
                         </div>
                     </form>
                 </div>
-                <div class="rightContainerEdit hidden">
+                <div class="rightContainerEdit">
                     <div class="noteHeaderBlockEdit">
                         <span class="noteEditBlock">Edit mode</span>
                     </div>

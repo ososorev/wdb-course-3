@@ -1,3 +1,4 @@
+// не используется -> оставлена как пример вынесения функции в отдельный файл
 (function(){
     App.startCreatePage=startCreatePage;
     function startCreatePage() {

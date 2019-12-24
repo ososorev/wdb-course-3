@@ -1,3 +1,5 @@
+// изначально сделанный вариант, переделан в registerClosure.js с замыканиями
+// оставлен в учебных целях))
 document.addEventListener("DOMContentLoaded", createPage);
 
 function send(event) {

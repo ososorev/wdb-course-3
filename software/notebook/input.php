@@ -13,7 +13,7 @@ if (isset($buttonLog)) {
         $result = UserDatabase::checkPair($inputUsername, $inputPassword);
         if ($result === true) {
             saveToSession('username', $inputUsername);
-            header('Location: http://localhost/wdb-course-3/software/notebook/mainPage.php');
+            header('Location: http://localhost/wdb-course-3/software/notebook/main.php'); // mainPage.php
             exit();
         } else {
             $error .= $result;
@@ -48,12 +48,3 @@ ob_end_flush();
         </div>
     </body>
 </html>
-
-<!--
-http://localhost/wdb-course-3/software/notebook/input.php
-$username = getFromSession('username');
-
-<a href="register.php">
-    <button type="button" onclick="register()" class="mainButton">Войти</button>
-</a>
--->

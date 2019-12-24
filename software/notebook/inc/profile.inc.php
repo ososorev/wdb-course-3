@@ -20,3 +20,5 @@ if ($inputPassword !== '') {
     // changePassword($inputUsername, $hash);
     $isChanged = true;
 }
+
+// пока не используется -> нужно доделать

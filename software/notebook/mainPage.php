@@ -19,7 +19,5 @@ $username = getFromSession('username');
     </body>
 </html>
 
-<!--
-http://localhost/wdb-course-3/software/notebook/mainPage.php
-$username = getFromSession('username');
--->
+<!-- страница промежуточная - на нее был переход после успешной логинации,
+сейчас не применяется, но использовать можно; оставлена для примера -->

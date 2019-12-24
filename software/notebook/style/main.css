@@ -147,7 +147,6 @@ html, body {
     height: 18px;
     width: 18px;
     margin: 2px 0 0 2px;
-// background-position: 21px 17px;
 }
 
 .editIcon {
@@ -196,14 +195,10 @@ html, body {
 .rightContainerInfo,
 .rightContainerCreate,
 .rightContainerEdit {
-    display: flex;
+    display: none;
     flex-direction: column;
     width: 100%;
     background-color: antiquewhite;
-}
-
-.hidden {
-    display: none;
 }
 
 .visible {

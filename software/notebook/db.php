@@ -160,7 +160,7 @@ class NoteDatabase extends Database {
     public static function noteSelect($id) {
         $select = self::query("SELECT id_note, note_name, use_date, content FROM note WHERE  id_note = '$id'");
         $note = mysqli_fetch_assoc($select);
-        // другой вариант:
+// другой вариант этого же (пример с массивом):
 //        $note = [];
 //        if (!empty($select)) {
 //            foreach ($select as $row) {

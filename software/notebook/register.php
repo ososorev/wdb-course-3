@@ -28,14 +28,9 @@ if (!empty($inputUsername) && !empty($inputPassword) && !empty($inputConfirmPass
         <title>Register</title>
         <script src="js/registerClosure.js"></script>
         <!--
-        <script src="js/register.js"></script>
+        <script src="js/register.js"></script> // со старой реализацией, без замыканий
         -->
     </head>
     <body>
     </body>
 </html>
-
-<!--
-http://localhost/wdb-course-3/software/notebook/register.php
-$username = getFromSession('username');
--->
