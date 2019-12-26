@@ -34,7 +34,7 @@ class dataBase
         }
         return $row;
     }
-    public function note_id($note_id)
+    public function Select_note($note_id)
     {
         $resultat = mysqli_query($this->connection,"SELECT * FROM `Note` Where id= $note_id");
         foreach($resultat as $row)
@@ -53,5 +53,12 @@ class dataBase
         }
         return $row;
     }
+
+    public function Delete_note($note_id)
+    {
+        $resultat = mysqli_query($this->connection,"DELETE FROM `Note` Where id= '$note_id'");
+        return $resultat;
+    }
+
 }
 ?>
