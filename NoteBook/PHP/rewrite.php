@@ -7,15 +7,4 @@ $name=$_REQUEST["note_name"];
 $db = new dataBase("localhost", "root", "", "NBook");
 $record = $db->Update($note_id,$note,$date,$name);
 echo json_encode($record);
-//echo $note_id;
-/*foreach($records as $record) 
-{
-   // echo ($record['id']);
-    //echo $record;
-    if ($note_id==$record['id']) {
-        echo $record['id']; 
-    }
-}
-//echo $record['id'];*/
-//echo $name;
 ?>

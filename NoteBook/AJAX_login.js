@@ -4,13 +4,10 @@ event.preventDefault();
 fetch("Php/Login.php", {method: "POST", body: new FormData(document.forms[0])})
 	.then(response => response.text())
 	.then(text => {
-		let tx;
-		tx=text;
-		if (tx==""){
+		if (text==""){
 			alert('Неверный логин');
 		}
-		else{
+		else
 		window.location.href="NBook.html";
-		}
 	});
 }	

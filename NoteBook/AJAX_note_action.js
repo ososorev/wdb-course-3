@@ -1,7 +1,7 @@
 	
 
 
-function Edit_note(event)
+function Edit_note(event)//форма при нажатии на кнопку редактирования 
 {	
 event.preventDefault();
 let id=event.target.id;
@@ -11,9 +11,6 @@ formData.append('note_id', note_id);
 fetch('PHP/Note _Read.php', {method: "POST", body: formData})
 	.then(response => response.json())
 	.then(json => {
-		let note_name=json['name'];
-		let note =json['note'];
-		let date =json['date'].substring(0,10);
 
 		document.querySelector('#form1').remove();
 	
@@ -30,7 +27,7 @@ fetch('PHP/Note _Read.php', {method: "POST", body: formData})
 
 		let Name_note = document.createElement("input");
 		Name_note.classList.add("Note_name");
-		Name_note.name="Name";
+		Name_note.name="name";
 		Name_note.type='text';
 		Name_note.value=json['name'];
 		Name_note.id='name';
@@ -42,7 +39,7 @@ fetch('PHP/Note _Read.php', {method: "POST", body: formData})
 		Date_note.classList.add("Note");
 		Date_note.name="date";
 		Date_note.type='date';
-		Date_note.value=json['date'].substring(0,10);
+		Date_note.value=json['date'];
 		Date_note.id='date';
 		Name_note.after(Date_note);
 
@@ -57,7 +54,6 @@ fetch('PHP/Note _Read.php', {method: "POST", body: formData})
 	
 		let Button_save = document.createElement("Button");
 		Button_save.classList.add("register1");
-		//Button_save.type='Submit';
 		Button_save.innerText="Save";
 		Button_save.name=note_id;
 		Button_save.id="note_id";
@@ -67,7 +63,7 @@ fetch('PHP/Note _Read.php', {method: "POST", body: formData})
 	
 }
 
-function Read_note(event)
+function Read_note(event)//чтение записи
 {	
 event.preventDefault();
 let note_id=event.target.id;
@@ -76,8 +72,8 @@ formData2.append('note_id', note_id);
 fetch('PHP/Note _Read.php', {method: "POST", body: formData2})
 	.then(response => response.json())
 	.then(json => {
-		let note_name=json['name'];
-		let note =json['note'];
+		//let note_name=json['name'];
+		//let note =json['note'];
 
 	document.querySelector('#form1').remove();
 	
@@ -100,7 +96,7 @@ fetch('PHP/Note _Read.php', {method: "POST", body: formData2})
 }
 
 
-function Write_note(event)
+function Write_note(event)//вставка кнопки с названием записи после ввода записи
 {
 event.preventDefault();
 let name = document.getElementById('name').value;
@@ -124,15 +120,16 @@ fetch('PHP/Note.php', {method: "POST", body: new FormData(form1)})
 
 
 		let Button_cross = document.createElement("Button");
-			Button_note.prepend(Button_cross);
+			Button_cross.classList.add("float-right");
+			Button_note.append(Button_cross);
 
 		let Button_paper = document.createElement("Button");
-			Button_note.prepend(Button_paper);
+			Button_paper.classList.add("float-right");
+			Button_note.append(Button_paper);
 			   
 		let Img_cross = document.createElement("Img");
 			Img_cross.src="CSS/cross.png";
             Img_cross.classList.add("record1");
-			Img_cross.classList.add("float-right");
 			Img_cross.id='c'+json['id'];
 			Img_cross.onclick=Delete_note;
 			Button_cross.prepend(Img_cross);
@@ -140,7 +137,6 @@ fetch('PHP/Note.php', {method: "POST", body: new FormData(form1)})
 		let Img_Paper = document.createElement("Img");
 			Img_Paper.src="CSS/paper.png";
             Img_Paper.classList.add("record1");
-			Img_Paper.classList.add("float-right");
 			Img_Paper.id='p'+json['id'];
 			Img_Paper.onclick=Edit_note;
 			Button_paper.prepend(Img_Paper);
@@ -148,14 +144,13 @@ fetch('PHP/Note.php', {method: "POST", body: new FormData(form1)})
 }	
 
 
-function Reload_note()
+function Reload_note()//вставка записи после редактирования в кнопку
 {	
 event.preventDefault();
 let date=document.getElementById("date").value;
 let note_name=document.getElementById('name').value;
 let note=document.getElementById('note').value;
 let note_id=event.target.name;
-//let note_id= id.substring(1);
 let formData = new FormData();
 formData.append('note_name', note_name);	
 formData.append('note', note);
@@ -177,8 +172,9 @@ document.getElementById('id_notes').id =note_id;
 }	
 
 
-function Add_Note(event){
-	//document.getElementById(form1).remove();
+function Add_Note(event)//форма для ввода новой записи
+{
+	
 	event.preventDefault();
 	document.querySelector('#form1').remove();
 	
@@ -196,7 +192,7 @@ function Add_Note(event){
 		let Name_note = document.createElement("input");
 		Name_note.classList.add("Note_name");
 		Name_note.Placeholder="Name";
-		Name_note.name="Name";
+		Name_note.name="name";
 		Name_note.type='text';
 		Name_note.id='name';
 		Edit_Note.after(Name_note);
@@ -229,7 +225,7 @@ function Add_Note(event){
 }
 
 
-function Delete_note(event)
+function Delete_note(event)//удаление записи
 {	
 event.preventDefault();
 let id=event.target.id;
@@ -242,7 +238,7 @@ fetch('PHP/Note_delete.php', {method: "POST", body: formData1})
 		if(text==1)
 			alert('Удаление завершенно');});
 	document.getElementById(note_id).remove();
-	//document.getElementById("date").value='';
-	//document.getElementById('name').value='';
-	//document.getElementById('note').value='';
+	document.getElementById("date").value='';
+	document.getElementById('name').value='';
+	document.getElementById('note').value='';
 }

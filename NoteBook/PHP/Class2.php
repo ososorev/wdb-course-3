@@ -10,10 +10,14 @@ class dataBase
             die("Connection failed: " . $this->connection->connect_error);
         }
     }
+
+
     public function query($sql)
     {
         mysqli_query($this->connection, $sql);
     }
+
+
     public function Select()
     {
         $resultat = mysqli_query($this->connection,"SELECT * FROM `Login`");
@@ -24,6 +28,8 @@ class dataBase
         }
         return $rows;
     }
+
+
     public function Select_last_Note()
     {
         $resultat = mysqli_query($this->connection,"SELECT * FROM `Note`");
@@ -34,6 +40,8 @@ class dataBase
         }
         return $row;
     }
+
+
     public function Select_note($note_id)
     {
         $resultat = mysqli_query($this->connection,"SELECT * FROM `Note` Where id= $note_id");
@@ -42,8 +50,10 @@ class dataBase
             $rows[]=$row;
         }
         return $row;
+        //return $resultat;
     }
    
+
     public function Update($note_id,$note,$date,$name)
     {
         $resultat = mysqli_query($this->connection,"UPDATE `Note` SET `id`='$note_id',`name`='$name',`date`='$date',`note`='$note' WHERE id= $note_id");
@@ -54,10 +64,21 @@ class dataBase
         return $row;
     }
 
+
     public function Delete_note($note_id)
     {
         $resultat = mysqli_query($this->connection,"DELETE FROM `Note` Where id= '$note_id'");
         return $resultat;
+    }
+
+    public function fetch($user_id)
+    {
+        $resultat = mysqli_query($this->connection,"SELECT * FROM `Note` Where User_id='$user_id'");
+        foreach($resultat as $row)
+        {
+            $rows[]=$row;
+        }
+        return $rows;
     }
 
 }
