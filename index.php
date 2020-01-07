@@ -26,7 +26,7 @@ function check() {
 }
 
 if ($resultLogin == "Successful!"){ 
-	echo "<META HTTP-EQUIV='Refresh' content='2; URL=Notebook.html'>";
+	echo "<META HTTP-EQUIV='Refresh' content='1; URL=Notebook.php'>";
 	exit(); 
 }
 ?>
