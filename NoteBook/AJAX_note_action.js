@@ -1,7 +1,4 @@
-	
-
-
-function Edit_note(event)//форма при нажатии на кнопку редактирования 
+	function Edit_note(event)//форма при нажатии на кнопку редактирования 
 {	
 event.preventDefault();
 let id=event.target.id;
@@ -13,52 +10,20 @@ fetch('PHP/Note _Read.php', {method: "POST", body: formData})
 	.then(json => {
 
 		document.querySelector('#form1').remove();
+
+
+		forms.formElement("right", "content2", form2,"form1");
+			forms.divElement('Edit note',"Edit_mode","Edit_mode",form1);
+			forms.inputElement("Name","name","input","Note_name","Note_name",'name',form1);
+				document.getElementById('name').value=json['name'];
+			forms.inputElement("date","date","date","form-control","form-control",'date',form1);
+				document.getElementById('date').value=json['date'];
+
+			forms.TextElement("Line 1","note",json['note'],"Note_text","Note_text",'note',form1);
 	
-	let form1 = document.createElement("form");
-		form1.classList.add("right");
-		form1.classList.add("content2");
-		form1.id='form1';
-		form2.after(form1);
-
-		let Edit_Note = document.createElement("div");
-		Edit_Note.classList.add("Edit_mode");
-		Edit_Note.innerText="Edit_mode";
-		form1.prepend(Edit_Note);	
-
-		let Name_note = document.createElement("input");
-		Name_note.classList.add("Note_name");
-		Name_note.name="name";
-		Name_note.type='text';
-		Name_note.value=json['name'];
-		Name_note.id='name';
-		Edit_Note.after(Name_note);
-
-
-		let Date_note = document.createElement("input");
-		Date_note.classList.add("form-control");
-		Date_note.classList.add("Note");
-		Date_note.name="date";
-		Date_note.type='date';
-		Date_note.value=json['date'];
-		Date_note.id='date';
-		Name_note.after(Date_note);
-
-		let Note = document.createElement("textarea");
-		Note.classList.add("Note_text");
-		Note.name="note";
-		Note.type='text';
-		Note.innerText=json['note'];
-		Note.id='note';
-		Date_note.after(Note);
-
+			forms.buttonElement("Button","Save",Reload_note,"register1","register1",form1,'note_id');
+				document.getElementById('note_id').name = note_id;
 	
-		let Button_save = document.createElement("Button");
-		Button_save.classList.add("register1");
-		Button_save.innerText="Save";
-		Button_save.name=note_id;
-		Button_save.id="note_id";
-		Button_save.onclick=Reload_note;
-		Note.after(Button_save);
 	});
 	
 }
@@ -72,8 +37,6 @@ formData2.append('note_id', note_id);
 fetch('PHP/Note _Read.php', {method: "POST", body: formData2})
 	.then(response => response.json())
 	.then(json => {
-		//let note_name=json['name'];
-		//let note =json['note'];
 
 	document.querySelector('#form1').remove();
 	
@@ -85,7 +48,7 @@ fetch('PHP/Note _Read.php', {method: "POST", body: formData2})
 
 		let Read_Name_note = document.createElement("div");
 		Read_Name_note.classList.add("Note_name");
-		Read_Name_note.innerText=json['name'];
+		Read_Name_note.innerText=json['date'];
 		form1.prepend(Read_Name_note);
 
 		let Read_note = document.createElement("div");
@@ -107,39 +70,16 @@ if (name=='')
 fetch('PHP/Note.php', {method: "POST", body: new FormData(form1)})
 	.then(response => response.json())
 	.then(json => {
-		let id_note=json['id'];
-		let note_name=json['name'];
-		let Button_note = document.createElement("Button");
-			Button_note.classList.add("col-sm-12");
-			Button_note.classList.add("col-lg-9");
-			Button_note.classList.add("a2");
-			Button_note.id=json['id'];
-			Button_note.innerText=json['name'];
-			Button_note.onclick=Read_note;
-			notes.prepend(Button_note);
 
+		forms.buttonElement("Submit",json['name'],Read_note,"col-sm-12","col-lg-11",notes,'btn');
+		forms.buttonElement('','','',"float-right","float-right",btn,'cross');
+		forms.buttonElement('','','',"float-right","float-right",btn,'paper');
+		forms.img("CSS/cross.png", 'record1', 'c'+json['id'], Delete_note,cross);
+		forms.img("CSS/paper.png", 'record1', 'c'+json['id'], Edit_note,paper);
+			document.getElementById('btn').id = json['id'];
+			document.getElementById('cross').id = 'c'+json['id'];
+			document.getElementById('paper').id = 'p'+json['id'];
 
-		let Button_cross = document.createElement("Button");
-			Button_cross.classList.add("float-right");
-			Button_note.append(Button_cross);
-
-		let Button_paper = document.createElement("Button");
-			Button_paper.classList.add("float-right");
-			Button_note.append(Button_paper);
-			   
-		let Img_cross = document.createElement("Img");
-			Img_cross.src="CSS/cross.png";
-            Img_cross.classList.add("record1");
-			Img_cross.id='c'+json['id'];
-			Img_cross.onclick=Delete_note;
-			Button_cross.prepend(Img_cross);
-			   
-		let Img_Paper = document.createElement("Img");
-			Img_Paper.src="CSS/paper.png";
-            Img_Paper.classList.add("record1");
-			Img_Paper.id='p'+json['id'];
-			Img_Paper.onclick=Edit_note;
-			Button_paper.prepend(Img_Paper);
 	});
 }	
 
@@ -159,16 +99,14 @@ formData.append('note_id', note_id);
 fetch('PHP/rewrite.php', {method: "POST", body: formData})
 	.then(response => response.json())
 	.then(json => {
-		let name=json['name'];
-		let id =json['id'];
 	});
-document.getElementById(note_id).id='id_notes';
-document.getElementById('id_notes').innerHTML=note_name;
-id_notes.insertAdjacentHTML('beforeEnd', '<button class="float-right"><img src="CSS/cross.png" id="id_cross" class="record1" onclick="Delete_note(event)"></button>');
-id_notes.insertAdjacentHTML('beforeEnd', '<button class="float-right"><img src="CSS/paper.png" id="id_pape" class="record1" onclick="Edit_note(event)"></button>');
-document.getElementById('id_pape').id = 'p'+note_id;
-document.getElementById('id_cross').id = 'c'+note_id;
-document.getElementById('id_notes').id =note_id;
+	document.getElementById(note_id).id='id_notes';
+	document.getElementById('id_notes').innerHTML=note_name;
+	id_notes.insertAdjacentHTML('beforeEnd', '<button class="float-right"><img src="CSS/cross.png" id="id_cross" class="record1" onclick="Delete_note(event)"></button>');
+	id_notes.insertAdjacentHTML('beforeEnd', '<button class="float-right"><img src="CSS/paper.png" id="id_pape" class="record1" onclick="Edit_note(event)"></button>');
+	document.getElementById('id_pape').id = 'p'+note_id;
+	document.getElementById('id_cross').id = 'c'+note_id;
+	document.getElementById('id_notes').id =note_id;
 }	
 
 

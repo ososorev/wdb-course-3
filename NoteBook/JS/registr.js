@@ -1,24 +1,15 @@
 function start() {
-    let Container = document.createElement("div");
-    Container.classList.add("d-flex");
-    Container.classList.add("flex-column");
-    Container.classList.add("ch-100");
-    document.body.append(Container);
 
-    forms.frame("header", "SUPER NOTEBOOK", Container);
+    forms.header("header", "header", "header","header","SUPER NOTEBOOK");
 
-    let elementContent = document.createElement("div");
-    Container.append(elementContent);
+    forms.formElement("class1", "class2", header,"form");
 
-    let form = document.createElement("form");
-    elementContent.append(form);
+    forms.inputElement("Username","user","text","input","input",'user',form);
+    forms.inputElement("Password","Password","password","input","input",'password',form);
+    forms.inputElement("Pass_con","Pass_con","password","input","input",'pass_con',form);
+    forms.inputElement("Email", "Email", "Email","input","input",'Email',form);
 
-    forms.inputElement("Username","user","text",form);
-    forms.inputElement("Password","Password","password",form);
-    forms.inputElement("Pass_con","Pass_con","password",form);
-    forms.inputElement("Email", "Email", "Email", form);
+    forms.buttonElement("Submit","Login",send,"register","register",form,'');
 
-    forms.buttonElement("Submit","Login",send,form);
-
-    forms.frame("footer", "Copyright by ..., 2016", Container);
+    forms.footer("footer","mt-auto","py-3", "Copyright by ..., 2016");
 };

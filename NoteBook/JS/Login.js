@@ -1,20 +1,15 @@
 function start() {
-    let Container = document.createElement("div");
-    document.body.append(Container);
+    forms.header("header", "header", "header","header","SUPER NOTEBOOK");
 
-    forms.frame("header", "SUPER NOTEBOOK", Container);
 
-    let elementContent = document.createElement("div");
-    Container.append(elementContent);
+    forms.formElement("class1", "class2", header,"form");
 
-    let form = document.createElement("form");
-    elementContent.append(form);
 
-    forms.inputElement("Username","user","name",form);
-    forms.inputElement("Password","psw","password",form);
+    forms.inputElement("Username","user","name","input","input",'user',form);
+    forms.inputElement("Password","psw","password","input","input",'psw',form);
 
-    forms.buttonElement("Submit","Login",send,form);
-    forms.buttonElement("Button","Registration",registr,form);
+    forms.buttonElement("Submit","Login",send,"register","register",form,'');
+    forms.buttonElement("Button","Registration",registr,"register","register",form,'');
 
-    forms.frame("footer", "Copyright by ..., 2016", Container);
+    forms.footer("footer","mt-auto","py-3", "Copyright by ..., 2016");
 };

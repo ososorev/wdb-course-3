@@ -3,42 +3,21 @@ function ready()//загрузка записей пользователя пр�
 	fetch('PHP/Start.php') 
 		.then(response => response.json())
 		.then(json => {
+			if (json=='')
+				window.location.href="Login.html";
+			else	
 			json.forEach(function(item,i,arr)
 			{
 			let string=JSON.stringify(json[i]);
-			let obj=JSON.parse(string);  
-			
-			let Button_note = document.createElement("Button");
-				Button_note.classList.add("col-sm-12");
-				Button_note.classList.add("col-lg-9");
-				Button_note.classList.add("a2");
-				Button_note.id=obj['id'];
-				Button_note.innerText=obj['name'];
-				Button_note.onclick=Read_note;
-				notes.prepend(Button_note);
-	
-	
-			let Button_cross = document.createElement("Button");
-				Button_cross.classList.add("float-right");
-				Button_note.append(Button_cross);
-	
-			let Button_paper = document.createElement("Button");
-				Button_paper.classList.add("float-right");
-				Button_note.append(Button_paper);
-				   
-			let Img_cross = document.createElement("Img");
-				Img_cross.src="CSS/cross.png";
-				Img_cross.classList.add("record1");
-				Img_cross.id='c'+obj['id'];
-				Img_cross.onclick=Delete_note;
-				Button_cross.prepend(Img_cross);
-				   
-			let Img_Paper = document.createElement("Img");
-				Img_Paper.src="CSS/paper.png";
-				Img_Paper.classList.add("record1");
-				Img_Paper.id='p'+obj['id'];
-				Img_Paper.onclick=Edit_note;
-				Button_paper.prepend(Img_Paper);
+			let obj=JSON.parse(string);  		
+				forms.buttonElement("Submit",obj['name'],Read_note,"col-sm-12","col-lg-11",notes,'btn');
+				forms.buttonElement('','','',"float-right","float-right",btn,'cross');
+				forms.buttonElement('','','',"float-right","float-right",btn,'paper');
+				forms.img("CSS/cross.png", 'record1', 'c'+obj['id'], Delete_note,cross);
+				forms.img("CSS/paper.png", 'record1', 'c'+obj['id'], Edit_note,paper);
+				document.getElementById('btn').id = obj['id'];
+				document.getElementById('cross').id = 'c'+obj['id'];
+				document.getElementById('paper').id = 'p'+obj['id'];
 			});
 		});
 	}
