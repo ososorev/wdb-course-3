@@ -48,12 +48,6 @@ let forms = {};
     }
 
 
-
-
-
-
-   
-
     forms.buttonElement=buttonElement;
     function buttonElement(type,value,click,class1,class2,parent,id) {
         let button = document.createElement("button");

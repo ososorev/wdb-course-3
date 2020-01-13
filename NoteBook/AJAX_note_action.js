@@ -14,8 +14,10 @@ fetch('PHP/Note _Read.php', {method: "POST", body: formData})
 
 		forms.formElement("right", "content2", form2,"form1");
 			forms.divElement('Edit note',"Edit_mode","Edit_mode",form1);
+			
 			forms.inputElement("Name","name","input","Note_name","Note_name",'name',form1);
 				document.getElementById('name').value=json['name'];
+			
 			forms.inputElement("date","date","date","form-control","form-control",'date',form1);
 				document.getElementById('date').value=json['date'];
 
@@ -40,21 +42,10 @@ fetch('PHP/Note _Read.php', {method: "POST", body: formData2})
 
 	document.querySelector('#form1').remove();
 	
-	let form1 = document.createElement("form");
-		form1.classList.add("right");
-		form1.classList.add("content2");
-		form1.id='form1';
-		form2.after(form1);	
-
-		let Read_Name_note = document.createElement("div");
-		Read_Name_note.classList.add("Note_name");
-		Read_Name_note.innerText=json['date'];
-		form1.prepend(Read_Name_note);
-
-		let Read_note = document.createElement("div");
-		Read_note.classList.add("Note_text");
-		Read_note.innerText=json['note'];
-		Read_Name_note.after(Read_note);
+	forms.formElement("right", "content2", form2,"form1");
+	forms.divElement(json['date'],"Note_name","Note_name",form1);
+	forms.divElement(json['note'],"Note_text","Note_text",form1);
+	
 	});
 }
 
@@ -101,11 +92,7 @@ fetch('PHP/rewrite.php', {method: "POST", body: formData})
 	.then(json => {
 	});
 	document.getElementById(note_id).id='id_notes';
-	document.getElementById('id_notes').innerHTML=note_name;
-	id_notes.insertAdjacentHTML('beforeEnd', '<button class="float-right"><img src="CSS/cross.png" id="id_cross" class="record1" onclick="Delete_note(event)"></button>');
-	id_notes.insertAdjacentHTML('beforeEnd', '<button class="float-right"><img src="CSS/paper.png" id="id_pape" class="record1" onclick="Edit_note(event)"></button>');
-	document.getElementById('id_pape').id = 'p'+note_id;
-	document.getElementById('id_cross').id = 'c'+note_id;
+	document.getElementById('id_notes').value=note_name;
 	document.getElementById('id_notes').id =note_id;
 }	
 
@@ -115,51 +102,14 @@ function Add_Note(event)//форма для ввода новой записи
 	
 	event.preventDefault();
 	document.querySelector('#form1').remove();
-	
-	let form1 = document.createElement("form");
-		form1.classList.add("right");
-		form1.classList.add("content2");
-		form1.id='form1';
-		form2.after(form1);
 
-		let Edit_Note = document.createElement("div");
-		Edit_Note.classList.add("Edit_mode");
-		Edit_Note.innerText="Edit_mode";
-		form1.prepend(Edit_Note);	
-
-		let Name_note = document.createElement("input");
-		Name_note.classList.add("Note_name");
-		Name_note.Placeholder="Name";
-		Name_note.name="name";
-		Name_note.type='text';
-		Name_note.id='name';
-		Edit_Note.after(Name_note);
-
-
-		let Date_note = document.createElement("input");
-		Date_note.classList.add("form-control");
-		Date_note.classList.add("Note");
-		Date_note.Placeholder="Date";
-		Date_note.name="date";
-		Date_note.type='date';
-		Date_note.id='date';
-		Name_note.after(Date_note);
-
-		let Note = document.createElement("textarea");
-		Note.classList.add("Note_text");
-		Note.Placeholder="Line1";
-		Note.name="note";
-		Note.type='text';
-		Note.id='note';
-		Date_note.after(Note);
-
-		let Button_save = document.createElement("Button");
-		Button_save.classList.add("register1");
-		Button_save.type='Submit';
-		Button_save.innerText="Save";
-		Button_save.onclick=Write_note;
-		Note.after(Button_save);
-
+	forms.formElement("right", "content2", form2,"form1");
+		forms.divElement('Edit note',"Edit_mode","Edit_mode",form1);
+		forms.inputElement("Name","name","input","Note_name","Note_name",'name',form1);
+		forms.inputElement("date","date","date","form-control","form-control",'date',form1);
+		forms.TextElement("Line 1","note",'',"Note_text","Note_text",'note',form1);
+		forms.buttonElement("Button","Save",Write_note,"register1","register1",form1,'note_id');
+		
 }
 
 
@@ -174,9 +124,10 @@ fetch('PHP/Note_delete.php', {method: "POST", body: formData1})
 	.then(response => response.text())
 	.then(text =>{
 		if(text==1)
-			alert('Удаление завершенно');});
-	document.getElementById(note_id).remove();
-	document.getElementById("date").value='';
-	document.getElementById('name').value='';
-	document.getElementById('note').value='';
+			alert('Удаление завершенно');
+		});
+document.getElementById(note_id).remove();
+document.getElementById("date").value='';
+document.getElementById('name').value='';
+document.getElementById('note').value='';
 }
