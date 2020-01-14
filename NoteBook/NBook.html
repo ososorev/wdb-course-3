@@ -1,6 +1,17 @@
 <!--<!DOCTYPE html>-->
 <html lang="en">
 <head>
+	<style>
+		.leftstr, .rightstr {
+		 float: left; /* Обтекание справа */ 
+		 width: 50%; /* Ширина текстового блока */ 
+		}
+		.rightstr {
+		 text-align: right; /* Выравнивание по правому краю */ 
+		}
+	   </style>
+
+
 	<link rel="stylesheet" href="CSS/style.css">
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css">
@@ -22,6 +33,11 @@
 			</input>
 		</header>
 		<div class="scr" id="notes">
+			<!--<button class="col-sm-12 col-lg-9 a2" id="note123">
+				<p class="leftstr">Привет</p><p class="rightstr">12-17-18</p>
+				<button class="float-right" style="clear: left" ><img src="CSS/paper.png" class="record1"></button>
+				<button class="float-right"><img src="CSS/cross.png" class="record1"></button>
+			</button>-->
 		</div>
 		<footer  class="container_fluid">
 			<button class="message" onclick="Add_Note(event)">Add Note</button>
@@ -39,10 +55,9 @@
 
 
 <footer class="footer mt-auto py-3">Copyright by ..., 2016</footer>
-<!--<script src="Load.js"></script>-->
 <!--<script src="C:\OSPanel\bootstrap-4.3.1-dist\js\jquery-3.4.1.min.js"></script>-->
 <!--<script src="C:\OSPanel\bootstrap-4.3.1-dist\js\bootstrap.min.js"></script>-->
 
-<script>document.addEventListener("DOMContentLoaded", ready);</script>
+<script>document.addEventListener("DOMContentLoaded", load);</script>
 </body>
 </html>

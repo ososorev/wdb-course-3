@@ -3,12 +3,12 @@ let forms = {};
 
 (function(){
     forms.divElement=divElement;
-    function divElement(value, class1,class2,parent) {
+    function divElement(value, class1,class2,parent,id) {
         let elementDiv = document.createElement("div");
         elementDiv.innerText = value;
         elementDiv.classList.add(class1);
         elementDiv.classList.add(class2);
-        //elementDiv.id=id;
+        elementDiv.id=id;
         parent.append(elementDiv);
     }
     
@@ -93,7 +93,13 @@ let forms = {};
 			Img.onclick=click;
             parent.append(Img);
     }        
-
+    forms.p=p;
+    function p(value, class1, parent) {
+	    let p= document.createElement("p");
+            p.classList.add(class1);
+            p.innerText = value;
+            parent.append(p);
+    } 
 
 
 

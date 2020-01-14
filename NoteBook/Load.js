@@ -1,4 +1,4 @@
-function ready()//загрузка записей пользователя при загрузке страницы
+function load()//загрузка записей пользователя при загрузке страницы
 {
 	fetch('PHP/Start.php') 
 		.then(response => response.json())
@@ -10,7 +10,12 @@ function ready()//загрузка записей пользователя пр�
 			{
 			let string=JSON.stringify(json[i]);
 			let obj=JSON.parse(string);  		
-				forms.buttonElement("Submit",obj['name'],Read_note,"col-sm-12","col-lg-11",notes,'btn');
+				forms.buttonElement("Submit",'',Read_note,"col-sm-12","col-lg-11",notes,'btn');
+				
+				forms.p(obj['name'],'leftstr',btn);
+
+				forms.p(obj['date'],'rightstr',btn);
+			
 				forms.buttonElement('','','',"float-right","float-right",btn,'cross');
 				forms.buttonElement('','','',"float-right","float-right",btn,'paper');
 				forms.img("CSS/cross.png", 'record1', 'c'+obj['id'], Delete_note,cross);

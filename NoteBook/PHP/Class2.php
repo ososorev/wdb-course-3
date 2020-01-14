@@ -57,11 +57,13 @@ class dataBase
     public function Update($note_id,$note,$date,$name)
     {
         $resultat = mysqli_query($this->connection,"UPDATE `Note` SET `id`='$note_id',`name`='$name',`date`='$date',`note`='$note' WHERE id= $note_id");
-        foreach($resultat as $row)
+        /*foreach($resultat as $row)
         {
             $rows[]=$row;
         }
-        return $row;
+        return $row;*/
+        return $resultat;
+
     }
 
 

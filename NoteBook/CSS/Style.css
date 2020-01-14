@@ -199,3 +199,15 @@ width: 90%;
 overflow-y:scroll;
 align-content: start;
 }
+
+.leftstr, .rightstr {
+  float: left; /* Обтекание справа */ 
+  width: 40%; /* Ширина текстового блока */ 
+ }
+ .rightstr {
+  text-align: right; /* Выравнивание по правому краю */ 
+ }
+
+.clear{
+  clear: left
+}

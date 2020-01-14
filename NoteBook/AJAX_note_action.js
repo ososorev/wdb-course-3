@@ -43,7 +43,9 @@ fetch('PHP/Note _Read.php', {method: "POST", body: formData2})
 	document.querySelector('#form1').remove();
 	
 	forms.formElement("right", "content2", form2,"form1");
-	forms.divElement(json['date'],"Note_name","Note_name",form1);
+	forms.divElement('',"Note_name","text_btn",form1,'name_data');
+	forms.p(json['name'],'leftstr',name_data);
+	forms.p(json['date'],'rightstr',name_data);
 	forms.divElement(json['note'],"Note_text","Note_text",form1);
 	
 	});
@@ -62,7 +64,11 @@ fetch('PHP/Note.php', {method: "POST", body: new FormData(form1)})
 	.then(response => response.json())
 	.then(json => {
 
-		forms.buttonElement("Submit",json['name'],Read_note,"col-sm-12","col-lg-11",notes,'btn');
+		forms.buttonElement("Submit",'',Read_note,"col-sm-12","col-lg-11",notes,'btn');
+		
+		forms.p(json['name'],'leftstr',btn);
+		forms.p(json['date'],'rightstr',btn);
+		
 		forms.buttonElement('','','',"float-right","float-right",btn,'cross');
 		forms.buttonElement('','','',"float-right","float-right",btn,'paper');
 		forms.img("CSS/cross.png", 'record1', 'c'+json['id'], Delete_note,cross);
@@ -90,10 +96,15 @@ formData.append('note_id', note_id);
 fetch('PHP/rewrite.php', {method: "POST", body: formData})
 	.then(response => response.json())
 	.then(json => {
+		document.getElementById(json['id']).id='id_notes';
+		document.getElementById('id_notes').innerHTML='<p class="leftstr">'+json['name']+'</p><p class="rightstr">'+json['date']+'</p>';
+		id_notes.insertAdjacentHTML('beforeEnd', '<button class="float-right"><img src="CSS/cross.png" id="id_cross" class="record1" onclick="Delete_note(event)"></button>');
+		id_notes.insertAdjacentHTML('beforeEnd', '<button class="float-right"><img src="CSS/paper.png" id="id_pape" class="record1" onclick="Edit_note(event)"></button>');
+		document.getElementById('id_pape').id = 'p'+json['id'];
+		document.getElementById('id_cross').id = 'c'+json['id'];
+		document.getElementById('id_notes').id =json['id'];
 	});
-	document.getElementById(note_id).id='id_notes';
-	document.getElementById('id_notes').value=note_name;
-	document.getElementById('id_notes').id =note_id;
+
 }	
 
 
