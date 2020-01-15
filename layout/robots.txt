@@ -1,0 +1,11 @@
+User-agent: YandexBot
+Disallow: *index.html
+Disallow: /images
+Disallow: /css
+Host: vermillion23.github.io
+
+User-agent: GoogleBot
+Disallow: *index.html
+Disallow: /images
+Disallow: /css
+Host: vermillion23.github.io
