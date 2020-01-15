@@ -1,0 +1,4 @@
+C:\Users\Елена\source\repos\graduate-project\graduate-project\obj\Debug\graduate-project.njsprojAssemblyReference.cache
+C:\Users\Елена\source\repos\graduate-project\graduate-project\bin\Microsoft.NodejsTools.WebRole.dll
+D:\dev\graduate-work\graduate-project\obj\Debug\graduate-project.njsprojAssemblyReference.cache
+D:\dev\graduate-work\graduate-project\bin\Microsoft.NodejsTools.WebRole.dll
