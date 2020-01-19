@@ -1,12 +1,5 @@
-<?php
-$connection = mysqli_connect("localhost", "root", "", "notebook"); // подключение к БД
-$sql = mysqli_query($connection, "SELECT recordTitle, editDate FROM diary"); // форрмируется запрос к таблице
-while($row = mysqli_fetch_array($sql)) // последовательно складываем в переменную $row которая является массивом строки результата запроса
-$json = json_encode($row); // преобразование в JSON массив
-echo $json; // вывод строки на страницу
-?>
 <!doctype html>
-<html lang="en">
+<html>
 	<head>
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
@@ -16,30 +9,46 @@ echo $json; // вывод строки на страницу
 		<!-- Собственные стили и скрипты -->
 		<link rel="stylesheet" href="styles.css"/>
 		<script src = "main.js"></script>
-		<script src = "noteField.js"></script>
-		<script src = "sendSave.js"></script>
 		<title>Notebook</title>
 	</head>
 	<body>
-		<nav style="height: 60px;" id="topRow" class="navbar justify-content-center bg-secondary text-white">Welcome, ...</nav> <!-- Верхняя строка -->
+		<nav style="height: 60px;" id="topRow" class="navbar justify-content-center bg-secondary text-white">
+			<div class="col-auto text-white" id="name">Welcome, </div>
+<!--
+				<script type="text/javascript">
+					$(document).ready(function() {
+						$.get("/index", function(data) {
+							$("#name").html($("#name", data).html())
+						});
+					});
+				</script>
+-->
+			<a class="col-auto btn btn-outline-light" href='index.html'>Logout</a>
+		</nav> <!-- Верхняя строка -->
 		<div class="container-fluid"> <!-- Контейнер общий -->
-			<div class="row"> <!-- Разделение на поля -->
-				<div id="noteContainer" class="col-md-auto"> <!-- Левое поле -->
-					<br>
-					<div id="search" class="search w-100"> <!-- Поиск -->
-						<input id="searchBox" type="search" name="search" placeholder="Search"> <!-- Поле поиска -->
-						<input id="searchButton" type="submit" value="&#128269"> <!-- Значок поиска -->
-					</div>	
-					<br>
-					<body onLoad="addNewNoteLine();"></body> <!-- Скрипт на прорисовку всех заметок -->
-					<div>
-						<input id="addNewNote" type="button" class="btn btn-outline-primary w-100" value="Add new note" onclick="addNewNote();"> <!-- Кнопка для добавления новой записи в правом поле -->
-					</div>
-					<br>
+			<p>
+			<div class="row">
+				<div id="search" class="search"> <!-- Поиск -->
+					<input id="searchBox" type="search" name="search" placeholder="Search"> <!-- Поле поиска -->
+					<input id="searchButton" type="submit" value="&#128269"> <!-- Значок поиска -->
 				</div>
+			</div>
+			</p>
+			<div class="row"> <!-- Разделение на поля -->
+				<form>
+				<div id="noteContainer" class="col-auto"> <!-- Левое поле -->
+				</div>
+				</form>
 				<div id="editContainer" class="col"> <!-- Правое поле -->
 				</div>
 			</div>
+			<p>
+			<div class="row">
+				<div class="col">
+					<button id="addNewNote" type="button" class="btn btn-outline-dark w-100" onclick="addNewNote(); this.disabled=true;">Add new note</button> <!-- Кнопка для добавления новой записи в правом поле -->
+				</div>
+			</div>
+			</p>
 		</div>
 		<nav style="height: 60px;" class="navbar fixed-bottom justify-content-center bg-secondary text-white">Copyright by..., 2016</nav> <!-- Нижняя строка -->
 		<!-- Optional JavaScript -->

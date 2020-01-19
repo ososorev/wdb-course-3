@@ -30,7 +30,7 @@
 		return($result);
 	}
 
-$connection = mysqli_connect("localhost", "root", "", "registration");
+$connection = mysqli_connect("localhost", "root", "", "notebook");
 mysqli_query($connection, "INSERT INTO regist(username, password, email) VALUES ('$username', MD5('$password'), '$email')");
 
 	if ($result == "Successful!"){ 

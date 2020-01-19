@@ -14,7 +14,7 @@ else {
 function check() {
 	global $name;
 	global $pass;
-	$connection = mysqli_connect("localhost", "root", "", "registration");
+	$connection = mysqli_connect("localhost", "root", "", "notebook");
 	$sql = mysqli_query($connection, "Select id from regist where username = '$name' and password = MD5('$pass')");
 		if ((mysqli_num_rows($sql))>0) {
 			$resultLogin = ("Successful!");
