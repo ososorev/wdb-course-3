@@ -2,11 +2,10 @@
 namespace App\Http\Controllers\Note;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Note;
-use phpDocumentor\Reflection\Types\This;
+
 
 
 class NoteController extends Controller
@@ -20,7 +19,7 @@ class NoteController extends Controller
 
     public function index()
     {
-        $userID = Auth::user()->getAuthIdentifier(); // Auth::id()
+        $userID = Auth::user()->getAuthIdentifier();
         $notes = Note::where('user_id', 'like', $userID)->get();
         return view('note\notes', ['notes' => $notes]);
     }
@@ -49,7 +48,7 @@ class NoteController extends Controller
         $Note->save();
 
 //        $Note->save($request->all());
-        return 'заметка сохранена';
+        return 'Заметка сохранена';
     }
 
 

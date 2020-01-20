@@ -1,4 +1,5 @@
-function editNote(event) {
+//import save from ...
+export default function editNote(event) {
     event.preventDefault();
     let note_id = $(this).parent().attr("class").replace("note_item-","");
     $.ajax({
@@ -9,6 +10,7 @@ function editNote(event) {
         success: function (html) {
             $('.work_area').empty();
             $('.work_area').append(html);
+           ///$(".save").on(save)
         }
     });
 }

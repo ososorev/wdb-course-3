@@ -1,5 +1,4 @@
 
-{{$created_at}}
 <form method="post" class="col-12 edit_note_form">
     @csrf
     {{ csrf_field() }}

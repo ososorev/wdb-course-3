@@ -1,4 +1,6 @@
-function saveNewNote(event) {
+import resetListNotes from "./resetListNotes.js";
+
+export default function saveNewNote(event) {
     event.preventDefault();
     let form = $('.create_note').serialize();
     $.ajax({

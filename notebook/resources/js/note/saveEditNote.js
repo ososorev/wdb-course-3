@@ -1,4 +1,6 @@
-function saveEditNote(event) {
+import resetListNotes from "./resetListNotes.js";
+
+export default function saveEditNote(event) {
     event.preventDefault();
     //let form = new FormData(document.querySelector('.edit_note_form'));
     let form = $('.edit_note_form').serialize();
