@@ -60,6 +60,7 @@ function newNoteLine(id, recordTitle, editDate, contents) { // создание 
 		input.classList = "buttonNote";
 		input.value = "\u270E";
 		input.onclick = function () {
+			document.getElementById("addNewNote").removeAttribute("disabled"); // убираем блокировку с addNewNote
 			let editContainer = document.getElementById("editContainer"); //получить элемент, имеющий id="editContainer"
 			let lastNode = editContainer.lastChild; //получить последний дочерний узел у элемента editContainer
 			while(lastNode && lastNode.nodeType!=1) { // для поиска последнего дочернего элемента у элемента editContainer, пока у элемента есть узел и его тип не равен 1 (т.е. он не элемент) выполнять
@@ -70,9 +71,9 @@ function newNoteLine(id, recordTitle, editDate, contents) { // создание 
 			};
 			form = new editNoteElement();
 			form.editMode();
-			form.inputElement("text", "recordTitle", "recordTitle", "form-control w-100 text-primary", recordTitle);
-			form.inputElement("date", "editDate", "editDate", "dateForm form-control-plaintext text-secondary", editDate);
-			form.inputElement("text", "contents", "contents", "contents form-control", contents);
+			form.inputElement("text", "recordTitle", "recordTitle", "form-control w-100 text-primary", "recordTitle");
+			form.inputElement("date", "editDate", "editDate", "dateForm form-control-plaintext text-secondary", "Date");
+			form.inputElement("text", "contents", "contents", "contents form-control", "contents");
 			form.buttonElement("Save", "btn btn-outline-success w-100");
 		};
 		div.append(input);
@@ -84,8 +85,13 @@ function newNoteLine(id, recordTitle, editDate, contents) { // создание 
 		input.classList = "buttonNote";
 		input.value = "\u2716";
 		input.onclick = function send(event){
-			event.preventDefault();
-			fetch("delete.php",{method:"POST", body:new FormData(document.forms[0])}).then(response=>response.text()).then(text=>{document.getElementById("topRow").innerHTML=text;});
+			if (confirm("Delete note?")) {
+				event.preventDefault();
+				let id = event.target.parentNode.id;
+				let data = new FormData();
+				data.append("id", id);
+				fetch("delete.php",{method:"POST", body: data}).then(response=>response.text()).then(text=>{document.getElementById("topRow").innerHTML=text;});
+			};			
 		};
 		div.append(input);
 	};
@@ -164,7 +170,6 @@ function newNoteElement() { // функция для отрисовки созд
         form.append(button);
 		button.insertAdjacentHTML("beforebegin", "<br/>");
     };
-	
 	editContainer.appendChild(form);
 };
 
@@ -196,7 +201,10 @@ function editNoteElement() { // функция редактирования за
         button.onclick = function send(event){
 			document.getElementById("addNewNote").removeAttribute("disabled"); // убираем блокировку с addNewNote
 			event.preventDefault();
-			fetch("edit.php",{method:"POST", body:new FormData(document.forms[1])}).then(response=>response.text()).then(text=>{document.getElementById("topRow").innerHTML=text;});
+			let id = event.target.parentNode.id;
+			let data = new FormData();
+			data.append("id", id);
+			fetch("edit.php",{method:"POST", body: data}).then(response=>response.text()).then(text=>{document.getElementById("topRow").innerHTML=text;});
 		};
         button.innerHTML = innerHTML;
         form.append(button);
