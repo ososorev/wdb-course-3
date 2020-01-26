@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>notebook</title>
+	<link rel="stylesheet" href="styles/colors2.css">	
+	<script src="scripts/body-notebook.js"></script>
+	<script src="scripts/scripts.js"></script>
+	<script>					
+	</script>
+</head>
+	
+<body>
+	<div id="main" class="container">
+		
+		<div id ="strip_start" class="strip_start strip">
+			<div class="strip_super_div">SUPER NOTEBOOK
+			</div>
+			<div class="strip_hello_div">
+				<div class= "hello_div" id ="div_hello">Hello User</div>
+				<a href="index.html">LogOut</a>
+			</div>
+		</div>
+		
+		<div class="content">
+			<div class="content_left" id="content_left">
+				<div class="search_div" id="serch_div">
+					<form class="search_div">
+						<input name="search" placeholder="Search" type="search" class="search_input">
+						<button type="submit" class="search_but"></button>
+					</form>
+				</div>
+				<div id="notes_container"></div>
+				<div class="note_space_div"></div>
+				<div class="note_add_div">
+					<button class="note_add_but" onClick="createNewNote()">Add new note</button>
+				</div>
+			</div>
+			<div class="content_right">				
+				<form class="note_edit_div" id="content_right">
+					
+				</form>	
+			</div>
+		</div>
+		
+		<div div id="strip_end" class="strip">
+			Copyright by... 2020
+		</div>
+	</div>	
+</body>	
+</html>

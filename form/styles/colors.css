@@ -4,11 +4,19 @@ body {
 	margin: 0;
 }
 
+.container {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
 .inputs {
 	border: 1px solid black;
 	font-size:18px;
+	padding-left: 5px;
 	height: 30px;
 	width: 160px;
+	padding-left: 5px;
 }
 
 .strip {
@@ -19,6 +27,16 @@ body {
 	font-size:14px; 
 }
 
+.strip_start {
+    margin: auto;
+    display: flex;
+	justify-content: center;
+    flex-direction: column;
+}
+
+.strip_text {
+    display: flex;
+}
 
 #main{
 	text-align: center;

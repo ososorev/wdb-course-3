@@ -1,4 +1,9 @@
 <?php
+	session_start();
+		if (!isset($_SESSION['ses_username'])) 
+			{
+			$_SESSION['ses_username']= [];
+		}
 	$connection= mysqli_connect("localhost", "root", "", "database");
 	$userName=$_REQUEST['username'];
 	$password=$_REQUEST['password'];
@@ -8,6 +13,7 @@ if (!empty($userName)||!empty($password)){
 	$res = mysqli_query($connection, "SELECT id FROM users WHERE name = '$userName' AND password = '$password'");
 	$row = mysqli_fetch_assoc($res);
 	if (!empty($row['id'])){
+		$_SESSION['ses_username']= $row["id"];
 		echo "<META HTTP-EQUIV='Refresh' content='2; URL=notebook.html'>";
         exit();
 	}
@@ -37,10 +43,10 @@ if (!empty($userName)||!empty($password)){
 		<form action="users_check.php">
 			<div>
 				<p></p>
-				<input name="username" class="inputs" placeholder=" Username">
+				<input name="username" class="inputs" placeholder="Username">
 				<p></p>
 				<p></p>
-				<input name="password" class="inputs" type="password" placeholder=" Password">
+				<input name="password" class="inputs" type="password" placeholder="Password">
 				<p></p>
 				<input type="submit" name="button" id="button_log" class="inputs" value="Login">
 				<p></p>

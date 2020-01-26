@@ -1,0 +1,254 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	margin: 0;
+}
+
+.container {			/*общий контейнер*/
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.strip {				/*полсы*/
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	background:#e6e6e6;
+	font-size:14px; 
+}
+.strip_start {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.strip_hello_div {
+	margin-top: 5px;
+	display: flex;
+	flex-direction: row;
+}
+
+.hello_div {
+	margin-right: 5px;
+}
+
+.content {				/*правая и левая полосы*/
+    display: flex;
+/*	background: #97CFCC;*/
+	flex-wrap: wrap;	/*чтобы складывалась при сужении старницы*/
+	padding-bottom: 30px; /*чтобы нижняя полоска не сьедала*/
+}
+
+.content_left {			/*левая сторона*/
+    display: flex;
+	flex-grow: 1;
+	min-width: 150px;
+	padding: 3px; 				/*отступы по всем сторонам*/
+/*	background: #8FD491;*/
+	flex-direction: column;
+}
+	.search_div {			/*общий див и форма для поиска*/
+		position: relative;
+		display: flex;
+		width: 100%;
+		height: 25px;
+		margin-bottom: 8px;
+		margin-top: 2px;
+	}
+		.search_input {			/*ввод текста для поиска*/
+			display: flex;
+			border: none;
+			width: 100%;
+			padding: 8px 37px 9px 10px;
+			background: #EEE;
+			color: #555;
+}
+
+		.search_but {
+			/* позиционируем кнопку абсолютно от правого края формы */
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 37px;
+			height: 100%;
+			
+			background: url(https://img.icons8.com/dotty/37/000000/search.png);
+			background-position: center;
+			opacity: 0.5; /*кнопка прозрачная*/
+			border: thick;
+			cursor: pointer;
+		}
+		.search_but:hover {			/*псевдокласс при наводе на кнопку поиска*/
+			opacity: 0.8;
+			background: url(https://img.icons8.com/dotty/37/000000/nothing-found.png);
+			background-position: center;
+		}
+
+	.notes_div {			/*общий див для заметки*/
+		display: flex;
+		position: relative;
+		margin-top: 3px;
+		height: 25px;
+		width: 100%;
+	}
+		.notes_but	{	/*кнопка дата время*/
+			display: flex;
+			width: 100%;
+			padding: 0px 66px 0px 5px;
+			border: none;
+			background: #D2ECFF;
+			
+		}
+		.notes_but:hover {			/*псевдокласс при наводе на кнопку*/
+			border: 1px dotted #738693;
+		}
+			.notes_name_div {
+				display: flex;
+				flex-grow: 1;
+				padding-left: 5px;
+			}
+			
+			.notes_date_div {
+				display: flex;
+				flex-grow: 1;
+				position: absolute;
+				right: 66px;
+				width: 90px;
+			}
+		.notes_butt_pen {
+			position: absolute;
+			top: 0;
+			right: 33px;
+			width: 33px;
+			height: 100%;
+			cursor: pointer; /*пальчик при наводе*/
+			background: url(https://img.icons8.com/dotty/30/000000/border-color.png);
+			background-position: center;
+			opacity: 0.5; /*кнопка прозрачная*/
+			border: thick;
+		}
+		.notes_butt_pen:hover {			/*псевдокласс при наводе на кнопку поиска*/
+			opacity: 0.8;
+		}
+
+		.notes_butt_del {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 33px;
+			height: 100%;
+			cursor: pointer; /*пальчик при наводе*/
+			background: url(https://img.icons8.com/dotty/30/000000/delete-sign.png);
+			background-position: center;
+			opacity: 0.5; /*кнопка прозрачная*/
+			border: thick;
+		}
+		.notes_butt_del:hover {			/*псевдокласс при наводе на кнопку поиска*/
+			opacity: 0.8;
+			
+		}
+		
+	.note_space_div {
+		flex-grow: 1;
+	}
+	.note_add_but {		/* кнопка добавить заметку*/
+		background:#008cff;		 	/* цвкт фона*/
+		border-radius: 12px;		/*радиус скругления*/
+		color: white;				/*цвет текста*/
+		text-align: center;			/*расположение текста*/
+		border: 1px solid black;	/*толщина стиль и цвет границы*/ 
+		height: 30px;				/*высота*/
+		width: 100%;				/*ширина*/
+		cursor: pointer;
+		margin-top: 3px;
+	}
+
+.content_right {		/*правая сторона*/
+    display: flex;
+	padding: 3px; 				/*отступы по всем сторонам*/
+	flex-grow: 3;
+	min-width: 300px;
+/*	background: #E1DE91;*/
+	flex-direction: column;
+}
+	.status_div {	/*статус режима*/
+	
+}
+
+	.line_hr {	/*полоска под статусом*/
+			border: none;				/* убираем границу */
+			background-color: dimgray;	/* цвет линии */
+			height: 2px;				/* толщина линии */
+			width: 100%;				/* ширина занимаемя линеей */
+		}
+
+	.note_edit_div {		/*общий див для заметки*/
+		display: flex; 				/*флекс элемент*/
+		flex-direction: column;		/*направление расположения*/
+		flex-grow: 1;				/*сколько места занимет*/
+	}
+		.note_name_edit_input {	/*поле имени заметки*/
+			height: 22px;
+			padding-left: 5px;
+		}
+		.note_date_edit_input {		/*поле даты заметки*/
+			height: 22px;			/*высота элемента*/
+			margin-top: 4px;	/*Устанавливает величину отступа*/
+			padding-left: 5px;
+		}
+		.note_text_edit_input {		/*поле текста заметки*/
+			margin-top: 4px;		/*Устанавливает величину отступа*/
+			display: flex;
+			flex-grow: 1;
+			resize: none; 			/*Запрещаем изменять размер */
+			height: 300px;
+			padding-left: 5px;
+		}
+
+		.note_name_view_input {	/*поле имени заметки*/
+			height: 22px;
+			padding-left: 5px;
+			border: none;
+			margin-top: 3px;
+		}
+		.note_date_view_input {		/*поле даты заметки*/
+			height: 22px;			/*высота элемента*/
+			margin-top: 6px;	/*Устанавливает величину отступа*/
+			padding-left: 5px;
+			border: none;
+		}
+		.note_text_view_input {		/*поле текста заметки*/
+			margin-top: 6px;		/*Устанавливает величину отступа*/
+			display: flex;
+			flex-grow: 1;
+			resize: none; 			/*Запрещаем изменять размер */
+			height: 300px;
+			padding-left: 5px;
+			border: none;
+		}
+
+		.note_save_but {		/* кнопка добавить заметку*/
+			background:#008cff;		 	/* цвкт фона*/
+			border-radius: 12px;		/*радиус скругления*/
+			color: white;				/*цвет текста*/
+			text-align: center;			/*расположение текста*/
+			border: 1px solid black;	/*толщина стиль и цвет границы*/ 
+			height: 30px;				/*высота*/
+			width: 250px;				/*ширина*/
+			align-self: center;
+			cursor: pointer;
+			margin-top: 3px;
+		}
+
+
+#strip_start{
+	height: 60px;
+}
+
+#strip_end{
+	height: 30px;
+	position: fixed;
+	left: 0; bottom: 0;
+	width: 100%;
+}
