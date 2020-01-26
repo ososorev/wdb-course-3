@@ -1,3 +1,13 @@
+<?php 
+session_start();
+	if (!isset($_SESSION['ses_username'])) {
+		$_SESSION['ses_username']= [];
+	}
+$connection = mysqli_connect("localhost", "root", "", "notebook"); // подключение к БД
+$sql = mysqli_query($connection, "SELECT id, username FROM regist"); // форрмируется запрос к таблице
+foreach($sql as $username);
+echo $username->username;
+?>
 <!doctype html>
 <html>
 	<head>
@@ -9,43 +19,37 @@
 		<!-- Собственные стили и скрипты -->
 		<link rel="stylesheet" href="styles.css"/>
 		<script src = "main.js"></script>
+		<script src = "search.js"></script>
 		<title>Notebook</title>
 	</head>
 	<body>
 		<nav style="height: 60px;" id="topRow" class="navbar justify-content-center bg-secondary text-white">
-			<div class="col-auto text-white" id="name">Welcome, </div>
-<!--
-				<script type="text/javascript">
-					$(document).ready(function() {
-						$.get("/index", function(data) {
-							$("#name").html($("#name", data).html())
-						});
-					});
-				</script>
--->
-			<a class="col-auto btn btn-outline-light" href='index.html'>Logout</a>
+			<div class="col-auto text-white" id="name">Welcome, <?php $username ?></div>
+			<button class="col-auto btn btn-outline-light" onclick="logout();">Logout</button>
 		</nav> <!-- Верхняя строка -->
 		<div class="container-fluid"> <!-- Контейнер общий -->
 			<p>
-			<div class="row">
-				<div id="search" class="search"> <!-- Поиск -->
-					<input id="searchBox" type="search" name="search" placeholder="Search"> <!-- Поле поиска -->
-					<input id="searchButton" type="submit" value="&#128269"> <!-- Значок поиска -->
+			<div class="row" id="searchContainer">
+				<div id="search" class="search col-auto input-group mb-3">
+					<input id="searchBox" type="text" class="form-control" name="search" placeholder="Search"> <!-- Поле поиска -->
+  					<div class="input-group-append">
+						<input id="searchButton" type="submit" class="btn btn-outline-dark" value="&#128269" onclick = "FindOnPage(searchBox)"> <!-- Кнопка поиска -->
+  					</div>
 				</div>
 			</div>
-			</p>
 			<div class="row"> <!-- Разделение на поля -->
 				<form>
 				<div id="noteContainer" class="col-auto"> <!-- Левое поле -->
 				</div>
 				</form>
-				<div id="editContainer" class="col"> <!-- Правое поле -->
+				<div id="editContainer" class="editContainer col"> <!-- Правое поле -->
 				</div>
 			</div>
+			</p>
 			<p>
-			<div class="row">
+			<div class="addNewNote row">
 				<div class="col">
-					<button id="addNewNote" type="button" class="btn btn-outline-dark w-100" onclick="addNewNote(); this.disabled=true;">Add new note</button> <!-- Кнопка для добавления новой записи в правом поле -->
+					<button id="addNewNote" type="button" class="addNewNote btn btn-outline-dark" onclick="addNewNote(); this.disabled=true;">Add new note</button> <!-- Кнопка для добавления новой записи в правом поле -->
 				</div>
 			</div>
 			</p>
