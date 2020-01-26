@@ -109,7 +109,8 @@ html, body {
     margin: 0 12px;
     flex-grow: 1;
     overflow-y: scroll;
-    background-color: blanchedalmond;}
+    background-color: blanchedalmond;
+}
 
 
 .listOfNotesBlock::-webkit-scrollbar {
