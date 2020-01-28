@@ -1,8 +1,5 @@
 <?php
 	session_start();
-		if (!isset($_SESSION['ses_username'])){
-			$_SESSION['ses_username']= [];
-		}
 	$connection= mysqli_connect("localhost", "root", "", "database");
 
 	$noteName= $_REQUEST['note_name'];

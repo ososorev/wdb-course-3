@@ -1,9 +1,7 @@
 <?php
 	session_start();
-		if (!isset($_SESSION['ses_username'])) 
-			{
-			$_SESSION['ses_username']= [];
-		}
+	$_SESSION['ses_username']= [];
+
 	$connection= mysqli_connect("localhost", "root", "", "database");
 	$userName=$_REQUEST['username'];
 	$password=$_REQUEST['password'];

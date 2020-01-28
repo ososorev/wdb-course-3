@@ -94,3 +94,47 @@ function clickSave(event){
 		.then(createPage)
 		.then(clearField);
 };
+
+//function searchNotes(){
+//	event.preventDefault();
+//	let result = document.getElementById("search").value;
+//	let elem = document.getElementById('notes_container');
+//		for (let i = 0; i < elem.children.length; i++) {
+//      		if (result == elem.children[i].firstChild.firstChild.innerHTML){
+//				elem.children[i].firstChild.firstChild.innerHTML.style='background:red';
+//			}
+//		} 
+//};
+
+var lastResFind=""; // последний удачный результат
+var copy_page=""; // копия страницы в ихсодном виде
+function TrimStr(s) {
+     s = s.replace( /^\s+/g, '');
+  return s.replace( /\s+$/g, '');
+};
+
+function FindOnPage() {//ищет текст на странице, в параметр передается ID поля для ввода
+var obj = window.document.getElementById("search");
+	
+var textToFind;
+	if (obj) {
+		textToFind = TrimStr(obj.value);//обрезаем пробелы
+	} 
+	else {
+		alert("Введенная фраза не найдена");
+		return;
+	}
+	if (textToFind == "null") {
+		alert("Вы ничего не ввели");
+		return;
+	}
+	if(document.body.innerHTML.indexOf(textToFind)=="-1");
+	if(copy_page.length>0)
+		document.body.innerHTML=copy_page;
+	else copy_page=document.body.innerHTML;
+
+	document.body.innerHTML = document.body.innerHTML.replace(eval("/name="+lastResFind+"/gi")," ");
+	document.body.innerHTML = document.body.innerHTML.replace(eval("/"+textToFind+"/gi"),"<span name="+textToFind+" style='background-color:green'>"+textToFind+"</span>");
+	lastResFind=textToFind;
+	window.location = '#'+textToFind;
+};
