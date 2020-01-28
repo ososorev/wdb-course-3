@@ -24,13 +24,23 @@ function sendChanges(event) {
 }
 
 function splitNote(arr) {
-    idUpdate = arr["id_note"];
+    idUpdate = arr["note_id"];
     const name = arr["note_name"]; // или так arr.note_name;
     const date = arr["use_date"]; // или так arr.use_date;
     const content = arr["content"]; // или так arr.content;
     document.querySelector(".editName").value = name;
     document.querySelector(".editDate").value = date;
     document.querySelector(".editContent").innerHTML = content;
+}
+
+function splitNoteShow(arr) {
+    idUpdate = arr["note_id"];
+    const name = arr["note_name"]; // или так arr.note_name;
+    const date = arr["use_date"]; // или так arr.use_date;
+    const content = arr["content"]; // или так arr.content;
+    document.querySelector(".noteNameBlockInfo").innerHTML = name;
+    document.querySelector(".noteDateBlockInfo").innerHTML = date;
+    document.querySelector(".infoBlockInfo").innerHTML = content;
 }
 
 function getNoteInfo(event, id) {
@@ -44,7 +54,18 @@ function getNoteInfo(event, id) {
             splitNote(noteInfo)})
 }
 
-function showNote(event, id) {
+function getNoteInfoShow(event, id) {
+    event.preventDefault();
+    let data = new FormData();
+    data.append("note_id", id);
+    fetch("getNoteData.php", {method: "POST", body: data})
+        .then(response => response.json())
+        .then(noteInfo  => {
+            JSON.parse(JSON.stringify(noteInfo));
+            splitNoteShow(noteInfo)})
+}
+
+function editNote(event, id) {
     let edit = document.querySelector(".rightContainerEdit");
     getNoteInfo(event, id);
     edit.classList.add("visible");
@@ -59,6 +80,12 @@ function deleteNote(event, id) {
         fetch("deleteNoteData.php", {method: "POST", body: data})
             .then(location.reload(true))
     }
+}
+
+function showNote(event, id) {
+    let edit = document.querySelector(".rightContainerInfo");
+    getNoteInfoShow(event, id);
+    edit.classList.add("visible");
 }
 
 function onClose() {

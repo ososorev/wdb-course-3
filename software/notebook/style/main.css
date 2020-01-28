@@ -124,6 +124,15 @@ html, body {
     max-width: 100%;
 }
 
+
+.noteItemBlockInfo{
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    max-height: 32px;
+    max-width: 80%;
+}
+
 .noteItemName {
     flex-grow: 1;
     white-space: nowrap;

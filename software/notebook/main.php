@@ -36,10 +36,12 @@ $username = getFromSession('username');
                     <div class="listOfNotesBlock">
                         <?php foreach (NoteDatabase::resultsNoteOfListSelect($username) as $item) {;?>
                             <div class="noteItemBlock visible">
-                                <div class="noteItemName searchName"><?php echo $item[note_name];?></div>
-                                <div class="noteItemDate"><?php echo date("d.m.Y", strtotime($item[use_date]));?></div>
+                                <button class="noteItemBlockInfo" onclick="showNote(event, <?php echo $item[id_note];?>)">
+                                    <div class="noteItemName searchName"><?php echo $item[note_name];?></div>
+                                    <div class="noteItemDate"><?php echo date("d.m.Y", strtotime($item[use_date]));?></div>
+                                </button>
                                 <div class="noteItemActions">
-                                    <button class="editIcon" onclick="showNote(event, <?php echo $item[id_note];?>)"></button>
+                                    <button class="editIcon" onclick="editNote(event, <?php echo $item[id_note];?>)"></button>
                                     <button class="deleteIcon" onclick="deleteNote(event, <?php echo $item[id_note];?>)"></button>
                                 </div>
                             </div>
@@ -54,10 +56,10 @@ $username = getFromSession('username');
                 <div class="betweenContainer"></div>
                 <div class="rightContainerInfo">
                     <div class="noteHeaderBlockInfo">
-                        <div class="noteNameBlockInfo">Note 3</div>
-                        <div class="noteDateBlockInfo">02.10.2019</div>
+                        <div class="noteNameBlockInfo"></div>
+                        <div class="noteDateBlockInfo"></div>
                     </div>
-                    <div class="infoBlockInfo">Some note text here!</div>
+                    <div class="infoBlockInfo"></div>
                 </div>
                 <div class="rightContainerCreate">
                     <div class="noteHeaderBlockCreate">
