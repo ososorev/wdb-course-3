@@ -24,7 +24,7 @@ function sendChanges(event) {
 }
 
 function splitNote(arr) {
-    idUpdate = arr["note_id"];
+    idUpdate = arr["id_note"];
     const name = arr["note_name"]; // или так arr.note_name;
     const date = arr["use_date"]; // или так arr.use_date;
     const content = arr["content"]; // или так arr.content;
@@ -34,7 +34,7 @@ function splitNote(arr) {
 }
 
 function splitNoteShow(arr) {
-    idUpdate = arr["note_id"];
+    idUpdate = arr["id_note"];
     const name = arr["note_name"]; // или так arr.note_name;
     const date = arr["use_date"]; // или так arr.use_date;
     const content = arr["content"]; // или так arr.content;
@@ -46,7 +46,7 @@ function splitNoteShow(arr) {
 function getNoteInfo(event, id) {
     event.preventDefault();
     let data = new FormData();
-    data.append("note_id", id);
+    data.append("id_note", id);
     fetch("getNoteData.php", {method: "POST", body: data})
         .then(response => response.json())
         .then(noteInfo  => {
@@ -57,7 +57,7 @@ function getNoteInfo(event, id) {
 function getNoteInfoShow(event, id) {
     event.preventDefault();
     let data = new FormData();
-    data.append("note_id", id);
+    data.append("id_note", id);
     fetch("getNoteData.php", {method: "POST", body: data})
         .then(response => response.json())
         .then(noteInfo  => {
@@ -76,7 +76,7 @@ function deleteNote(event, id) {
     const confirmationOfDeletion = confirm("Are you sure want to delete?");
     if(confirmationOfDeletion) {
         let data = new FormData();
-        data.append("note_id", id);
+        data.append("id_note", id);
         fetch("deleteNoteData.php", {method: "POST", body: data})
             .then(location.reload(true))
     }
