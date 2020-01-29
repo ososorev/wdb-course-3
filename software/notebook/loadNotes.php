@@ -8,4 +8,13 @@ header('Access-Control-Allow-Credentials: true');
 //Установим заголовки, которые можно будет обрабатывать
 header('Access-Control-Allow-Headers: Authorization, Origin, X-Requested-With, Accept, X-PINGOTHER, Content-Type');
 
-echo json_encode(["name" => "test"]);
+header ('Content-Type: text/html; charset=utf-8');
+require_once('inc/common.inc.php');
+
+// $username = getFromSession('username');
+$username = "Alex";
+
+$result = NoteDatabase::resultsNoteOfListSelect($username);
+print_r(json_encode($result));
+
+// echo json_encode(["name" => "test"]);
