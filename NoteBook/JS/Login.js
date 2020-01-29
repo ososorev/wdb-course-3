@@ -1,14 +1,15 @@
 function start() {
-    forms.header("header", "header", "header","header","SUPER NOTEBOOK");
+    forms.header("header","SUPER NOTEBOOK");
+    document.querySelector('.header').id = 'header';	
     
 
     forms.formElement("class1", "class2", header,"form");
 
 
-    forms.inputElement("Username","user","name","input","z",'z',form);
+    forms.inputElement("Username","user","name","input",form);
 
 
-    forms.inputElement("Password","psw","password","input","z",'z',form);
+    forms.inputElement("Password","psw","password","input",form);
 
     forms.buttonElement("Submit","Login",send,form,'Login');
     Login.classList.add("register");
@@ -16,5 +17,9 @@ function start() {
     forms.buttonElement("Button","Registration",registr,form,'Registr');
     Registr.classList.add("register");
 
-    forms.footer("footer","mt-auto","py-3",'footer', "Copyright by ..., 2016");
+    forms.footer("footer","Copyright by ..., 2016");
+    document.querySelector('.footer').id = 'footer';
+    footer.classList.add('mt-auto');
+    footer.classList.add('py-3');
+   
 };

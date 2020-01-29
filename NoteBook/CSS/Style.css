@@ -148,7 +148,7 @@ html, body {
   box-shadow: 0 1px 0 0 black;
  }
 
- .Note_name {
+ .name {
   display: flex;
   margin: 2%;
   padding: 12px;
@@ -161,7 +161,7 @@ html, body {
   border: 1px solid #60666b;
 }
 
-.Note_text {
+.text {
   display: flex;
   margin: 1%;
   padding: 12px;

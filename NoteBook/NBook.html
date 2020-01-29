@@ -5,8 +5,10 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css">
 	<title>NBook</title>
-	<script src="AJAX_note_action.js"></script>
-	<script src="Load.js"></script>
+	<script src="JS/AJAX_note_action.js"></script>
+	<script src="JS/Load.js"></script>
+	<script src="JS/Edit.js"></script>
+	<script src="JS/Load_Notes.js"></script>
 	<script src="JS/page.js"></script>
     <script src="JS/Tag.js"></script>
 	<!--<script src="JS/Start.js"></script>-->
@@ -24,8 +26,7 @@
 				<button><img src="CSS\Loop.png" class="search1" onclick="Search(event)"></button>
 			</input>
 		</header>
-		<div class="scr" id="notes">
-		</div>
+		<div class="scr" id="notes"></div>
 		<footer  class="container_fluid">
 			<button class="message" onclick="Add_Note(event)">Add Note</button>
 		</footer>
@@ -34,9 +35,9 @@
 
 	<form class="right content2" id="form1">
 		<div class="Edit_mode">Edit mode</div>
-		<input type="text" class="Note_name" Placeholder="Name" id="name" name="name"></input>	
+		<input type="text" class="name" Placeholder="Name" id="name" name="name"></input>	
 		<input type="date" class=" form-control" Placeholder="Data" id="date" name="date"></input>
-		<textarea type="text" class="Note_text" Placeholder="Line 1" id="note" name="note"></textarea>
+		<textarea type="text" class="text" Placeholder="Line 1" id="note" name="note"></textarea>
 		<button class="register1" type="Submit" id="report" onclick="Write_note(event)">Save</button>
 	</form>	
 
