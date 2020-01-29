@@ -49,14 +49,14 @@ let forms = {};
 
 
     forms.buttonElement=buttonElement;
-    function buttonElement(type,value,click,class1,class2,parent,id) {
+    function buttonElement(type,value,click,parent,id) {
         let button = document.createElement("button");
         button.type = type;
         button.innerText = value;
         button.id = id;
         button.onclick = click;
-        button.classList.add(class1);
-        button.classList.add(class2);
+       // button.classList.add(class1);
+        //button.classList.add(class2);
         parent.append(button);
     }
 
@@ -74,22 +74,23 @@ let forms = {};
 
 
     forms.footer=footer;
-    function footer(class1, class2, class3,value) {
+    function footer(class1, class2, class3,id,value) {
         let footer = document.createElement("footer");
         footer.classList.add(class1);
         footer.classList.add(class2);
         footer.classList.add(class3);
+        footer.id=id;
         footer.innerText = value;
         document.body.append(footer);
     }
 
 
     forms.img=img;
-    function img(src, class1, id, click, parent) {
+    function img(src, class1, click, parent) {
 	    let Img= document.createElement("Img");
 			Img.src=src;
 			Img.classList.add(class1);
-			Img.id=id;
+			//Img.id=id;
 			Img.onclick=click;
             parent.append(Img);
     }        
@@ -100,9 +101,6 @@ let forms = {};
             p.innerText = value;
             parent.append(p);
     } 
-
-
-
 
 
 })();

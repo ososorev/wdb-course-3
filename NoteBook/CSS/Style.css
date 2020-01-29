@@ -202,12 +202,13 @@ align-content: start;
 
 .leftstr, .rightstr {
   float: left; /* Обтекание справа */ 
-  width: 40%; /* Ширина текстового блока */ 
+  width: 42%; /* Ширина текстового блока */ 
+  text-align: left;
  }
  .rightstr {
   text-align: right; /* Выравнивание по правому краю */ 
  }
-
+/*
 .clear{
   clear: left
-}
+}*/

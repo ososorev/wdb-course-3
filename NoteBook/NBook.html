@@ -1,16 +1,5 @@
-<!--<!DOCTYPE html>-->
 <html lang="en">
 <head>
-	<style>
-		.leftstr, .rightstr {
-		 float: left; /* Обтекание справа */ 
-		 width: 50%; /* Ширина текстового блока */ 
-		}
-		.rightstr {
-		 text-align: right; /* Выравнивание по правому краю */ 
-		}
-	   </style>
-
 
 	<link rel="stylesheet" href="CSS/style.css">
 	<meta charset="UTF-8">
@@ -20,24 +9,22 @@
 	<script src="Load.js"></script>
 	<script src="JS/page.js"></script>
     <script src="JS/Tag.js"></script>
-    <script src="JS/Start.js"></script>
+	<!--<script src="JS/Start.js"></script>-->
+	<script>document.addEventListener("DOMContentLoaded", load);</script>
 </head>
 
 <body class="d-flex flex-column h-100">
-	<header class="header">SUPER NOTEBOOK</header>
+	<header class="header">SUPER NOTEBOOK
+		<div class="rightstr"><a href="login.html">Выход</a></div>
+	</header>
 	
 	<form class="left" id="form2">
 		<header class=" input-group-prepend container-fluid" >
-			<input type="text" class="search input-group-text" Placeholder="Search">
+			<input type="text" class="search input-group-text" Placeholder="Search" id='search'>
 				<button><img src="CSS\Loop.png" class="search1" onclick="Search(event)"></button>
 			</input>
 		</header>
 		<div class="scr" id="notes">
-			<!--<button class="col-sm-12 col-lg-9 a2" id="note123">
-				<p class="leftstr">Привет</p><p class="rightstr">12-17-18</p>
-				<button class="float-right" style="clear: left" ><img src="CSS/paper.png" class="record1"></button>
-				<button class="float-right"><img src="CSS/cross.png" class="record1"></button>
-			</button>-->
 		</div>
 		<footer  class="container_fluid">
 			<button class="message" onclick="Add_Note(event)">Add Note</button>
@@ -53,11 +40,7 @@
 		<button class="register1" type="Submit" id="report" onclick="Write_note(event)">Save</button>
 	</form>	
 
-
 <footer class="footer mt-auto py-3">Copyright by ..., 2016</footer>
-<!--<script src="C:\OSPanel\bootstrap-4.3.1-dist\js\jquery-3.4.1.min.js"></script>-->
-<!--<script src="C:\OSPanel\bootstrap-4.3.1-dist\js\bootstrap.min.js"></script>-->
 
-<script>document.addEventListener("DOMContentLoaded", load);</script>
 </body>
 </html>

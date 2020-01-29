@@ -7,22 +7,28 @@ function load()//загрузка записей пользователя при
 				window.location.href="Login.html";
 			else	
 			json.forEach(function(item,i,arr)
-			{
-			let string=JSON.stringify(json[i]);
-			let obj=JSON.parse(string);  		
-				forms.buttonElement("Submit",'',Read_note,"col-sm-12","col-lg-11",notes,'btn');
+			{		
+				forms.buttonElement("Submit",'',Read_note,notes,'btn');
+				btn.classList.add("col-sm-12");
+				btn.classList.add("col-lg-11");
 				
-				forms.p(obj['name'],'leftstr',btn);
+				forms.p(item['name'],'leftstr',btn);
 
-				forms.p(obj['date'],'rightstr',btn);
+				forms.p(item['date'],'rightstr',btn);
 			
-				forms.buttonElement('','','',"float-right","float-right",btn,'cross');
-				forms.buttonElement('','','',"float-right","float-right",btn,'paper');
-				forms.img("CSS/cross.png", 'record1', 'c'+obj['id'], Delete_note,cross);
-				forms.img("CSS/paper.png", 'record1', 'c'+obj['id'], Edit_note,paper);
-				document.getElementById('btn').id = obj['id'];
-				document.getElementById('cross').id = 'c'+obj['id'];
-				document.getElementById('paper').id = 'p'+obj['id'];
+				forms.buttonElement('','',Delete_note,btn,'cross');
+				cross.classList.add("float-right");
+
+				forms.buttonElement('','',Edit_note,btn,'paper');
+				paper.classList.add("float-right");
+
+				forms.img("CSS/cross.png", 'record1','',cross);
+				forms.img("CSS/paper.png", 'record1','',paper);
+				document.getElementById('btn').id = item['id'];
+				document.getElementById('cross').removeAttribute("type");
+				document.getElementById('paper').removeAttribute("type");
+				document.getElementById('cross').removeAttribute("id");
+				document.getElementById('paper').removeAttribute("id");
 			});
 		});
 	}
