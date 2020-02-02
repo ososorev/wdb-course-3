@@ -7,6 +7,9 @@ $inputNoteDate = $_REQUEST["inputNoteDate"];
 $inputNoteContent = $_REQUEST["inputNoteContent"];
 
 $username = getFromSession('username');
+if (empty($username)) {
+    $username = $_REQUEST["username"];
+}
 
 if (!empty($inputNoteName) && !empty($inputNoteDate)) {
     NoteDatabase::insertNoteData($inputNoteName, $username, $inputNoteDate, $inputNoteContent);

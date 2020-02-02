@@ -94,12 +94,13 @@ class NoteDatabase extends Database {
     }
 
     public static function insertNoteData($inputNoteName, $username, $inputNoteDate, $inputNoteContent) {
+        // $formatDate = date_format('$inputNoteDate', 'd.m.Y');
         if (self::checkingUniquenessOfLastNote($inputNoteName, $username, $inputNoteDate, $inputNoteContent)) {
             self::query("INSERT INTO note(note_name, username, use_date, content)
             VALUES ('$inputNoteName', '$username', '$inputNoteDate', '$inputNoteContent')");
         // mysqli_errors // mysqli_last_error()
         }
-    }
+    } // VALUES ('$inputNoteName', '$username', date(\"d.m.Y\", strtotime('$inputNoteDate')), '$inputNoteContent')");
 
     // not used
     public static function selectData() {
@@ -141,7 +142,7 @@ class NoteDatabase extends Database {
     }
 
     private static function noteOfListSelect ($username) {
-        $select = self::query("SELECT id_note, note_name, use_date FROM note
+        $select = self::query("SELECT id_note, note_name, use_date, content FROM note
                   WHERE  username = '$username' ORDER BY id_note DESC");
         return $select;
     }

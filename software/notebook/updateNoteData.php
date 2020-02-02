@@ -2,7 +2,7 @@
 header ('Content-Type: text/html; charset=utf-8');
 require_once('inc/common.inc.php');
 
-$noteId = $_POST['note_id'];
+$noteId = $_POST['id_note'];
 $inputNoteName = $_POST["inputNoteName"];
 $inputNoteDate = $_POST["inputNoteDate"];
 $inputNoteContent = $_POST["inputNoteContent"];
