@@ -6,8 +6,8 @@ $noteId = '';
 $result = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['note_id'])) {
-        $noteId = $_POST['note_id'];
+    if (isset($_POST['id_note'])) {
+        $noteId = $_POST['id_note'];
     }
 }
 
