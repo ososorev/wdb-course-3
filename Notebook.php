@@ -1,12 +1,10 @@
 <?php 
 session_start();
-	if (!isset($_SESSION['ses_username'])) {
-		$_SESSION['ses_username']= [];
-	}
-$connection = mysqli_connect("localhost", "root", "", "notebook"); // подключение к БД
-$sql = mysqli_query($connection, "SELECT id, username FROM regist"); // форрмируется запрос к таблице
-foreach($sql as $username);
-echo $username->username;
+$userId = $_SESSION['ses_username'];
+$connection = mysqli_connect("localhost", "root", "", "notebook");
+$res = mysqli_query($connection, "SELECT username FROM regist WHERE id = '$userId'");
+    $row = mysqli_fetch_assoc($res);
+    $username = $row["username"];
 ?>
 <!doctype html>
 <html>
@@ -23,9 +21,9 @@ echo $username->username;
 		<title>Notebook</title>
 	</head>
 	<body>
-		<nav style="height: 60px;" id="topRow" class="navbar justify-content-center bg-secondary text-white">
-			<div class="col-auto text-white" id="name">Welcome, <?php $username ?></div>
-			<button class="col-auto btn btn-outline-light" onclick="logout();">Logout</button>
+		<nav style="height: 60px;" id="topRow" class="header navbar justify-content-center bg-secondary text-white">
+			<div class="col-auto text-white" id="name">Welcome, <?php echo $username ?>!</div>
+			<a class="logout col-auto btn btn-outline-light" href="logout.php">Logout</a>
 		</nav> <!-- Верхняя строка -->
 		<div class="container-fluid"> <!-- Контейнер общий -->
 			<p>

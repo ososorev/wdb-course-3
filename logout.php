@@ -1,9 +1,6 @@
 <?php
 session_start();
-unset($_SESSION['username']);
-unset($_SESSION['id']);
-session_unset();
-session_destroy();
-header("Location: index.html");
+$_SESSION['ses_username'] = [];
+echo "<META HTTP-EQUIV='Refresh' content='0; URL=index.html'>";
 exit;
 ?>
