@@ -30,7 +30,7 @@ if (!empty($inputUsername) && !empty($inputPassword) && !empty($inputConfirmPass
         <div class="mainContainer">
             <div class="header">SUPER NOTEBOOK</div>
             <div class="content">
-                <form id=form class="formBlock" method="post">
+                <form class="formBlock" method="post">
                     <input placeholder="Username" class="inputForm" name="inputUsername" type="text" required>
                     <input placeholder="Password" class="inputForm" name="inputPassword" type="password" required>
                     <input placeholder="Confirm password" class="inputForm" name="inputConfirmPassword" type="password" required>
