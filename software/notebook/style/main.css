@@ -131,6 +131,7 @@ html, body {
     flex-direction: row;
     max-height: 32px;
     max-width: 80%;
+    background-color: blanchedalmond;
 }
 
 .noteItemName {

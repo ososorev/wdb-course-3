@@ -58,6 +58,7 @@ html, body {
     font-size: 19px;
     line-height: 32px;
     border: 2px solid #666;
+    background-color: #fff !important;
 }
 
 .buttonReg {
