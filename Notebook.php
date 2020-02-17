@@ -3,8 +3,8 @@ session_start();
 $userId = $_SESSION['ses_username'];
 $connection = mysqli_connect("localhost", "root", "", "notebook");
 $res = mysqli_query($connection, "SELECT username FROM regist WHERE id = '$userId'");
-    $row = mysqli_fetch_assoc($res);
-    $username = $row["username"];
+$row = mysqli_fetch_assoc($res);
+$username = $row["username"];
 ?>
 <!doctype html>
 <html>
@@ -31,14 +31,20 @@ $res = mysqli_query($connection, "SELECT username FROM regist WHERE id = '$userI
 				<div id="search" class="search col-auto input-group mb-3">
 					<input id="searchBox" type="text" class="form-control" name="search" placeholder="Search"> <!-- Поле поиска -->
   					<div class="input-group-append">
-						<input id="searchButton" type="submit" class="btn btn-outline-dark" value="&#128269" onclick = "FindOnPage(searchBox)"> <!-- Кнопка поиска -->
+						<input
+							id="searchButton"
+							type="submit"
+							class="btn btn-outline-dark"
+							value="&#128269"
+							onclick = "FindOnPage(searchBox)"
+						> <!-- Кнопка поиска -->
   					</div>
 				</div>
 			</div>
 			<div class="row"> <!-- Разделение на поля -->
 				<form>
-				<div id="noteContainer" class="col-auto"> <!-- Левое поле -->
-				</div>
+					<div id="noteContainer" class="col-auto"> <!-- Левое поле -->
+					</div>
 				</form>
 				<div id="editContainer" class="editContainer col"> <!-- Правое поле -->
 				</div>
@@ -47,12 +53,16 @@ $res = mysqli_query($connection, "SELECT username FROM regist WHERE id = '$userI
 			<p>
 			<div class="addNewNote row">
 				<div class="col">
-					<button id="addNewNote" type="button" class="addNewNote btn btn-outline-dark" onclick="addNewNote(); this.disabled=true;">Add new note</button> <!-- Кнопка для добавления новой записи в правом поле -->
+					<button id="addNewNote" type="button" class="addNewNote btn btn-outline-dark" onclick="addNewNote(); this.disabled=true;">
+						Add new note
+					</button> <!-- Кнопка для добавления новой записи в правом поле -->
 				</div>
 			</div>
 			</p>
 		</div>
-		<nav style="height: 60px;" class="navbar fixed-bottom justify-content-center bg-secondary text-white">Copyright by..., 2016</nav> <!-- Нижняя строка -->
+		<nav style="height: 60px;" class="navbar fixed-bottom justify-content-center bg-secondary text-white">
+			Copyright by..., 2016
+		</nav> <!-- Нижняя строка -->
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

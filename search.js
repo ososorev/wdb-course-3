@@ -6,6 +6,10 @@ function TrimStr(s) {
 }
 function FindOnPage(searchBox) {//ищет текст на странице, в параметр передается ID поля для ввода
 let obj = window.document.getElementById("searchBox");
+	// 1. Берешь значение из поля поиска textToFind = obj.value.trim();
+	// 2. Берешь все строки заметок let notes = document.querySelectorAll(".note");
+	// 3. Перебираешь notes. Если внутри notes[i] есть искомый текст, то делаешь ей display: block иначе ставишь display:none;
+	// notes[i].innerText.indexOf(textToFind) > -1
 	
 let textToFind;
 	if (obj) {

@@ -32,13 +32,14 @@ function addNewNoteLine(json_note) { // создание всех строчек
 	form.noteDelete();
 	noteLine.insertAdjacentHTML("beforeend", "<p/>");
 };
+
 function newNoteLine(id, recordTitle, editDate, contents) { // создание строчи записи
 	clearEditContainer();
 	let div = document.createElement("div");
 	div.type = "div";
 	div.id = id;
 	div.classList = "note w-100";
-		this.noteTitleDate = function (id, value) { // название и дата в строчке записи
+	this.noteTitleDate = function (id, value) { // название и дата в строчке записи
 		let input = document.createElement("input");
 		input.type = "button";
 		input.id = id;
