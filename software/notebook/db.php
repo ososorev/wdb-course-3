@@ -25,7 +25,7 @@ class UserDatabase extends Database {
         if (self::checkingUniquenessOfUsername($inputUsername)) {
         // if (!in_array($inputUsername, self::getUserList())) {
             self::query("INSERT INTO user(username, password, email)
-            VALUES ('$inputUsername', MD5('$inputPassword'), '$inputEMail')");
+            VALUES ('$inputUsername', '$inputPassword', '$inputEMail')"); // MD5( )
         } else {
             echo "Пользователь с таким именем уже существует";
         }
@@ -34,7 +34,7 @@ class UserDatabase extends Database {
 
     public static function checkPair($inputUsername, $inputPassword) {
         $resource = self::query("SELECT password FROM user
-            WHERE  username = '$inputUsername' AND password=md5('$inputPassword')");
+           WHERE  username = '$inputUsername' AND password='$inputPassword' ");  // md5(' ')
         $user = mysqli_fetch_assoc($resource); // array или NULL
         if (!empty($user)) {
             return true;

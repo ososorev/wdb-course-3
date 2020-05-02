@@ -36,13 +36,13 @@ $username = getFromSession('username');
                     <div class="listOfNotesBlock">
                         <?php foreach (NoteDatabase::resultsNoteOfListSelect($username) as $item) {;?>
                             <div class="noteItemBlock visible">
-                                <button class="noteItemBlockInfo" onclick="showNote(event, <?php echo $item[id_note];?>)">
-                                    <div class="noteItemName searchName"><?php echo $item[note_name];?></div>
-                                    <div class="noteItemDate"><?php echo date("d.m.Y", strtotime($item[use_date]));?></div>
+                                <button class="noteItemBlockInfo" onclick="showNote(event, <?php echo $item['id_note'] ?>)">
+                                    <div class="noteItemName searchName"><?php echo $item['note_name'];?></div>
+                                    <div class="noteItemDate"><?php echo date("d.m.Y", strtotime($item['use_date'])) ?></div>
                                 </button>
                                 <div class="noteItemActions">
-                                    <button class="editIcon" onclick="editNote(event, <?php echo $item[id_note];?>)"></button>
-                                    <button class="deleteIcon" onclick="deleteNote(event, <?php echo $item[id_note];?>)"></button>
+                                    <button class="editIcon" onclick="editNote(event, <?php echo $item['id_note'] ?>)"></button>
+                                    <button class="deleteIcon" onclick="deleteNote(event, <?php echo $item['id_note'] ?>)"></button>
                                 </div>
                             </div>
                         <?php };?>

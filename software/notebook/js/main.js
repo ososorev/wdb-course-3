@@ -3,6 +3,10 @@ let idUpdate;
 function addNewNote() {
     let create = document.querySelector(".rightContainerCreate");
     create.classList.add("visible");
+    let info = document.querySelector(".rightContainerInfo");
+    info.classList.remove("visible");
+    let edit = document.querySelector(".rightContainerEdit");
+    edit.classList.remove("visible");
 }
 
 function send(event) {
@@ -10,7 +14,7 @@ function send(event) {
     fetch("insertNoteData.php", {method: "POST", body: new FormData(document.forms[0])})
         .then(response => response.text())
         .then(errorResult => {document.querySelector(".output").innerHTML = errorResult;})
-        .then(location.reload(true))
+        .then(setTimeout(location.reload(true), 1000))
 }
 
 function sendChanges(event) {
@@ -20,7 +24,7 @@ function sendChanges(event) {
     fetch("updateNoteData.php", {method: "POST", body: data})
         .then(response => response.text())
         .then(errorResult => {document.querySelector(".output").innerHTML = errorResult;})
-        .then(location.reload(true))
+        .then(setTimeout(location.reload(true), 1000))
 }
 
 function splitNote(arr) {
@@ -69,6 +73,10 @@ function editNote(event, id) {
     let edit = document.querySelector(".rightContainerEdit");
     getNoteInfo(event, id);
     edit.classList.add("visible");
+    let create = document.querySelector(".rightContainerCreate");
+    create.classList.remove("visible");
+    let info = document.querySelector(".rightContainerInfo");
+    info.classList.remove("visible");
 }
 
 function deleteNote(event, id) {
@@ -78,14 +86,18 @@ function deleteNote(event, id) {
         let data = new FormData();
         data.append("id_note", id);
         fetch("deleteNoteData.php", {method: "POST", body: data})
-            .then(location.reload(true))
+            .then(setTimeout(location.reload(true), 3000))
     }
 }
 
 function showNote(event, id) {
-    let edit = document.querySelector(".rightContainerInfo");
+    let info = document.querySelector(".rightContainerInfo");
     getNoteInfoShow(event, id);
-    edit.classList.add("visible");
+    info.classList.add("visible");
+    let create = document.querySelector(".rightContainerCreate");
+    create.classList.remove("visible");
+    let edit = document.querySelector(".rightContainerEdit");
+    edit.classList.remove("visible");
 }
 
 function onClose() {
