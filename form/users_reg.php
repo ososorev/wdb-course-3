@@ -1,5 +1,7 @@
 <?php
-	$connection= mysqli_connect("localhost", "root", "", "database");
+	require_once('Database.php');
+	Database::connect();
+
 	$userName=$_REQUEST['username'];
 	$password=$_REQUEST['password'];
 	$passwordCheck=$_REQUEST['pass_confrim'];
@@ -92,7 +94,7 @@
 			$firstRequest-> insertData();
 			echo ($check_user);
 			echo "<META HTTP-EQUIV='Refresh' content='2; URL=index.html'>";
-        	exit(); 
+			exit(); 
 		}
 		else{
 			echo($check_user);

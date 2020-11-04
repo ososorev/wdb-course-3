@@ -1,5 +1,6 @@
 <?php
-	$connection= mysqli_connect("localhost", "root", "", "database");
+	require_once('Database.php');
+	Database::connect();
 	
 	$json_str = file_get_contents('php://input');
 	$json_obj = json_decode($json_str);
@@ -10,8 +11,4 @@
 	$noteDate= $json_obj->{'note_date'};
 	$noteText= $json_obj->{'note_text'};
 
-	mysqli_query($connection, "UPDATE `notes` SET `post_name`='$noteName',`date`='$noteDate',`content`='$noteText' WHERE id = '$noteId'");
-
-	
-	
-?>
+	Database::query("UPDATE `notes` SET `post_name`='$noteName',`date`='$noteDate',`content`='$noteText' WHERE id = '$noteId'");

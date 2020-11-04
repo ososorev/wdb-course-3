@@ -2,13 +2,15 @@
 	session_start();
 	$_SESSION['ses_username']= [];
 
-	$connection= mysqli_connect("localhost", "root", "", "database");
+	require_once('Database.php');
+	Database::connect();
+
 	$userName=$_REQUEST['username'];
 	$password=$_REQUEST['password'];
 	$message = "SUPER NOTEBOOK";
 
 if (!empty($userName)||!empty($password)){
-	$res = mysqli_query($connection, "SELECT id FROM users WHERE name = '$userName' AND password = '$password'");
+	$res = Database::query("SELECT id FROM users WHERE name = '$userName' AND password = '$password'");
 	$row = mysqli_fetch_assoc($res);
 	if (!empty($row['id'])){
 		$_SESSION['ses_username']= $row["id"];
